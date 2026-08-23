@@ -3,658 +3,2987 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Студія декоративного тексту</title>
+
+<title>Студія декоративного тексту — Н. С. Товстуха</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    min-height:100%;
+}
 
 body{
-  margin:0;
-  font-family:Segoe UI,Arial,sans-serif;
-  background:#dff1ff;
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#edf6fc;
+    color:#10243a;
 }
+
+
+/* ==================================================
+   АВТОРСЬКА ШАПКА
+================================================== */
+
+.site-header{
+
+    min-height:150px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+    padding:26px 42px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071f38 0%,
+            #0a3154 50%,
+            #0d436f 100%
+        );
+
+    border-bottom:
+        2px solid #c79a43;
+
+    box-shadow:
+        0 12px 28px
+        rgba(4,34,59,.16);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+.site-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:40px;
+
+    right:40px;
+
+    bottom:10px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(232,199,122,.75),
+            transparent
+        );
+}
+
+
+.header-text{
+
+    position:relative;
+
+    z-index:2;
+
+    min-width:0;
+}
+
+
+.site-kicker{
+
+    color:#d9e7f2;
+
+    font-size:12px;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    margin-bottom:7px;
+}
+
+
+.site-title{
+
+    margin:0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            28px,
+            3.2vw,
+            48px
+        );
+
+    font-weight:700;
+
+    letter-spacing:.02em;
+
+    line-height:1.05;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff1bd 0%,
+            #edcf7c 33%,
+            #c9983f 67%,
+            #f0d48b 100%
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+    filter:
+        drop-shadow(
+            0 3px 6px
+            rgba(0,0,0,.22)
+        );
+}
+
+
+.author-line{
+
+    display:flex;
+
+    align-items:baseline;
+
+    gap:13px;
+
+    margin-top:10px;
+}
+
+
+.author-label{
+
+    font-size:12px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .70
+        );
+}
+
+
+.author-name{
+
+    font-family:
+        "Segoe Script",
+        "Brush Script MT",
+        "Lucida Handwriting",
+        cursive;
+
+    font-size:
+        clamp(
+            24px,
+            2.6vw,
+            38px
+        );
+
+    font-weight:600;
+
+    line-height:1;
+
+    color:#f4d98f;
+
+    text-shadow:
+        0 2px 5px
+        rgba(0,0,0,.24);
+}
+
+
+.header-subtitle{
+
+    margin-top:9px;
+
+    color:
+        rgba(
+            232,
+            242,
+            250,
+            .78
+        );
+
+    font-size:12px;
+}
+
+
+/* ==================================================
+   ПЕРО
+================================================== */
+
+.feather-wrap{
+
+    width:
+        clamp(
+            150px,
+            18vw,
+            260px
+        );
+
+    flex:0 0 auto;
+
+    position:relative;
+
+    z-index:2;
+
+    opacity:.96;
+}
+
+
+.feather-wrap svg{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+}
+
+
+
+/* ==================================================
+   РОБОЧА ОБЛАСТЬ
+================================================== */
 
 .app{
-  min-height:100vh;
-  display:grid;
-  grid-template-columns:380px 1fr;
+
+    min-height:
+        calc(
+            100vh - 150px
+        );
+
+    display:grid;
+
+    grid-template-columns:
+        390px 1fr;
 }
+
+
+
+/* ==================================================
+   ЛІВА ПАНЕЛЬ
+================================================== */
 
 .panel{
-  background:#103f68;
-  color:white;
-  padding:22px;
-  overflow:auto;
+
+    padding:
+        22px 22px 30px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0b3459,
+            #0e4b78
+        );
+
+    border-right:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .20
+        );
+
+    overflow-y:auto;
 }
 
-h1{
-  margin:0 0 6px;
-  font-size:24px;
+
+.panel-title{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:#efd283;
+
+    font-size:19px;
+
+    margin:
+        0 0 4px;
 }
+
+
+.panel-subtitle{
+
+    font-size:11px;
+
+    opacity:.75;
+
+    margin-bottom:18px;
+}
+
 
 .version{
-  font-size:12px;
-  opacity:.8;
-  margin-bottom:18px;
+
+    display:inline-block;
+
+    padding:
+        5px 10px;
+
+    margin-bottom:12px;
+
+    border-radius:20px;
+
+    border:
+        1px solid
+        rgba(
+            239,
+            210,
+            131,
+            .45
+        );
+
+    background:
+        rgba(
+            239,
+            210,
+            131,
+            .08
+        );
+
+    color:#f5dfa2;
+
+    font-size:11px;
 }
 
-label{
-  display:block;
-  margin-top:14px;
-  margin-bottom:6px;
-  font-weight:700;
+
+
+/* ==================================================
+   ПОЛЯ
+================================================== */
+
+.field{
+
+    margin-top:14px;
 }
+
+
+label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
 
 textarea,
 select,
-input[type=file]{
-  width:100%;
-  padding:10px;
-  border-radius:10px;
-  border:1px solid #7ba2c1;
+input[type="file"]{
+
+    width:100%;
+
+    padding:10px;
+
+    border-radius:11px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .28
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .11
+        );
+
+    color:white;
+
+    outline:none;
 }
+
 
 textarea{
-  min-height:100px;
+
+    min-height:100px;
+
+    resize:vertical;
+
+    font-size:14px;
+
+    line-height:1.4;
 }
 
-input[type=range]{
-  width:100%;
+
+select option{
+
+    color:#10243a;
+
+    background:white;
 }
 
-button{
-  width:100%;
-  margin-top:14px;
-  padding:12px;
-  border:0;
-  border-radius:10px;
-  font-weight:700;
-  cursor:pointer;
+
+input[type="range"]{
+
+    width:100%;
 }
+
+
+input[type="color"]{
+
+    width:100%;
+
+    height:42px;
+
+    padding:0;
+
+    border:0;
+
+    background:transparent;
+}
+
+
+.two{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+}
+
+
+.small{
+
+    margin-top:6px;
+
+    font-size:11px;
+
+    line-height:1.45;
+
+    opacity:.78;
+}
+
+
+.check{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:10px;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+
+
+/* ==================================================
+   КНОПКИ
+================================================== */
+
+.button{
+
+    width:100%;
+
+    margin-top:11px;
+
+    padding:12px 14px;
+
+    border-radius:11px;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+
+.button-main{
+
+    border:
+        1px solid
+        #e1c06d;
+
+    color:#0a3559;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8dc,
+            #ead18a
+        );
+
+    box-shadow:
+        0 7px 16px
+        rgba(0,0,0,.11);
+}
+
+
+.button-alt{
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .24
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .09
+        );
+
+    color:white;
+}
+
+
+
+/* ==================================================
+   АВТОР У ПАНЕЛІ
+================================================== */
+
+.author-card{
+
+    margin-top:22px;
+
+    padding:
+        16px 4px 3px;
+
+    border-top:
+        1px solid
+        rgba(
+            233,
+            202,
+            123,
+            .35
+        );
+
+    text-align:center;
+}
+
+
+.author-card-label{
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.15em;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .62
+        );
+}
+
+
+.author-card-name{
+
+    margin-top:7px;
+
+    font-family:
+        "Segoe Script",
+        "Brush Script MT",
+        "Lucida Handwriting",
+        cursive;
+
+    color:#f1d17c;
+
+    font-size:27px;
+
+    line-height:1.15;
+}
+
+
+
+/* ==================================================
+   ПРАВА РОБОЧА ЧАСТИНА
+================================================== */
 
 .workspace{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:28px;
+
+    background:#edf6fc;
 }
 
+
+.canvas-wrap{
+
+    width:
+        min(
+            1200px,
+            100%
+        );
+}
+
+
 canvas{
-  width:min(1200px,100%);
-  height:auto;
-  border-radius:24px;
-  box-shadow:0 20px 45px rgba(0,0,0,.18);
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+    background:white;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 22px 52px
+        rgba(
+            27,
+            74,
+            108,
+            .17
+        );
+}
+
+
+.help{
+
+    margin-top:10px;
+
+    text-align:center;
+
+    color:#58758c;
+
+    font-size:12px;
+}
+
+
+
+@media(max-width:900px){
+
+    .site-header{
+
+        padding:
+            24px 22px;
+    }
+
+    .feather-wrap{
+
+        width:130px;
+    }
+
+    .app{
+
+        grid-template-columns:
+            1fr;
+    }
+
 }
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =================================================
+     ШАПКА
+================================================== -->
+
+<header class="site-header">
+
+
+<div class="header-text">
+
+
+<div class="site-kicker">
+Авторська онлайн-студія
+</div>
+
+
+<h1 class="site-title">
+Студія декоративного тексту
+</h1>
+
+
+<div class="author-line">
+
+<span class="author-label">
+Автор
+</span>
+
+<span class="author-name">
+Н. С. Товстуха
+</span>
+
+</div>
+
+
+<div class="header-subtitle">
+Українські шрифти • каліграфія • декоративні написи • навчальні матеріали
+</div>
+
+
+</div>
+
+
+
+<!-- декоративне перо -->
+
+<div class="feather-wrap">
+
+<svg
+viewBox="0 0 360 190"
+xmlns="http://www.w3.org/2000/svg"
+aria-hidden="true"
+>
+
+
+<defs>
+
+<linearGradient
+id="goldFeather"
+x1="0"
+y1="0"
+x2="1"
+y2="1"
+>
+
+<stop
+offset="0%"
+stop-color="#fff1b8"
+/>
+
+<stop
+offset="38%"
+stop-color="#e8c46f"
+/>
+
+<stop
+offset="70%"
+stop-color="#b67b27"
+/>
+
+<stop
+offset="100%"
+stop-color="#f3da94"
+/>
+
+</linearGradient>
+
+</defs>
+
+
+<!-- стрижень -->
+
+<path
+d="
+M50 163
+C110 132,
+181 87,
+304 28
+"
+fill="none"
+stroke="url(#goldFeather)"
+stroke-width="5"
+stroke-linecap="round"
+/>
+
+
+<!-- верх пера -->
+
+<path
+d="
+M102 132
+C95 95,
+112 54,
+155 32
+C196 11,
+245 10,
+306 25
+C270 48,
+235 65,
+201 79
+C164 95,
+132 111,
+102 132
+Z
+"
+fill="none"
+stroke="url(#goldFeather)"
+stroke-width="3.2"
+/>
+
+
+<!-- нижня частина -->
+
+<path
+d="
+M104 133
+C130 130,
+160 118,
+192 101
+C221 86,
+251 67,
+286 44
+C271 73,
+248 99,
+219 120
+C188 143,
+151 151,
+104 133
+Z
+"
+fill="none"
+stroke="url(#goldFeather)"
+stroke-width="3.2"
+/>
+
+
+<!-- прожилки -->
+
+<path
+d="
+M121 117 L156 58
+M140 108 L186 42
+M163 96 L216 32
+M187 85 L246 27
+M210 73 L273 27
+"
+stroke="#dfb75b"
+stroke-width="2"
+stroke-linecap="round"
+opacity=".72"
+/>
+
+
+<path
+d="
+M124 128 L163 133
+M151 117 L190 124
+M179 103 L215 112
+M207 88 L239 98
+M232 72 L260 82
+"
+stroke="#dfb75b"
+stroke-width="2"
+stroke-linecap="round"
+opacity=".68"
+/>
+
+
+<!-- декоративний розчерк -->
+
+<path
+d="
+M50 163
+C31 175,
+27 184,
+49 184
+C90 184,
+115 160,
+145 164
+C166 166,
+176 179,
+198 178
+"
+fill="none"
+stroke="url(#goldFeather)"
+stroke-width="3"
+stroke-linecap="round"
+/>
+
+</svg>
+
+</div>
+
+
+</header>
+
+
+
+<!-- =================================================
+     РОБОЧА ЧАСТИНА
+================================================== -->
 
 <div class="app">
 
+
 <aside class="panel">
 
-<h1>Студія декоративного тексту</h1>
-<div class="version">Тестова версія 4 — Canvas</div>
 
-<label>Ваш текст</label>
+<h2 class="panel-title">
+Майстерня напису
+</h2>
 
-<textarea id="text">
-День
-Державного прапора
-України
-</textarea>
 
-<label>Шрифт</label>
-
-<select id="font">
-  <option value="Segoe UI">Segoe UI</option>
-  <option value="Georgia">Georgia</option>
-  <option value="Times New Roman">Times New Roman</option>
-</select>
-
-<div id="count" style="margin-top:6px;font-size:12px">
-Власних шрифтів: 0
+<div class="panel-subtitle">
+Створіть власний декоративний текст
 </div>
 
-<label>Додати свій шрифт</label>
+
+<div class="version">
+Версія 5 — Авторська студія
+</div>
+
+
+
+<div class="field">
+
+<label for="textInput">
+Ваш текст
+</label>
+
+<textarea id="textInput">День
+Державного прапора
+України</textarea>
+
+<div class="small">
+Переноси рядків зберігаються саме там, де ви їх поставили.
+</div>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="fontSelect">
+Шрифт
+</label>
+
+<select id="fontSelect">
+
+<option value="Segoe UI">
+Segoe UI
+</option>
+
+<option value="Georgia">
+Georgia
+</option>
+
+<option value="Times New Roman">
+Times New Roman
+</option>
+
+</select>
+
+
+<div
+class="small"
+id="fontCount">
+
+Власних шрифтів: 0
+
+</div>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="fontFiles">
+Додати власний TTF / OTF / WOFF / WOFF2
+</label>
 
 <input
-  id="fontFile"
-  type="file"
-  accept=".ttf,.otf,.woff,.woff2"
-  multiple
->
+id="fontFiles"
+type="file"
+accept=".ttf,.otf,.woff,.woff2"
+multiple>
+
+</div>
+
+
+
+<button
+class="button button-main"
+id="fitButton">
+
+Вписати текст автоматично
+
+</button>
+
+
+
+<div class="field">
 
 <label>
 Розмір:
-<span id="sizeText">110</span> px
+<span id="sizeValue">120</span> px
 </label>
 
 <input
-  id="size"
-  type="range"
-  min="30"
-  max="240"
-  value="110"
->
+id="fontSize"
+type="range"
+min="24"
+max="260"
+value="120">
+
+</div>
+
+
+
+<div class="field">
 
 <label>
 Міжрядковий інтервал:
-<span id="lineText">1.15</span>
+<span id="lineValue">1.12</span>
 </label>
 
 <input
-  id="line"
-  type="range"
-  min="80"
-  max="180"
-  value="115"
->
+id="lineHeight"
+type="range"
+min="75"
+max="180"
+value="112">
 
-<button id="fit">
-Вписати текст автоматично
-</button>
+</div>
 
-<button id="save">
+
+
+<div class="field">
+
+<label>
+Максимальна ширина тексту:
+<span id="widthValue">78</span>%
+</label>
+
+<input
+id="textWidth"
+type="range"
+min="40"
+max="95"
+value="78">
+
+</div>
+
+
+
+<div class="two">
+
+
+<div class="field">
+
+<label>
+Ліворуч / праворуч:
+<span id="xValue">0</span>
+</label>
+
+<input
+id="xPos"
+type="range"
+min="-25"
+max="25"
+value="0">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Вище / нижче:
+<span id="yValue">0</span>
+</label>
+
+<input
+id="yPos"
+type="range"
+min="-25"
+max="25"
+value="0">
+
+</div>
+
+
+</div>
+
+
+
+<div class="two">
+
+
+<div class="field">
+
+<label for="fontColor">
+Колір тексту
+</label>
+
+<input
+id="fontColor"
+type="color"
+value="#123b60">
+
+</div>
+
+
+
+<div class="field">
+
+<label for="backgroundMode">
+Робоче тло
+</label>
+
+<select id="backgroundMode">
+
+<option value="white">
+Чисте біле
+</option>
+
+<option value="slant">
+Коса лінія
+</option>
+
+<option value="wide">
+Широка лінія
+</option>
+
+<option value="grid">
+Клітинка
+</option>
+
+<option value="navy">
+Темно-синє
+</option>
+
+<option value="contrastLight">
+Світле контрастне
+</option>
+
+<option value="contrastDark">
+Темне контрастне
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+
+<div class="two">
+
+
+<div class="field">
+
+<label for="textEffect">
+Ефект тексту
+</label>
+
+<select id="textEffect">
+
+<option value="plain">
+Звичайний
+</option>
+
+<option value="gold">
+Золото
+</option>
+
+<option value="pearl">
+Перламутр
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="ornament">
+Розчерк
+</label>
+
+<select id="ornament">
+
+<option value="none">
+Без розчерку
+</option>
+
+<option value="thin">
+Тонкий
+</option>
+
+<option value="double">
+Подвійний
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+
+<label class="check">
+
+<input
+type="checkbox"
+id="shadow"
+checked>
+
+М’яка тінь
+
+</label>
+
+
+
+<label class="check">
+
+<input
+type="checkbox"
+id="frame">
+
+Тонка рамка
+
+</label>
+
+
+
+<button
+class="button button-main"
+id="downloadButton">
+
 Зберегти PNG
+
 </button>
+
+
+
+<button
+class="button button-alt"
+id="resetButton">
+
+Скинути оформлення
+
+</button>
+
+
+
+<div class="author-card">
+
+<div class="author-card-label">
+Авторська студія
+</div>
+
+<div class="author-card-name">
+Н. С. Товстуха
+</div>
+
+</div>
+
 
 </aside>
 
 
+
 <main class="workspace">
 
+
+<div class="canvas-wrap">
+
 <canvas
-  id="canvas"
-  width="1600"
-  height="900">
+id="canvas"
+width="1600"
+height="900">
 </canvas>
 
-</main>
+
+<div class="help">
+Готовий PNG не містить елементів інтерфейсу або авторського підпису сайту.
+</div>
 
 </div>
 
 
+</main>
+
+
+</div>
+
+
+
 <script>
+
 
 const canvas =
 document.getElementById("canvas");
 
+
 const ctx =
 canvas.getContext("2d");
 
-const textInput =
-document.getElementById("text");
 
-const fontSelect =
-document.getElementById("font");
-
-const sizeInput =
-document.getElementById("size");
-
-const lineInput =
-document.getElementById("line");
-
-const sizeText =
-document.getElementById("sizeText");
-
-const lineText =
-document.getElementById("lineText");
-
-const fontFile =
-document.getElementById("fontFile");
-
-const count =
-document.getElementById("count");
-
-let fontCount = 0;
+const $ = id =>
+document.getElementById(id);
 
 
-/* -------------------------
-   ФОН
--------------------------- */
+let customFontCount = 0;
+
+
+
+/* ==================================================
+   ТЛО
+================================================== */
 
 function drawBackground(){
 
-  const gradient =
-  ctx.createLinearGradient(
-    0,
-    0,
-    0,
-    canvas.height
-  );
 
-  gradient.addColorStop(
-    0,
-    "#5fb5e7"
-  );
-
-  gradient.addColorStop(
-    0.55,
-    "#a9d8ef"
-  );
-
-  gradient.addColorStop(
-    1,
-    "#f2dfad"
-  );
-
-  ctx.fillStyle =
-  gradient;
-
-  ctx.fillRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
+    const mode =
+    $("backgroundMode").value;
 
 
-  ctx.strokeStyle =
-  "rgba(255,255,255,.7)";
-
-  ctx.lineWidth =
-  3;
-
-  ctx.strokeRect(
-    90,
-    70,
-    1420,
-    760
-  );
-
-}
-
-
-/* -------------------------
-   ТЕКСТ
--------------------------- */
-
-function drawText(){
-
-  const lines =
-  textInput.value
-  .trim()
-  .split("\n");
-
-  const size =
-  Number(
-    sizeInput.value
-  );
-
-  const lineHeight =
-  Number(
-    lineInput.value
-  )
-  /
-  100;
-
-
-  ctx.font =
-  size +
-  'px "' +
-  fontSelect.value +
-  '"';
-
-
-  ctx.textAlign =
-  "center";
-
-  ctx.textBaseline =
-  "middle";
-
-  ctx.fillStyle =
-  "#ffffff";
-
-  ctx.shadowColor =
-  "rgba(0,0,0,.25)";
-
-  ctx.shadowBlur =
-  12;
-
-  ctx.shadowOffsetY =
-  5;
-
-
-  const step =
-  size * lineHeight;
-
-
-  const totalHeight =
-  step *
-  (
-    lines.length - 1
-  );
-
-
-  let y =
-  canvas.height / 2
-  -
-  totalHeight / 2;
-
-
-  for(
-    const line
-    of lines
-  ){
-
-    ctx.fillText(
-      line,
-      canvas.width / 2,
-      y
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
     );
 
-    y += step;
-
-  }
-
-}
 
 
-/* -------------------------
-   ПЕРЕМАЛЮВАННЯ
--------------------------- */
-
-function render(){
-
-  ctx.clearRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
-
-  drawBackground();
-
-  drawText();
-
-  sizeText.textContent =
-  sizeInput.value;
-
-  lineText.textContent =
-  (
-    Number(
-      lineInput.value
-    )
-    /
-    100
-  )
-  .toFixed(2);
-
-}
+    /* ЧИСТЕ БІЛЕ */
 
 
-/* -------------------------
-   АВТОМАТИЧНИЙ РОЗМІР
--------------------------- */
-
-function fitText(){
-
-  const lines =
-  textInput.value
-  .trim()
-  .split("\n");
-
-
-  let size =
-  220;
-
-
-  while(
-    size > 30
-  ){
-
-    ctx.font =
-    size +
-    'px "' +
-    fontSelect.value +
-    '"';
-
-
-    let widest =
-    0;
-
-
-    for(
-      const line
-      of lines
+    if(
+        mode === "white"
     ){
 
-      widest =
-      Math.max(
-        widest,
-        ctx.measureText(
-          line
-        ).width
-      );
+
+        ctx.fillStyle =
+        "#ffffff";
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        return;
 
     }
 
 
-    const lineHeight =
+
+    /* ТЕМНО-СИНЄ */
+
+
+    if(
+        mode === "navy"
+    ){
+
+
+        const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        gradient.addColorStop(
+            0,
+            "#071f38"
+        );
+
+
+        gradient.addColorStop(
+            .55,
+            "#0b3b63"
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "#0d507f"
+        );
+
+
+        ctx.fillStyle =
+        gradient;
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        return;
+
+    }
+
+
+
+    /* СВІТЛЕ КОНТРАСТНЕ */
+
+
+    if(
+        mode === "contrastLight"
+    ){
+
+
+        ctx.fillStyle =
+        "#f6fbff";
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        const glow =
+        ctx.createRadialGradient(
+            800,
+            420,
+            30,
+            800,
+            420,
+            730
+        );
+
+
+        glow.addColorStop(
+            0,
+            "rgba(189,226,250,.38)"
+        );
+
+
+        glow.addColorStop(
+            1,
+            "rgba(189,226,250,0)"
+        );
+
+
+        ctx.fillStyle =
+        glow;
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        return;
+
+    }
+
+
+
+    /* ТЕМНЕ КОНТРАСТНЕ */
+
+
+    if(
+        mode === "contrastDark"
+    ){
+
+
+        ctx.fillStyle =
+        "#082a49";
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        const glow =
+        ctx.createRadialGradient(
+            800,
+            430,
+            50,
+            800,
+            430,
+            720
+        );
+
+
+        glow.addColorStop(
+            0,
+            "rgba(30,112,167,.38)"
+        );
+
+
+        glow.addColorStop(
+            1,
+            "rgba(30,112,167,0)"
+        );
+
+
+        ctx.fillStyle =
+        glow;
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        return;
+
+    }
+
+
+
+    /* КОСА ЛІНІЯ */
+
+
+    if(
+        mode === "slant"
+    ){
+
+
+        ctx.fillStyle =
+        "#ffffff";
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+
+        /* горизонтальні лінії */
+
+
+        ctx.strokeStyle =
+        "rgba(80,150,205,.26)";
+
+
+        ctx.lineWidth =
+        2;
+
+
+        for(
+            let y = 105;
+            y < canvas.height;
+            y += 70
+        ){
+
+
+            ctx.beginPath();
+
+
+            ctx.moveTo(
+                0,
+                y
+            );
+
+
+            ctx.lineTo(
+                canvas.width,
+                y
+            );
+
+
+            ctx.stroke();
+
+        }
+
+
+
+        /* похилі допоміжні */
+
+
+        ctx.strokeStyle =
+        "rgba(95,160,210,.18)";
+
+
+        for(
+            let x = -250;
+            x < canvas.width + 250;
+            x += 105
+        ){
+
+
+            ctx.beginPath();
+
+
+            ctx.moveTo(
+                x,
+                0
+            );
+
+
+            ctx.lineTo(
+                x + 310,
+                canvas.height
+            );
+
+
+            ctx.stroke();
+
+        }
+
+
+        return;
+
+    }
+
+
+
+    /* ШИРОКА ЛІНІЯ */
+
+
+    if(
+        mode === "wide"
+    ){
+
+
+        ctx.fillStyle =
+        "#ffffff";
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        ctx.strokeStyle =
+        "rgba(69,143,202,.28)";
+
+
+        ctx.lineWidth =
+        2;
+
+
+        for(
+            let y = 105;
+            y < canvas.height;
+            y += 72
+        ){
+
+
+            ctx.beginPath();
+
+
+            ctx.moveTo(
+                0,
+                y
+            );
+
+
+            ctx.lineTo(
+                canvas.width,
+                y
+            );
+
+
+            ctx.stroke();
+
+        }
+
+
+        return;
+
+    }
+
+
+
+    /* КЛІТИНКА */
+
+
+    if(
+        mode === "grid"
+    ){
+
+
+        ctx.fillStyle =
+        "#ffffff";
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        ctx.strokeStyle =
+        "rgba(67,143,202,.21)";
+
+
+        ctx.lineWidth =
+        1.5;
+
+
+
+        const step =
+        52;
+
+
+
+        for(
+            let x = 0;
+            x <= canvas.width;
+            x += step
+        ){
+
+
+            ctx.beginPath();
+
+
+            ctx.moveTo(
+                x,
+                0
+            );
+
+
+            ctx.lineTo(
+                x,
+                canvas.height
+            );
+
+
+            ctx.stroke();
+
+        }
+
+
+
+        for(
+            let y = 0;
+            y <= canvas.height;
+            y += step
+        ){
+
+
+            ctx.beginPath();
+
+
+            ctx.moveTo(
+                0,
+                y
+            );
+
+
+            ctx.lineTo(
+                canvas.width,
+                y
+            );
+
+
+            ctx.stroke();
+
+        }
+
+
+        return;
+
+    }
+
+
+}
+
+
+
+/* ==================================================
+   РАМКА
+================================================== */
+
+function drawFrame(){
+
+
+    if(
+        !$("frame").checked
+    ){
+
+        return;
+    }
+
+
+    ctx.save();
+
+
+    ctx.strokeStyle =
+    "rgba(195,149,61,.78)";
+
+
+    ctx.lineWidth =
+    3;
+
+
+    ctx.strokeRect(
+        58,
+        58,
+        canvas.width - 116,
+        canvas.height - 116
+    );
+
+
+    ctx.restore();
+
+}
+
+
+
+/* ==================================================
+   ТЕКСТ
+================================================== */
+
+function getLines(){
+
+
+    return(
+        $("textInput").value
+        ||
+        "Ваш текст"
+    )
+    .split("\n");
+
+}
+
+
+
+function setCanvasFont(size){
+
+
+    const family =
+    $("fontSelect").value;
+
+
+    ctx.font =
+    `${size}px "${family}"`;
+
+
+    ctx.textAlign =
+    "center";
+
+
+    ctx.textBaseline =
+    "alphabetic";
+
+}
+
+
+
+/* ==================================================
+   ВИМІРЮВАННЯ
+================================================== */
+
+function measureBlock(size){
+
+
+    setCanvasFont(
+        size
+    );
+
+
+    const lines =
+    getLines();
+
+
+    const ratio =
     Number(
-      lineInput.value
+        $("lineHeight").value
     )
     /
     100;
 
 
-    const height =
-    size
-    *
-    lineHeight
-    *
-    lines.length;
+
+    let width =
+    0;
 
 
-    if(
-      widest < 1250
-      &&
-      height < 560
+    let ascent =
+    0;
+
+
+    let descent =
+    0;
+
+
+
+    for(
+        const line
+        of lines
     ){
 
-      break;
+
+        const m =
+        ctx.measureText(
+            line || " "
+        );
+
+
+        width =
+        Math.max(
+            width,
+            m.width
+        );
+
+
+        ascent =
+        Math.max(
+            ascent,
+            m.actualBoundingBoxAscent
+            ||
+            size * .82
+        );
+
+
+        descent =
+        Math.max(
+            descent,
+            m.actualBoundingBoxDescent
+            ||
+            size * .28
+        );
+
     }
 
 
-    size -= 2;
 
-  }
+    const step =
+    size * ratio;
 
 
-  sizeInput.value =
-  size;
 
-  render();
+    const height =
+    ascent
+    +
+    descent
+    +
+    Math.max(
+        0,
+        lines.length - 1
+    )
+    *
+    step;
+
+
+
+    return{
+
+        lines,
+        width,
+        height,
+        ascent,
+        descent,
+        step
+
+    };
 
 }
 
 
-/* -------------------------
-   ЗАВАНТАЖЕННЯ ШРИФТУ
--------------------------- */
 
-fontFile.addEventListener(
-  "change",
-  async function(){
+/* ==================================================
+   ЕФЕКТ ТЕКСТУ
+================================================== */
 
-    const files =
-    Array.from(
-      this.files
+function textFill(){
+
+
+    const effect =
+    $("textEffect").value;
+
+
+
+    if(
+        effect === "gold"
+    ){
+
+
+        const gradient =
+        ctx.createLinearGradient(
+            0,
+            260,
+            0,
+            650
+        );
+
+
+        gradient.addColorStop(
+            0,
+            "#fff3bd"
+        );
+
+
+        gradient.addColorStop(
+            .35,
+            "#edcb72"
+        );
+
+
+        gradient.addColorStop(
+            .68,
+            "#b9822c"
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "#f1d68a"
+        );
+
+
+        return gradient;
+
+    }
+
+
+
+    if(
+        effect === "pearl"
+    ){
+
+
+        const gradient =
+        ctx.createLinearGradient(
+            0,
+            280,
+            0,
+            630
+        );
+
+
+        gradient.addColorStop(
+            0,
+            "#ffffff"
+        );
+
+
+        gradient.addColorStop(
+            .48,
+            "#dcefff"
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "#ffffff"
+        );
+
+
+        return gradient;
+
+    }
+
+
+
+    return(
+        $("fontColor").value
+    );
+
+}
+
+
+
+/* ==================================================
+   РОЗЧЕРК
+================================================== */
+
+function drawFlourish(
+    y,
+    width,
+    type
+){
+
+
+    if(
+        type === "none"
+    ){
+
+        return;
+    }
+
+
+    ctx.save();
+
+
+    ctx.strokeStyle =
+    "rgba(201,154,63,.90)";
+
+
+    ctx.lineWidth =
+    type === "double"
+    ?
+    4
+    :
+    3;
+
+
+
+    const cx =
+    canvas.width / 2;
+
+
+    const half =
+    Math.min(
+        350,
+        Math.max(
+            130,
+            width * .36
+        )
     );
 
 
-    for(
-      const file
-      of files
+
+    ctx.beginPath();
+
+
+    ctx.moveTo(
+        cx - half,
+        y
+    );
+
+
+    ctx.bezierCurveTo(
+        cx - half * .58,
+        y - 23,
+        cx - half * .30,
+        y + 24,
+        cx - 60,
+        y
+    );
+
+
+    ctx.bezierCurveTo(
+        cx - 26,
+        y - 13,
+        cx - 18,
+        y - 13,
+        cx,
+        y
+    );
+
+
+    ctx.bezierCurveTo(
+        cx + 18,
+        y + 13,
+        cx + 26,
+        y + 13,
+        cx + 60,
+        y
+    );
+
+
+    ctx.bezierCurveTo(
+        cx + half * .30,
+        y - 24,
+        cx + half * .58,
+        y + 23,
+        cx + half,
+        y
+    );
+
+
+    ctx.stroke();
+
+
+
+    if(
+        type === "double"
     ){
 
-      try{
 
-        const name =
-        file.name.replace(
-          /\.[^.]+$/,
-          ""
+        ctx.globalAlpha =
+        .55;
+
+
+        ctx.beginPath();
+
+
+        ctx.moveTo(
+            cx - half * .78,
+            y + 14
         );
+
+
+        ctx.bezierCurveTo(
+            cx - half * .38,
+            y - 6,
+            cx - 100,
+            y + 28,
+            cx,
+            y + 10
+        );
+
+
+        ctx.bezierCurveTo(
+            cx + 100,
+            y + 28,
+            cx + half * .38,
+            y - 6,
+            cx + half * .78,
+            y + 14
+        );
+
+
+        ctx.stroke();
+
+    }
+
+
+
+    ctx.restore();
+
+}
+
+
+
+/* ==================================================
+   МАЛЮЄМО НАПИС
+================================================== */
+
+function drawText(){
+
+
+    const size =
+    Number(
+        $("fontSize").value
+    );
+
+
+    const block =
+    measureBlock(
+        size
+    );
+
+
+
+    const xShift =
+    canvas.width
+    *
+    (
+        Number(
+            $("xPos").value
+        )
+        /
+        100
+    );
+
+
+
+    const yShift =
+    canvas.height
+    *
+    (
+        Number(
+            $("yPos").value
+        )
+        /
+        100
+    );
+
+
+
+    const centerX =
+    canvas.width / 2
+    +
+    xShift;
+
+
+
+    const centerY =
+    canvas.height / 2
+    +
+    yShift;
+
+
+
+    ctx.save();
+
+
+    setCanvasFont(
+        size
+    );
+
+
+
+    if(
+        $("shadow").checked
+    ){
+
+
+        ctx.shadowColor =
+        "rgba(0,0,0,.23)";
+
+
+        ctx.shadowBlur =
+        16;
+
+
+        ctx.shadowOffsetY =
+        6;
+
+    }
+
+
+
+    ctx.fillStyle =
+    textFill();
+
+
+
+    let y =
+    centerY
+    -
+    block.height / 2
+    +
+    block.ascent;
+
+
+
+    for(
+        const line
+        of block.lines
+    ){
+
+
+        ctx.fillText(
+            line,
+            centerX,
+            y
+        );
+
+
+        y +=
+        block.step;
+
+    }
+
+
+
+    ctx.restore();
+
+
+
+    if(
+        $("ornament").value
+        !==
+        "none"
+    ){
+
+
+        drawFlourish(
+            centerY
+            -
+            block.height / 2
+            -
+            48,
+            block.width,
+            $("ornament").value
+        );
+
+
+        drawFlourish(
+            centerY
+            +
+            block.height / 2
+            +
+            48,
+            block.width,
+            $("ornament").value
+        );
+
+    }
+
+}
+
+
+
+/* ==================================================
+   РЕНДЕР
+================================================== */
+
+function render(){
+
+
+    drawBackground();
+
+
+    drawFrame();
+
+
+    drawText();
+
+
+
+    $("sizeValue").textContent =
+    $("fontSize").value;
+
+
+    $("lineValue").textContent =
+    (
+        Number(
+            $("lineHeight").value
+        )
+        /
+        100
+    )
+    .toFixed(2);
+
+
+    $("widthValue").textContent =
+    $("textWidth").value;
+
+
+    $("xValue").textContent =
+    $("xPos").value;
+
+
+    $("yValue").textContent =
+    $("yPos").value;
+
+}
+
+
+
+/* ==================================================
+   АВТОМАТИЧНО ВПИСАТИ
+================================================== */
+
+async function fitText(){
+
+
+    await document.fonts.ready;
+
+
+
+    const maxWidth =
+    canvas.width
+    *
+    (
+        Number(
+            $("textWidth").value
+        )
+        /
+        100
+    )
+    *
+    .94;
+
+
+
+    const maxHeight =
+    canvas.height
+    *
+    .64;
+
+
+
+    let low =
+    24;
+
+
+    let high =
+    260;
+
+
+    let best =
+    24;
+
+
+
+    while(
+        low <= high
+    ){
+
+
+        const middle =
+        Math.floor(
+            (
+                low + high
+            )
+            /
+            2
+        );
+
+
+        const block =
+        measureBlock(
+            middle
+        );
+
+
+
+        if(
+            block.width <= maxWidth
+            &&
+            block.height <= maxHeight
+        ){
+
+
+            best =
+            middle;
+
+
+            low =
+            middle + 1;
+
+        }
+
+
+        else{
+
+
+            high =
+            middle - 1;
+
+        }
+
+    }
+
+
+
+    /*
+       запас для довгих
+       каліграфічних хвостів
+    */
+
+
+    best =
+    Math.max(
+        24,
+        Math.floor(
+            best * .91
+        )
+    );
+
+
+
+    $("fontSize").value =
+    best;
+
+
+    render();
+
+}
+
+
+
+/* ==================================================
+   ВЛАСНІ ШРИФТИ
+================================================== */
+
+async function loadFont(
+    file
+){
+
+
+    try{
+
+
+        const baseName =
+        file.name
+        .replace(
+            /\.[^/.]+$/,
+            ""
+        )
+        .replace(
+            /["']/g,
+            ""
+        );
+
+
+
+        let familyName =
+        baseName;
+
+
+        let number =
+        2;
+
+
+
+        while(
+            [
+                ...$("fontSelect").options
+            ]
+            .some(
+                option =>
+                option.textContent
+                ===
+                familyName
+            )
+        ){
+
+
+            familyName =
+            `${baseName} ${number}`;
+
+
+            number++;
+
+        }
+
 
 
         const url =
         URL.createObjectURL(
-          file
+            file
         );
 
 
-        const newFont =
+
+        const face =
         new FontFace(
-          name,
-          'url("' +
-          url +
-          '")'
+            familyName,
+            `url("${url}")`
         );
 
 
-        await newFont.load();
+
+        await face.load();
+
 
 
         document.fonts.add(
-          newFont
+            face
         );
+
 
 
         const option =
         document.createElement(
-          "option"
+            "option"
         );
 
 
         option.value =
-        name;
+        familyName;
+
 
         option.textContent =
-        name;
+        familyName;
 
 
-        fontSelect.appendChild(
-          option
+        $("fontSelect")
+        .appendChild(
+            option
         );
 
 
-        fontSelect.value =
-        name;
+        $("fontSelect").value =
+        familyName;
 
 
-        fontCount++;
+
+        customFontCount++;
 
 
-        count.textContent =
-        "Власних шрифтів: "
-        +
-        fontCount;
+
+        $("fontCount").textContent =
+        `Власних шрифтів: ${customFontCount}`;
+
 
 
         await document.fonts.ready;
 
 
-        fitText();
-
-      }
-
-      catch(error){
-
-        console.error(
-          error
-        );
-
-        alert(
-          "Не вдалося завантажити "
-          +
-          file.name
-        );
-
-      }
+        await fitText();
 
     }
 
-  }
+
+    catch(error){
+
+
+        console.error(
+            error
+        );
+
+
+        alert(
+            "Не вдалося відкрити шрифт: "
+            +
+            file.name
+        );
+
+    }
+
+}
+
+
+
+/* ==================================================
+   ВИБІР ФАЙЛІВ
+================================================== */
+
+$("fontFiles")
+.addEventListener(
+    "change",
+    async event => {
+
+
+        for(
+            const file
+            of event.target.files
+        ){
+
+
+            if(
+                /\.(ttf|otf|woff|woff2)$/i
+                .test(
+                    file.name
+                )
+            ){
+
+
+                await loadFont(
+                    file
+                );
+
+            }
+
+        }
+
+    }
 );
 
 
-/* -------------------------
+
+/* ==================================================
    ПОДІЇ
--------------------------- */
+================================================== */
 
-textInput.addEventListener(
-  "input",
-  render
-);
+const liveControls = [
 
-fontSelect.addEventListener(
-  "change",
-  render
-);
+    "textInput",
+    "fontSize",
+    "lineHeight",
+    "textWidth",
+    "xPos",
+    "yPos",
+    "fontColor"
 
-sizeInput.addEventListener(
-  "input",
-  render
-);
-
-lineInput.addEventListener(
-  "input",
-  render
-);
+];
 
 
-document
-.getElementById("fit")
+for(
+    const id
+    of liveControls
+){
+
+
+    $(id)
+    .addEventListener(
+        "input",
+        render
+    );
+
+}
+
+
+
+const changeControls = [
+
+    "fontSelect",
+    "backgroundMode",
+    "textEffect",
+    "ornament",
+    "shadow",
+    "frame"
+
+];
+
+
+for(
+    const id
+    of changeControls
+){
+
+
+    $(id)
+    .addEventListener(
+        "change",
+        render
+    );
+
+}
+
+
+
+/* ==================================================
+   КНОПКИ
+================================================== */
+
+$("fitButton")
 .addEventListener(
-  "click",
-  fitText
+    "click",
+    fitText
 );
 
 
-/* -------------------------
+
+$("resetButton")
+.addEventListener(
+    "click",
+    () => {
+
+
+        $("fontSize").value =
+        120;
+
+
+        $("lineHeight").value =
+        112;
+
+
+        $("textWidth").value =
+        78;
+
+
+        $("xPos").value =
+        0;
+
+
+        $("yPos").value =
+        0;
+
+
+        $("fontColor").value =
+        "#123b60";
+
+
+        $("backgroundMode").value =
+        "white";
+
+
+        $("textEffect").value =
+        "plain";
+
+
+        $("ornament").value =
+        "none";
+
+
+        $("shadow").checked =
+        true;
+
+
+        $("frame").checked =
+        false;
+
+
+        render();
+
+    }
+);
+
+
+
+/* ==================================================
    PNG
--------------------------- */
+================================================== */
 
-document
-.getElementById("save")
+$("downloadButton")
 .addEventListener(
-  "click",
-  function(){
-
-    render();
+    "click",
+    () => {
 
 
-    const link =
-    document.createElement(
-      "a"
-    );
+        render();
 
 
-    link.download =
-    "dekoratyvnyi-tekst.png";
+
+        const link =
+        document.createElement(
+            "a"
+        );
 
 
-    link.href =
-    canvas.toDataURL(
-      "image/png"
-    );
+        link.download =
+        "dekoratyvnyi-tekst.png";
 
 
-    link.click();
+        link.href =
+        canvas.toDataURL(
+            "image/png"
+        );
 
-  }
+
+        link.click();
+
+    }
 );
 
 
-/* -------------------------
+
+/* ==================================================
    ПЕРШИЙ ЗАПУСК
--------------------------- */
+================================================== */
 
 render();
 
+
 </script>
+
 
 </body>
 </html>
