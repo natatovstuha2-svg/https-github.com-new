@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Студія декоративного тексту</title>
+<style>
+  :root{
+    --navy:#0b2f55;
+    --blue:#145f9e;
+    --sky:#8fd0ff;
+    --gold:#d6b25e;
+    --glass:rgba(13,55,91,.76);
+    --white:#fff;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(255,255,255,.95), rgba(255,255,255,0) 28%),
+      linear-gradient(135deg,#eaf7ff 0%,#cfeaff 48%,#f7fbff 100%);
+    color:#10243a;
+  }
+  .app{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:0;
+  }
+  .panel{
+    padding:24px 22px;
+    background:linear-gradient(180deg,rgba(10,47,82,.95),rgba(15,72,116,.90));
+    color:white;
+    border-right:1px solid rgba(255,255,255,.35);
+    box-shadow:14px 0 34px rgba(0,38,74,.12);
+    overflow-y:auto;
+  }
+  .brand{
+    display:flex;align-items:center;gap:12px;margin-bottom:18px
+  }
+  .brand-badge{
+    width:42px;height:42px;border-radius:14px;
+    background:linear-gradient(145deg,#fff,#cfeaff);
+    display:grid;place-items:center;color:var(--navy);
+    box-shadow:inset 0 0 0 2px rgba(214,178,94,.55),0 8px 20px rgba(0,0,0,.15);
+    font-size:22px
+  }
+  h1{font-size:23px;line-height:1.15;margin:0}
+  .subtitle{font-size:12px;opacity:.82;margin-top:4px}
+  .field{margin-top:15px}
+  label{display:block;font-weight:700;font-size:13px;margin-bottom:7px}
+  textarea,select,input[type="text"]{
+    width:100%;border:1px solid rgba(255,255,255,.3);border-radius:12px;
+    background:rgba(255,255,255,.12);color:white;padding:11px 12px;
+    outline:none;font-size:14px
+  }
+  textarea{resize:vertical;min-height:86px}
+  option{color:#10243a;background:#fff}
+  input[type="range"]{width:100%}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .color{
+    width:100%;height:42px;border:0;background:transparent;padding:0;cursor:pointer
+  }
+  .check{
+    display:flex;align-items:center;gap:9px;font-weight:600;font-size:13px;margin-top:10px
+  }
+  .drop{
+    margin-top:8px;border:1.5px dashed rgba(255,255,255,.55);border-radius:14px;
+    padding:14px;text-align:center;background:rgba(255,255,255,.08);
+  }
+  .drop small{display:block;opacity:.78;margin-top:5px}
+  .btn{
+    width:100%;border:0;border-radius:12px;padding:12px 14px;margin-top:10px;
+    font-weight:800;cursor:pointer;font-size:14px;
+    background:linear-gradient(180deg,#fff,#dcefff);color:#0b355b;
+    box-shadow:0 8px 20px rgba(0,0,0,.14);
+  }
+  .btn.secondary{
+    background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.28);box-shadow:none
+  }
+  .notice{
+    font-size:11px;line-height:1.4;opacity:.78;margin-top:14px
+  }
+  .workspace{
+    padding:28px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .stage-wrap{width:min(1200px,100%)}
+  .stage{
+    aspect-ratio:16/9;
+    width:100%;
+    border-radius:28px;
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    padding:7%;
+    box-shadow:0 26px 60px rgba(35,87,125,.20);
+    border:1px solid rgba(255,255,255,.8);
+    background:
+      radial-gradient(circle at 20% 16%,rgba(255,255,255,.9),rgba(255,255,255,0) 24%),
+      linear-gradient(180deg,#67b9ec 0%,#9ed5f5 52%,#f5dfad 100%);
+  }
+  .stage.dark{
+    background:
+      radial-gradient(circle at 16% 10%,rgba(95,183,239,.38),rgba(0,0,0,0) 28%),
+      linear-gradient(145deg,#082743,#124f7c 58%,#1a6d9f 100%);
+  }
+  .stage.light{
+    background:
+      radial-gradient(circle at 20% 12%,#fff,rgba(255,255,255,0) 26%),
+      linear-gradient(145deg,#ffffff,#dcefff);
+  }
+  .stage.transparent{
+    background:
+      linear-gradient(45deg,#eef2f5 25%,transparent 25%) 0 0/28px 28px,
+      linear-gradient(-45deg,#eef2f5 25%,transparent 25%) 0 14px/28px 28px,
+      linear-gradient(45deg,transparent 75%,#eef2f5 75%) 14px -14px/28px 28px,
+      linear-gradient(-45deg,transparent 75%,#eef2f5 75%) -14px 0/28px 28px,
+      #fff;
+  }
+  .glass{
+    position:absolute;inset:7%;
+    border-radius:28px;
+    background:linear-gradient(180deg,rgba(9,54,93,.22),rgba(7,45,77,.06));
+    border:1px solid rgba(255,255,255,.48);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.58),0 16px 40px rgba(10,55,85,.08);
+    backdrop-filter:blur(6px);
+  }
+  .content{
+    position:relative;z-index:2;text-align:center;max-width:92%;
+  }
+  .ornament{
+    font-family:Georgia,serif;
+    font-size:clamp(18px,2.2vw,34px);
+    letter-spacing:.25em;
+    color:rgba(255,255,255,.95);
+    text-shadow:0 2px 8px rgba(0,0,0,.18);
+    margin:.4em 0;
+  }
+  .preview{
+    white-space:pre-wrap;
+    word-break:break-word;
+    line-height:1.03;
+    font-size:72px;
+    color:white;
+    text-shadow:0 4px 14px rgba(0,0,0,.28);
+    transition:.15s ease;
+  }
+  .gold .preview{
+    background:linear-gradient(180deg,#fff8cf 0%,#e5be67 40%,#a97823 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 3px 5px rgba(71,42,4,.25));
+  }
+  .pearl .preview{
+    background:linear-gradient(180deg,#fff 0%,#d9f1ff 45%,#fff 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 3px 7px rgba(6,63,102,.22));
+  }
+  .toolbar-note{
+    text-align:center;margin-top:12px;font-size:12px;color:#4d6b84
+  }
+  .font-count{font-size:11px;opacity:.8;margin-top:5px}
+  @media(max-width:900px){
+    .app{grid-template-columns:1fr}
+    .panel{position:relative}
+    .workspace{padding:16px}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="panel">
+    <div class="brand">
+      <div class="brand-badge">✦</div>
+      <div>
+        <h1>Студія декоративного тексту</h1>
+        <div class="subtitle">Українські шрифти • ефекти • PNG</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="textInput">Ваш текст</label>
+      <textarea id="textInput">День Державного прапора України</textarea>
+    </div>
+
+    <div class="field">
+      <label for="fontSelect">Шрифт</label>
+      <select id="fontSelect">
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Segoe UI">Segoe UI</option>
+      </select>
+      <div class="font-count" id="fontCount">Власних шрифтів: 0</div>
+    </div>
+
+    <div class="field">
+      <label>Додати власні TTF / OTF / WOFF / WOFF2</label>
+      <div class="drop" id="dropZone">
+        Перетягніть файли сюди
+        <small>або виберіть їх кнопкою нижче</small>
+        <input id="fontFiles" type="file" accept=".ttf,.otf,.woff,.woff2" multiple style="margin-top:10px;width:100%">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Розмір: <span id="sizeValue">72</span> px</label>
+      <input id="fontSize" type="range" min="24" max="180" value="72">
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="fontColor">Колір</label>
+        <input id="fontColor" class="color" type="color" value="#ffffff">
+      </div>
+      <div class="field">
+        <label for="bgMode">Тло</label>
+        <select id="bgMode">
+          <option value="sky">Світле небо</option>
+          <option value="dark">Темно-синє</option>
+          <option value="light">Біле</option>
+          <option value="transparent">Шахівниця</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="effect">Ефект тексту</label>
+      <select id="effect">
+        <option value="plain">Звичайний</option>
+        <option value="gold">Золото</option>
+        <option value="pearl">Перламутр</option>
+      </select>
+    </div>
+
+    <label class="check"><input type="checkbox" id="shadow" checked> М’яка тінь</label>
+    <label class="check"><input type="checkbox" id="ornaments" checked> Декоративні розчерки</label>
+    <label class="check"><input type="checkbox" id="glass" checked> Скляна плашка</label>
+
+    <button class="btn" id="downloadBtn">Зберегти PNG</button>
+    <button class="btn secondary" id="resetBtn">Скинути оформлення</button>
+
+    <div class="notice">
+      Шрифти, які ви додаєте через цю сторінку, залишаються у вашому браузері на час відкритої вкладки й не завантажуються на сервер. Це зручно для особистої колекції та не вимагає публікувати файли шрифтів у GitHub.
+    </div>
+  </aside>
+
+  <main class="workspace">
+    <div class="stage-wrap">
+      <div id="stage" class="stage sky">
+        <div id="glassPanel" class="glass"></div>
+        <div id="content" class="content">
+          <div id="ornTop" class="ornament">❦ ✦ ❦</div>
+          <div id="preview" class="preview">День Державного прапора України</div>
+          <div id="ornBottom" class="ornament">❦ ✦ ❦</div>
+        </div>
+      </div>
+      <div class="toolbar-note">Порада: для найкращого PNG використовуйте великий розмір шрифту.</div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+const $ = (id)=>document.getElementById(id);
+const stage=$('stage'), preview=$('preview'), content=$('content');
+const fontSelect=$('fontSelect'), fontFiles=$('fontFiles'), dropZone=$('dropZone');
+let ownFonts=0;
+
+function update(){
+  preview.textContent=$('textInput').value || 'Ваш текст';
+  preview.style.fontFamily=fontSelect.value;
+  preview.style.fontSize=$('fontSize').value+'px';
+  $('sizeValue').textContent=$('fontSize').value;
+  preview.style.color=$('fontColor').value;
+  preview.style.textShadow=$('shadow').checked ? '0 4px 14px rgba(0,0,0,.28)' : 'none';
+
+  stage.className='stage '+$('bgMode').value;
+  content.className='content';
+  const eff=$('effect').value;
+  if(eff!=='plain') content.classList.add(eff);
+
+  $('ornTop').style.display=$('ornaments').checked?'block':'none';
+  $('ornBottom').style.display=$('ornaments').checked?'block':'none';
+  $('glassPanel').style.display=$('glass').checked?'block':'none';
+}
+
+async function loadFontFile(file){
+  try{
+    const base=file.name.replace(/\.[^/.]+$/,'').replace(/["']/g,'');
+    let displayName=base;
+    let i=2;
+    while([...fontSelect.options].some(o=>o.value===`"${displayName}"`)){
+      displayName=base+' '+i++;
+    }
+    const url=URL.createObjectURL(file);
+    const font=new FontFace(displayName,`url("${url}")`);
+    await font.load();
+    document.fonts.add(font);
+    const option=document.createElement('option');
+    option.value=`"${displayName}"`;
+    option.textContent=displayName;
+    fontSelect.appendChild(option);
+    fontSelect.value=option.value;
+    ownFonts++;
+    $('fontCount').textContent='Власних шрифтів: '+ownFonts;
+    update();
+  }catch(e){
+    alert('Не вдалося відкрити шрифт: '+file.name);
+    console.error(e);
+  }
+}
+
+async function handleFiles(files){
+  for(const f of files){
+    if(/\.(ttf|otf|woff2?|TTF|OTF|WOFF2?)$/.test(f.name)) await loadFontFile(f);
+  }
+}
+
+fontFiles.addEventListener('change',e=>handleFiles(e.target.files));
+['dragenter','dragover'].forEach(ev=>dropZone.addEventListener(ev,e=>{
+  e.preventDefault(); dropZone.style.background='rgba(255,255,255,.18)';
+}));
+['dragleave','drop'].forEach(ev=>dropZone.addEventListener(ev,e=>{
+  e.preventDefault(); dropZone.style.background='rgba(255,255,255,.08)';
+}));
+dropZone.addEventListener('drop',e=>handleFiles(e.dataTransfer.files));
+
+['textInput','fontSelect','fontSize','fontColor','bgMode','effect','shadow','ornaments','glass']
+.forEach(id=>$(id).addEventListener(id==='textInput'?'input':'change',update));
+$('fontSize').addEventListener('input',update);
+$('fontColor').addEventListener('input',update);
+
+$('resetBtn').addEventListener('click',()=>{
+  $('fontSize').value=72;
+  $('fontColor').value='#ffffff';
+  $('bgMode').value='sky';
+  $('effect').value='plain';
+  $('shadow').checked=true;
+  $('ornaments').checked=true;
+  $('glass').checked=true;
+  update();
+});
+
+$('downloadBtn').addEventListener('click',async()=>{
+  const oldRadius=stage.style.borderRadius;
+  try{
+    const canvas=await html2canvas(stage,{
+      scale:3,
+      useCORS:true,
+      backgroundColor:null
+    });
+    const a=document.createElement('a');
+    a.download='dekoratyvnyi-tekst.png';
+    a.href=canvas.toDataURL('image/png');
+    a.click();
+  }catch(e){
+    alert('Не вдалося створити PNG. Спробуйте ще раз.');
+    console.error(e);
+  }finally{
+    stage.style.borderRadius=oldRadius;
+  }
+});
+
+update();
+</script>
+</body>
+</html>
