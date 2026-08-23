@@ -8,6 +8,40 @@
 
 <style>
 
+/* =========================================================
+   ПОСТІЙНА КОЛЕКЦІЯ ШРИФТІВ
+   ФАЙЛИ ЛЕЖАТЬ ПОРУЧ ІЗ index.html
+========================================================= */
+
+@font-face{
+    font-family:"Propysy";
+    src:url("./Propysy-Bold.otf") format("opentype");
+    font-style:normal;
+    font-weight:700;
+    font-display:swap;
+}
+
+@font-face{
+    font-family:"Ancient Kyiv";
+    src:url("./Ancient_Kyiv.ttf") format("truetype");
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+}
+
+@font-face{
+    font-family:"Pelahiia";
+    src:url("./Pelahiia.ttf") format("truetype");
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+}
+
+
+/* =========================================================
+   БАЗА
+========================================================= */
+
 *{
     box-sizing:border-box;
 }
@@ -33,7 +67,6 @@ body{
 
 .site-header{
     height:122px;
-
     position:relative;
 
     display:flex;
@@ -62,13 +95,11 @@ body{
         rgba(4,34,59,.18);
 
     overflow:hidden;
-
     z-index:20;
 }
 
 .site-header::after{
     content:"";
-
     position:absolute;
 
     left:34px;
@@ -105,9 +136,7 @@ body{
     color:rgba(232,243,251,.82);
 
     font-size:10px;
-
     letter-spacing:.17em;
-
     text-transform:uppercase;
 }
 
@@ -123,7 +152,6 @@ body{
         clamp(28px,2.65vw,43px);
 
     font-weight:700;
-
     line-height:1;
 
     background:
@@ -150,15 +178,13 @@ body{
 
 
 /* =========================================================
-   АВТОР
+   АВТОРСЬКИЙ ПІДПИС
 ========================================================= */
 
 .author-row{
     display:flex;
     align-items:center;
-
     gap:8px;
-
     margin-top:7px;
 }
 
@@ -176,11 +202,9 @@ body{
         cursive;
 
     font-size:25px;
-
     font-weight:600;
 
     line-height:1;
-
     letter-spacing:-1.7px;
 
     transform:
@@ -291,8 +315,7 @@ body{
 
     object-fit:contain;
 
-    transform-origin:
-        25% 74%;
+    transform-origin:25% 74%;
 
     filter:
         drop-shadow(
@@ -384,7 +407,7 @@ body{
 
 
 /* =========================================================
-   ОСНОВНА РОБОЧА ЗОНА
+   ОСНОВНА ЗОНА
 ========================================================= */
 
 .app{
@@ -403,7 +426,7 @@ body{
 
 
 /* =========================================================
-   ЛІВА ПАНЕЛЬ
+   ПАНЕЛЬ
 ========================================================= */
 
 .panel{
@@ -452,7 +475,6 @@ body{
     margin-bottom:13px;
 
     font-size:11px;
-
     opacity:.72;
 }
 
@@ -471,7 +493,6 @@ label{
     margin-bottom:6px;
 
     font-size:12.5px;
-
     font-weight:700;
 }
 
@@ -502,13 +523,18 @@ textarea{
     resize:vertical;
 
     font-size:14px;
-
     line-height:1.4;
 }
 
 select option{
     color:#10243a;
     background:#fff;
+}
+
+select optgroup{
+    color:#0b3559;
+    background:#eef6fc;
+    font-weight:800;
 }
 
 input[type="range"]{
@@ -539,10 +565,28 @@ input[type="color"]{
     margin-top:5px;
 
     font-size:10.5px;
-
     line-height:1.4;
 
     opacity:.76;
+}
+
+.collection-info{
+    margin-top:6px;
+
+    padding:7px 9px;
+
+    border-radius:8px;
+
+    background:
+        rgba(232,196,103,.08);
+
+    border:
+        1px solid
+        rgba(232,196,103,.22);
+
+    color:#ffeab0;
+
+    font-size:10.5px;
 }
 
 .check{
@@ -555,7 +599,6 @@ input[type="color"]{
     margin-top:8px;
 
     font-size:11.5px;
-
     font-weight:600;
 }
 
@@ -583,7 +626,6 @@ input[type="color"]{
     display:flex;
 
     align-items:center;
-
     justify-content:space-between;
 
     margin-bottom:6px;
@@ -608,7 +650,6 @@ input[type="color"]{
         rgba(234,201,116,.28);
 
     font-size:11px;
-
     font-weight:800;
 }
 
@@ -627,7 +668,6 @@ input[type="color"]{
     border-radius:10px;
 
     font-size:12.5px;
-
     font-weight:800;
 
     cursor:pointer;
@@ -684,7 +724,6 @@ input[type="color"]{
     color:#fff1c7;
 
     font-size:10.5px;
-
     font-weight:700;
 
     cursor:pointer;
@@ -708,7 +747,6 @@ input[type="color"]{
     display:flex;
 
     align-items:flex-start;
-
     justify-content:center;
 
     padding:
@@ -727,7 +765,6 @@ input[type="color"]{
 
 canvas{
     width:100%;
-
     height:auto;
 
     display:block;
@@ -755,6 +792,10 @@ canvas{
     font-size:10.5px;
 }
 
+
+/* =========================================================
+   МОБІЛЬНО
+========================================================= */
 
 @media(max-width:980px){
 
@@ -853,7 +894,7 @@ canvas{
 
 
 <!-- =========================================================
-     РОБОЧА ЧАСТИНА
+     РОБОЧА ЗОНА
 ========================================================= -->
 
 <div class="app">
@@ -871,7 +912,9 @@ canvas{
 </div>
 
 
-<!-- ТЕКСТ -->
+<!-- =====================================================
+     ТЕКСТ
+===================================================== -->
 
 <div class="field">
 
@@ -907,13 +950,15 @@ canvas{
 
 
 <div class="small">
-Виділіть слово або фразу. Кнопка «На новий рядок» поставить перед виділеним текстом справжній перенос.
+Виділіть слово або фразу й оберіть потрібну дію.
 </div>
 
 </div>
 
 
-<!-- ШРИФТ -->
+<!-- =====================================================
+     ШРИФТИ
+===================================================== -->
 
 <div class="field">
 
@@ -922,6 +967,29 @@ canvas{
 </label>
 
 <select id="fontSelect">
+
+<optgroup label="МОЯ КОЛЕКЦІЯ">
+
+<option
+    value="Propysy"
+    selected>
+
+Propysy
+
+</option>
+
+<option value="Ancient Kyiv">
+Ancient Kyiv
+</option>
+
+<option value="Pelahiia">
+Пелагія
+</option>
+
+</optgroup>
+
+
+<optgroup label="СТАНДАРТНІ">
 
 <option value="Segoe UI">
 Segoe UI
@@ -935,14 +1003,21 @@ Georgia
 Times New Roman
 </option>
 
+</optgroup>
+
 </select>
+
+
+<div class="collection-info">
+Постійна колекція: 3 шрифти • доступна всім відвідувачам
+</div>
 
 
 <div
     id="fontCount"
     class="small">
 
-Власних шрифтів: 0
+Тимчасово доданих шрифтів: 0
 
 </div>
 
@@ -952,7 +1027,7 @@ Times New Roman
 <div class="field">
 
 <label for="fontFiles">
-Додати TTF / OTF / WOFF / WOFF2
+Додати свій TTF / OTF / WOFF / WOFF2
 </label>
 
 <input
@@ -961,10 +1036,16 @@ Times New Roman
     accept=".ttf,.otf,.woff,.woff2"
     multiple>
 
+<div class="small">
+Такий шрифт працюватиме лише у вашій поточній вкладці.
+</div>
+
 </div>
 
 
-<!-- РОЗМІР -->
+<!-- =====================================================
+     РОЗМІР
+===================================================== -->
 
 <div class="size-box">
 
@@ -983,6 +1064,7 @@ Times New Roman
 </span>
 
 </div>
+
 
 <input
     id="fontSize"
@@ -1015,7 +1097,9 @@ Times New Roman
 </button>
 
 
-<!-- ПЛОЩИНА -->
+<!-- =====================================================
+     ПЛОЩИНА
+===================================================== -->
 
 <div class="field">
 
@@ -1074,7 +1158,9 @@ Times New Roman
 </label>
 
 
-<!-- РОЗТАШУВАННЯ -->
+<!-- =====================================================
+     РОЗТАШУВАННЯ
+===================================================== -->
 
 <div class="two">
 
@@ -1160,7 +1246,9 @@ Times New Roman
 </div>
 
 
-<!-- ІНТЕРВАЛ -->
+<!-- =====================================================
+     МІЖРЯДКОВИЙ ІНТЕРВАЛ
+===================================================== -->
 
 <div class="field">
 
@@ -1187,7 +1275,9 @@ Times New Roman
 </div>
 
 
-<!-- ОФОРМЛЕННЯ -->
+<!-- =====================================================
+     ОФОРМЛЕННЯ
+===================================================== -->
 
 <div class="two">
 
@@ -1275,7 +1365,9 @@ Times New Roman
 </aside>
 
 
-<!-- ПОЛОТНО -->
+<!-- =========================================================
+     ПОЛОТНО
+========================================================= -->
 
 <main class="workspace">
 
@@ -1317,7 +1409,7 @@ let customFontCount = 0;
 
 
 /* =========================================================
-   ЗОШИТОВІ РЕЖИМИ
+   ЗОШИТОВІ ПАРАМЕТРИ
 ========================================================= */
 
 const notebook = {
@@ -1362,7 +1454,7 @@ function isNotebookMode(){
 
 
 /* =========================================================
-   ЛІНІЇ
+   ЛІНІЯ
 ========================================================= */
 
 function horizontalLine(y){
@@ -1399,10 +1491,9 @@ function drawSlantNotebook(){
         canvas.height
     );
 
+
     ctx.save();
 
-
-    /* похилі напрямні */
 
     ctx.strokeStyle =
     "rgba(39,188,224,.43)";
@@ -1480,8 +1571,6 @@ function drawSlantNotebook(){
         );
     }
 
-
-    /* поле */
 
     ctx.strokeStyle =
     "rgba(224,42,145,.82)";
@@ -1680,39 +1769,25 @@ function drawBackground(){
     );
 
 
-    if(
-        mode === "slant"
-    ){
-
+    if(mode === "slant"){
         drawSlantNotebook();
-
         return;
     }
 
 
-    if(
-        mode === "wide"
-    ){
-
+    if(mode === "wide"){
         drawWideNotebook();
-
         return;
     }
 
 
-    if(
-        mode === "grid"
-    ){
-
+    if(mode === "grid"){
         drawGridNotebook();
-
         return;
     }
 
 
-    if(
-        mode === "white"
-    ){
+    if(mode === "white"){
 
         ctx.fillStyle =
         "#ffffff";
@@ -1728,9 +1803,7 @@ function drawBackground(){
     }
 
 
-    if(
-        mode === "navy"
-    ){
+    if(mode === "navy"){
 
         const g =
         ctx.createLinearGradient(
@@ -1764,9 +1837,7 @@ function drawBackground(){
     }
 
 
-    if(
-        mode === "contrastLight"
-    ){
+    if(mode === "contrastLight"){
 
         ctx.fillStyle =
         "#f5faff";
@@ -1782,9 +1853,7 @@ function drawBackground(){
     }
 
 
-    if(
-        mode === "contrastDark"
-    ){
+    if(mode === "contrastDark"){
 
         ctx.fillStyle =
         "#082945";
@@ -1850,8 +1919,25 @@ function getLines(){
 
 function setCanvasFont(size){
 
+    const family =
+    $("fontSelect").value;
+
+
+    /*
+       Propysy у нас Bold,
+       тому явно даємо 700.
+    */
+
+    const weight =
+    family === "Propysy"
+    ?
+    "700"
+    :
+    "400";
+
+
     ctx.font =
-        `${size}px "${$("fontSelect").value}"`;
+        `${weight} ${size}px "${family}"`;
 
     ctx.textBaseline =
         "alphabetic";
@@ -1977,6 +2063,31 @@ function computeNotebookFontSize(){
     cfg.autoFontSize;
 
 
+    /*
+       Для Propysy даємо трохи
+       більший початковий масштаб.
+    */
+
+    if(
+        $("fontSelect").value
+        ===
+        "Propysy"
+    ){
+
+        if(mode === "slant"){
+            size = 78;
+        }
+
+        if(mode === "wide"){
+            size = 82;
+        }
+
+        if(mode === "grid"){
+            size = 76;
+        }
+    }
+
+
     const available =
     notebookAvailableWidth();
 
@@ -2015,7 +2126,7 @@ function computeNotebookFontSize(){
 
     size =
     Math.min(
-        110,
+        115,
         size
     );
 
@@ -2025,7 +2136,7 @@ function computeNotebookFontSize(){
 
 
 /* =========================================================
-   ЕФЕКТ ТЕКСТУ
+   КОЛІР
 ========================================================= */
 
 function textFill(){
@@ -2108,7 +2219,7 @@ function textFill(){
 
 
 /* =========================================================
-   X У ЗОШИТІ
+   ПОЗИЦІЯ У ЗОШИТІ
 ========================================================= */
 
 function notebookX(){
@@ -2170,7 +2281,7 @@ function notebookX(){
 
 
 /* =========================================================
-   ТЕКСТ У ЗОШИТІ
+   ЗОШИТОВИЙ ТЕКСТ
 ========================================================= */
 
 function drawNotebookText(){
@@ -2538,7 +2649,7 @@ async function fitText(){
 
 
 /* =========================================================
-   ВЛАСНІ ШРИФТИ
+   ТИМЧАСОВІ КОРИСТУВАЦЬКІ ШРИФТИ
 ========================================================= */
 
 async function loadFont(file){
@@ -2571,7 +2682,7 @@ async function loadFont(file){
             ]
             .some(
                 option =>
-                    option.textContent
+                    option.value
                     ===
                     name
             )
@@ -2605,34 +2716,64 @@ async function loadFont(file){
         );
 
 
-        const option =
+        let temporaryGroup =
+        document.getElementById(
+            "temporaryFonts"
+        );
+
+
+        if(
+            !temporaryGroup
+        ){
+
+            temporaryGroup =
             document.createElement(
-                "option"
+                "optgroup"
             );
 
 
+            temporaryGroup.id =
+            "temporaryFonts";
+
+
+            temporaryGroup.label =
+            "ТИМЧАСОВО ДОДАНІ";
+
+
+            $("fontSelect")
+            .appendChild(
+                temporaryGroup
+            );
+        }
+
+
+        const option =
+        document.createElement(
+            "option"
+        );
+
+
         option.value =
-            name;
+        name;
 
         option.textContent =
-            name;
+        name;
 
 
-        $("fontSelect")
-        .appendChild(
+        temporaryGroup.appendChild(
             option
         );
 
 
         $("fontSelect").value =
-            name;
+        name;
 
 
         customFontCount++;
 
 
         $("fontCount").textContent =
-            `Власних шрифтів: ${customFontCount}`;
+            `Тимчасово доданих шрифтів: ${customFontCount}`;
 
 
         await document.fonts.ready;
@@ -2681,7 +2822,7 @@ $("fontFiles")
 
 
 /* =========================================================
-   ЗБЕРЕЖЕННЯ ВИДІЛЕННЯ
+   ВИДІЛЕННЯ ТЕКСТУ
 ========================================================= */
 
 const textInput =
@@ -2730,12 +2871,6 @@ textInput.addEventListener(
 );
 
 
-/*
-   Ключовий момент:
-   кнопка НЕ забирає фокус,
-   тому виділення не зникає.
-*/
-
 [
     "moveStartButton",
     "moveNewLineButton"
@@ -2768,12 +2903,6 @@ function getSelectedFragment(){
     let end =
     textInput.selectionEnd;
 
-
-    /*
-       Якщо браузер усе ж втратив
-       поточне виділення —
-       беремо останнє збережене.
-    */
 
     if(
         start === end
@@ -2863,12 +2992,6 @@ $("moveNewLineButton")
         textInput.value;
 
 
-        /*
-           Забираємо пробіли,
-           які стояли безпосередньо
-           перед виділеним словом.
-        */
-
         let before =
         original.slice(
             0,
@@ -2883,10 +3006,6 @@ $("moveNewLineButton")
         );
 
 
-        /*
-           Виділений текст.
-        */
-
         const selected =
         info.text
         .replace(
@@ -2899,22 +3018,11 @@ $("moveNewLineButton")
         );
 
 
-        /*
-           Усе, що стояло після нього,
-           залишається разом із ним
-           на новому рядку.
-        */
-
         let after =
         original.slice(
             info.end
         );
 
-
-        /*
-           Якщо після слова був пробіл,
-           залишаємо один нормальний пробіл.
-        */
 
         if(
             /^[ \t]+/.test(after)
@@ -2929,12 +3037,6 @@ $("moveNewLineButton")
             );
         }
 
-
-        /*
-           Якщо перед виділеним текстом
-           уже стоїть Enter —
-           другого не додаємо.
-        */
 
         const separator =
         before.endsWith("\n")
@@ -2960,11 +3062,6 @@ $("moveNewLineButton")
         after;
 
 
-        /*
-           Показуємо користувачці,
-           куди саме перемістився фрагмент.
-        */
-
         textInput.focus();
 
 
@@ -2988,7 +3085,7 @@ $("moveNewLineButton")
 
 
 /* =========================================================
-   НА ПОЧАТОК ПОТОЧНОГО РЯДКА
+   НА ПОЧАТОК РЯДКА
 ========================================================= */
 
 $("moveStartButton")
@@ -3004,11 +3101,6 @@ $("moveStartButton")
             return;
         }
 
-
-        /*
-           Для цієї дії виділення
-           має бути всередині одного рядка.
-        */
 
         if(
             info.text.includes("\n")
@@ -3115,10 +3207,6 @@ $("moveStartButton")
         );
 
 
-        /*
-           Решта старого рядка.
-        */
-
         let rest =
         beforeSelected;
 
@@ -3147,12 +3235,6 @@ $("moveStartButton")
         rest =
         rest.trim();
 
-
-        /*
-           Новий рядок:
-           спочатку виділене слово,
-           потім решта.
-        */
 
         const newLine =
         selected
@@ -3201,7 +3283,7 @@ $("moveStartButton")
 
 
 /* =========================================================
-   РЕЖИМ
+   РЕЖИМ ПОЛОТНА
 ========================================================= */
 
 async function applyMode(){
@@ -3272,11 +3354,6 @@ $("textInput")
     "input",
     ()=>{
 
-        /*
-           Після ручного редагування
-           старе виділення більше не використовуємо.
-        */
-
         savedSelection.start =
         textInput.selectionStart;
 
@@ -3301,11 +3378,6 @@ $("textInput")
     }
 );
 
-
-/*
-   Ручна зміна розміру
-   вимикає автоматичний режим.
-*/
 
 $("fontSize")
 .addEventListener(
@@ -3404,7 +3476,15 @@ $("fontSize")
 $("fontSelect")
 .addEventListener(
     "change",
-    fitText
+    async ()=>{
+
+        await document.fonts.load(
+            `78px "${$("fontSelect").value}"`
+        );
+
+
+        await fitText();
+    }
 );
 
 
@@ -3449,10 +3529,14 @@ $("fitButton")
 $("resetButton")
 .addEventListener(
     "click",
-    ()=>{
+    async ()=>{
 
         $("textInput").value =
         "Люблю Україну!";
+
+
+        $("fontSelect").value =
+        "Propysy";
 
 
         $("backgroundMode").value =
@@ -3476,7 +3560,7 @@ $("resetButton")
 
 
         $("fontSize").value =
-        72;
+        78;
 
 
         $("lineHeight").value =
@@ -3515,7 +3599,12 @@ $("resetButton")
         0;
 
 
-        applyMode();
+        await document.fonts.load(
+            '78px "Propysy"'
+        );
+
+
+        await applyMode();
     }
 );
 
@@ -3527,7 +3616,10 @@ $("resetButton")
 $("downloadButton")
 .addEventListener(
     "click",
-    ()=>{
+    async ()=>{
+
+        await document.fonts.ready;
+
 
         render();
 
@@ -3557,7 +3649,40 @@ $("downloadButton")
    СТАРТ
 ========================================================= */
 
-applyMode();
+async function startStudio(){
+
+    /*
+       Спочатку чекаємо саме Propysy,
+       а вже потім малюємо Canvas.
+       Так при першому відкритті
+       не повинно мигати системним шрифтом.
+    */
+
+    try{
+
+        await document.fonts.load(
+            '78px "Propysy"'
+        );
+
+    }
+
+    catch(error){
+
+        console.warn(
+            "Propysy ще не завантажився:",
+            error
+        );
+    }
+
+
+    await document.fonts.ready;
+
+
+    await applyMode();
+}
+
+
+startStudio();
 
 </script>
 
