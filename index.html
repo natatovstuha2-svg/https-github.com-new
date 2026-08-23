@@ -7,6 +7,11 @@
 <title>Студія декоративного тексту — Н. С. Товстуха</title>
 
 <style>
+
+/* =========================================================
+   БАЗА
+========================================================= */
+
 *{
     box-sizing:border-box;
 }
@@ -27,23 +32,24 @@ body{
 
 
 /* =========================================================
-   ШАПКА-ПЛАШКА
+   КОМПАКТНА ПРЕМІАЛЬНА ШАПКА
 ========================================================= */
 
 .site-header{
-    height:118px;
+    height:122px;
+
     position:relative;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:14px 32px 14px 38px;
+    padding:14px 30px 14px 38px;
 
     background:
         radial-gradient(
-            circle at 70% 40%,
-            rgba(26,91,139,.22),
+            circle at 72% 40%,
+            rgba(28,100,151,.20),
             transparent 34%
         ),
         linear-gradient(
@@ -61,20 +67,20 @@ body{
 
     overflow:hidden;
 
-    z-index:10;
+    z-index:20;
 }
 
 
-/* тонкий золотий акцент */
+/* тонка золота лінія */
 
 .site-header::after{
     content:"";
 
     position:absolute;
 
-    left:35px;
-    right:35px;
-    bottom:8px;
+    left:34px;
+    right:34px;
+    bottom:7px;
 
     height:1px;
 
@@ -82,30 +88,28 @@ body{
         linear-gradient(
             90deg,
             transparent,
-            rgba(235,196,102,.30),
+            rgba(235,196,102,.28),
             rgba(244,213,133,.78),
-            rgba(235,196,102,.30),
+            rgba(235,196,102,.28),
             transparent
         );
 }
 
 
 /* =========================================================
-   ТЕКСТ ШАПКИ
+   ЛІВА ЧАСТИНА ШАПКИ
 ========================================================= */
 
 .header-copy{
     position:relative;
-    z-index:3;
-
+    z-index:5;
     min-width:0;
 }
 
 .kicker{
     margin-bottom:3px;
 
-    color:
-        rgba(232,243,251,.82);
+    color:rgba(232,243,251,.82);
 
     font-size:10px;
 
@@ -113,7 +117,6 @@ body{
 
     text-transform:uppercase;
 }
-
 
 .site-title{
     margin:0;
@@ -124,7 +127,7 @@ body{
         serif;
 
     font-size:
-        clamp(27px,2.65vw,43px);
+        clamp(28px,2.65vw,43px);
 
     font-weight:700;
 
@@ -137,7 +140,7 @@ body{
             180deg,
             #fff2bf 0%,
             #f0cf78 28%,
-            #d09b3a 55%,
+            #d09b3a 54%,
             #a96e1d 72%,
             #f4d988 100%
         );
@@ -165,54 +168,57 @@ body{
 
     gap:8px;
 
-    margin-top:6px;
+    margin-top:7px;
 }
 
 .author-label{
-    color:
-        rgba(255,255,255,.62);
+    color:rgba(255,255,255,.60);
 
     font-size:10px;
 }
 
-
 .author-signature{
     display:inline-block;
 
+    /*
+       Компактний рукописний характер.
+       Segoe Print добре працює з кирилицею.
+    */
+
     font-family:
         "Segoe Print",
+        "Segoe Script",
         "Bradley Hand",
-        "Comic Sans MS",
         cursive;
 
-    font-size:24px;
+    font-size:25px;
 
     font-weight:600;
 
     line-height:1;
 
-    letter-spacing:-1.4px;
+    letter-spacing:-1.7px;
 
     transform:
         skew(-7deg)
-        scaleX(.88);
+        scaleX(.91);
 
     transform-origin:left center;
 
     background:
         linear-gradient(
             105deg,
-            #a86d1c 0%,
-            #dba744 20%,
-            #ffe8a3 38%,
-            #fff4c7 46%,
-            #d89c32 58%,
-            #f1cc6d 78%,
-            #a76a19 100%
+            #9c6217 0%,
+            #dca847 19%,
+            #f0ca68 31%,
+            #fff2b6 43%,
+            #fff8dc 48%,
+            #d89c32 60%,
+            #f0cc6d 78%,
+            #9d6318 100%
         );
 
-    background-size:
-        260% 100%;
+    background-size:280% 100%;
 
     -webkit-background-clip:text;
     background-clip:text;
@@ -222,28 +228,27 @@ body{
     filter:
         drop-shadow(
             0 1px 0
-            rgba(255,240,178,.32)
+            rgba(255,242,185,.48)
         )
         drop-shadow(
             0 3px 2px
-            rgba(0,0,0,.26)
+            rgba(0,0,0,.28)
+        )
+        drop-shadow(
+            1px 1px 0
+            rgba(158,99,23,.45)
         );
 
     animation:
-        signatureShine 7.5s
+        signatureShine
+        8s
         ease-in-out
         infinite;
 }
 
-
-/* повільний делікатний перелив */
-
 @keyframes signatureShine{
 
-    0%{
-        background-position:110% 50%;
-    }
-
+    0%,
     38%{
         background-position:110% 50%;
     }
@@ -259,211 +264,188 @@ body{
 
 
 /* =========================================================
-   ПРАВА ЧАСТИНА ШАПКИ
+   ПРАВА КОМПОЗИЦІЯ ШАПКИ
 ========================================================= */
 
 .header-visual{
     position:relative;
 
-    flex:0 0 auto;
+    flex:0 0 500px;
 
-    width:380px;
-    height:100px;
+    width:500px;
+    height:112px;
 
-    z-index:2;
-}
-
-
-/* Справжні книги.
-   Коли teacher-books.png з'явиться в GitHub,
-   картинка підтягнеться автоматично.
-*/
-
-.books-image{
-    position:absolute;
-
-    right:4px;
-    bottom:-23px;
-
-    width:250px;
-    height:auto;
-
-    object-fit:contain;
-
-    filter:
-        drop-shadow(
-            0 9px 12px
-            rgba(0,0,0,.23)
-        );
+    z-index:3;
 
     pointer-events:none;
 }
 
 
 /* =========================================================
-   ПРЕМІАЛЬНА РУЧКА
+   ВПІЗНАВАНІ КНИГИ
 ========================================================= */
 
-.pen{
+.books-image{
     position:absolute;
 
-    right:164px;
-    top:29px;
+    right:-4px;
+    bottom:-27px;
 
-    width:205px;
-    height:14px;
+    height:118px;
+    width:auto;
 
-    border-radius:10px;
+    object-fit:contain;
 
-    transform:
-        rotate(-8deg);
-
-    background:
-        linear-gradient(
-            180deg,
-            #02070b 0%,
-            #193c58 22%,
-            #071927 58%,
-            #020609 100%
+    filter:
+        drop-shadow(
+            0 8px 10px
+            rgba(0,0,0,.24)
         );
 
-    border:
-        1px solid #c99736;
+    z-index:2;
+}
 
-    box-shadow:
-        0 7px 12px
-        rgba(0,0,0,.28),
-        inset 0 1px 2px
-        rgba(255,255,255,.28);
+
+/* =========================================================
+   БЛОКНОТ
+========================================================= */
+
+.notebook-image{
+    position:absolute;
+
+    right:205px;
+    bottom:-17px;
+
+    height:103px;
+    width:auto;
+
+    object-fit:contain;
+
+    transform-origin:
+        25% 74%;
+
+    filter:
+        drop-shadow(
+            0 8px 9px
+            rgba(0,0,0,.22)
+        );
+
+    z-index:1;
 
     animation:
-        penFloat 6s
+        notebookMove
+        8s
         ease-in-out
         infinite;
 }
 
 
-/* золотий наконечник */
+/*
+   Поки маємо одне PNG.
+   Тому це делікатна ілюзія руху обкладинки.
+   Справжнє гортання зробимо окремими шарами сторінок.
+*/
 
-.pen::before{
-    content:"";
+@keyframes notebookMove{
 
-    position:absolute;
-
-    right:-41px;
-    top:-1px;
-
-    width:48px;
-    height:14px;
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 50%,
-            0 100%
-        );
-
-    background:
-        linear-gradient(
-            90deg,
-            #a76c19,
-            #e1b34f 35%,
-            #fff0ae 55%,
-            #b77a21
-        );
-}
-
-
-/* ковзний відблиск */
-
-.pen::after{
-    content:"";
-
-    position:absolute;
-
-    left:8px;
-    top:2px;
-
-    width:55px;
-    height:3px;
-
-    border-radius:3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,237,175,.92),
-            transparent
-        );
-
-    animation:
-        penGlow 5.5s
-        ease-in-out
-        infinite;
-}
-
-
-@keyframes penFloat{
-
-    0%,100%{
+    0%,
+    25%,
+    100%{
         transform:
-            translateY(0)
-            rotate(-8deg);
+            perspective(700px)
+            rotateY(0deg)
+            rotateZ(-2deg);
     }
 
-    50%{
+    45%{
         transform:
-            translateY(-3px)
-            rotate(-7.5deg);
-    }
-}
-
-
-@keyframes penGlow{
-
-    0%,40%{
-        left:8px;
-        opacity:0;
-    }
-
-    48%{
-        opacity:.95;
+            perspective(700px)
+            rotateY(-5deg)
+            rotateZ(-1deg);
     }
 
     65%{
-        left:138px;
-        opacity:.75;
-    }
-
-    78%,100%{
-        left:138px;
-        opacity:0;
+        transform:
+            perspective(700px)
+            rotateY(0deg)
+            rotateZ(-2deg);
     }
 }
 
 
 /* =========================================================
-   ОСНОВНА РОБОЧА ЧАСТИНА
+   СПРАВЖНЯ PNG-РУЧКА
+========================================================= */
+
+.pen-image{
+    position:absolute;
+
+    right:103px;
+    top:7px;
+
+    height:97px;
+    width:auto;
+
+    object-fit:contain;
+
+    z-index:5;
+
+    transform:
+        rotate(-6deg);
+
+    transform-origin:center center;
+
+    filter:
+        drop-shadow(
+            0 8px 9px
+            rgba(0,0,0,.30)
+        );
+
+    animation:
+        penFloat
+        6.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes penFloat{
+
+    0%,
+    100%{
+        transform:
+            translateY(0)
+            rotate(-6deg);
+    }
+
+    50%{
+        transform:
+            translateY(-3px)
+            rotate(-5deg);
+    }
+}
+
+
+/* =========================================================
+   ОСНОВНА ЗОНА
 ========================================================= */
 
 .app{
     height:
         calc(
-            100vh - 118px
+            100vh - 122px
         );
 
     display:grid;
 
     grid-template-columns:
-        385px 1fr;
+        390px 1fr;
 
     overflow:hidden;
 }
 
 
 /* =========================================================
-   ЛІВА ПАНЕЛЬ
+   ЛІВА РОБОЧА ПАНЕЛЬ
 ========================================================= */
 
 .panel{
@@ -480,14 +462,18 @@ body{
         linear-gradient(
             180deg,
             #0a3459 0%,
-            #0e4e7b 100%
+            #0e4f7c 100%
         );
 
     border-right:
         1px solid
         rgba(255,255,255,.18);
-}
 
+    scrollbar-width:thin;
+    scrollbar-color:
+        rgba(255,215,122,.55)
+        rgba(255,255,255,.07);
+}
 
 .panel-title{
     margin:0;
@@ -502,7 +488,6 @@ body{
     font-size:19px;
 }
 
-
 .panel-subtitle{
     margin-top:3px;
     margin-bottom:13px;
@@ -514,13 +499,12 @@ body{
 
 
 /* =========================================================
-   ФОРМИ
+   ПОЛЯ
 ========================================================= */
 
 .field{
     margin-top:12px;
 }
-
 
 label{
     display:block;
@@ -531,7 +515,6 @@ label{
 
     font-weight:700;
 }
-
 
 textarea,
 select,
@@ -554,9 +537,8 @@ input[type="file"]{
     outline:none;
 }
 
-
 textarea{
-    min-height:75px;
+    min-height:76px;
 
     resize:vertical;
 
@@ -565,17 +547,14 @@ textarea{
     line-height:1.4;
 }
 
-
 select option{
     color:#10243a;
     background:#fff;
 }
 
-
 input[type="range"]{
     width:100%;
 }
-
 
 input[type="color"]{
     width:100%;
@@ -589,7 +568,6 @@ input[type="color"]{
     background:transparent;
 }
 
-
 .two{
     display:grid;
 
@@ -598,7 +576,6 @@ input[type="color"]{
 
     gap:9px;
 }
-
 
 .small{
     margin-top:5px;
@@ -609,7 +586,6 @@ input[type="color"]{
 
     opacity:.76;
 }
-
 
 .check{
     display:flex;
@@ -623,6 +599,59 @@ input[type="color"]{
     font-size:11.5px;
 
     font-weight:600;
+}
+
+
+/* =========================================================
+   РОЗМІР ШРИФТУ — АКЦЕНТНИЙ БЛОК
+========================================================= */
+
+.size-box{
+    margin-top:12px;
+
+    padding:10px;
+
+    border-radius:11px;
+
+    border:
+        1px solid
+        rgba(234,201,116,.36);
+
+    background:
+        rgba(234,201,116,.07);
+}
+
+.size-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:6px;
+}
+
+.size-title strong{
+    font-size:12.5px;
+}
+
+.size-value{
+    padding:3px 8px;
+
+    border-radius:14px;
+
+    color:#ffe8a5;
+
+    background:
+        rgba(234,201,116,.13);
+
+    border:
+        1px solid
+        rgba(234,201,116,.28);
+
+    font-size:11px;
+
+    font-weight:800;
 }
 
 
@@ -646,7 +675,6 @@ input[type="color"]{
     cursor:pointer;
 }
 
-
 .button-main{
     color:#0a3559;
 
@@ -661,7 +689,6 @@ input[type="color"]{
         );
 }
 
-
 .button-alt{
     color:white;
 
@@ -673,7 +700,6 @@ input[type="color"]{
         rgba(255,255,255,.08);
 }
 
-
 .text-tools{
     display:grid;
 
@@ -684,7 +710,6 @@ input[type="color"]{
 
     margin-top:7px;
 }
-
 
 .mini-button{
     padding:7px 4px;
@@ -709,7 +734,7 @@ input[type="color"]{
 
 
 /* =========================================================
-   РОБОЧА ЗОНА
+   ПРАВА РОБОЧА ЗОНА
 ========================================================= */
 
 .workspace{
@@ -729,7 +754,6 @@ input[type="color"]{
     background:#e9f3fa;
 }
 
-
 .canvas-wrap{
     width:
         min(
@@ -737,7 +761,6 @@ input[type="color"]{
             100%
         );
 }
-
 
 canvas{
     width:100%;
@@ -759,7 +782,6 @@ canvas{
         rgba(26,70,102,.14);
 }
 
-
 .help{
     margin-top:7px;
 
@@ -772,10 +794,10 @@ canvas{
 
 
 /* =========================================================
-   МОБІЛЬНА ВЕРСІЯ
+   МОБІЛЬНО
 ========================================================= */
 
-@media(max-width:920px){
+@media(max-width:980px){
 
     body{
         overflow:auto;
@@ -783,7 +805,7 @@ canvas{
 
     .site-header{
         height:auto;
-        min-height:105px;
+        min-height:108px;
     }
 
     .header-visual{
@@ -792,7 +814,10 @@ canvas{
 
     .app{
         height:auto;
-        grid-template-columns:1fr;
+
+        grid-template-columns:
+            1fr;
+
         overflow:visible;
     }
 
@@ -818,18 +843,15 @@ canvas{
 
 <header class="site-header">
 
-
 <div class="header-copy">
 
 <div class="kicker">
 Авторська онлайн-студія
 </div>
 
-
 <h1 class="site-title">
 Студія декоративного тексту
 </h1>
-
 
 <div class="author-row">
 
@@ -848,26 +870,25 @@ canvas{
 
 <div class="header-visual">
 
-
-<!--
-Коли завантажите teacher-books.png
-поруч із index.html,
-книги з'являться самі.
--->
+<img
+    src="premium-notebook.png"
+    class="notebook-image"
+    alt=""
+>
 
 <img
     src="teacher-books.png"
     class="books-image"
     alt=""
-    onerror="this.style.display='none'"
 >
 
-
-<div class="pen"></div>
-
+<img
+    src="luxury-pen.png"
+    class="pen-image"
+    alt=""
+>
 
 </div>
-
 
 </header>
 
@@ -886,14 +907,14 @@ canvas{
 Майстерня напису
 </h2>
 
-
 <div class="panel-subtitle">
 Каліграфія • зошитові режими • декоративний текст
 </div>
 
 
-
-<!-- ТЕКСТ -->
+<!-- =====================================================
+     ТЕКСТ
+===================================================== -->
 
 <div class="field">
 
@@ -929,14 +950,15 @@ canvas{
 
 
 <div class="small">
-Виділіть слово у полі тексту й оберіть дію.
+Виділіть слово в полі й оберіть потрібну дію.
 </div>
 
 </div>
 
 
-
-<!-- ШРИФТИ -->
+<!-- =====================================================
+     ШРИФТ
+===================================================== -->
 
 <div class="field">
 
@@ -972,7 +994,6 @@ Times New Roman
 </div>
 
 
-
 <div class="field">
 
 <label for="fontFiles">
@@ -988,8 +1009,62 @@ Times New Roman
 </div>
 
 
+<!-- =====================================================
+     РОЗМІР — ТЕПЕР ОДРАЗУ ВИДНО
+===================================================== -->
 
-<!-- ПЛОЩИНА -->
+<div class="size-box">
+
+<div class="size-title">
+
+<strong>
+Розмір шрифту
+</strong>
+
+<span
+    class="size-value"
+    id="sizeValue">
+
+72 px
+
+</span>
+
+</div>
+
+<input
+    id="fontSize"
+    type="range"
+    min="20"
+    max="220"
+    value="72">
+
+</div>
+
+
+<label class="check">
+
+<input
+    type="checkbox"
+    id="autoNotebookSize"
+    checked>
+
+Автоматичний розмір під рядок
+
+</label>
+
+
+<button
+    class="button button-main"
+    id="fitButton">
+
+Вписати текст автоматично
+
+</button>
+
+
+<!-- =====================================================
+     ПЛОЩИНА
+===================================================== -->
 
 <div class="field">
 
@@ -999,8 +1074,12 @@ Times New Roman
 
 <select id="backgroundMode">
 
-<option value="slant" selected>
+<option
+    value="slant"
+    selected>
+
 Зошит — коса лінія
+
 </option>
 
 <option value="wide">
@@ -1032,7 +1111,6 @@ Times New Roman
 </div>
 
 
-
 <label class="check">
 
 <input
@@ -1045,23 +1123,11 @@ Times New Roman
 </label>
 
 
-<label class="check">
-
-<input
-    type="checkbox"
-    id="autoNotebookSize"
-    checked>
-
-Автоматичний розмір під рядок
-
-</label>
-
-
-
-<!-- ПОЗИЦІЯ -->
+<!-- =====================================================
+     РОЗТАШУВАННЯ
+===================================================== -->
 
 <div class="two">
-
 
 <div class="field">
 
@@ -1071,8 +1137,12 @@ Times New Roman
 
 <select id="alignment">
 
-<option value="left" selected>
+<option
+    value="left"
+    selected>
+
 Ліворуч
+
 </option>
 
 <option value="center">
@@ -1091,8 +1161,8 @@ Times New Roman
 <div class="field">
 
 <label>
-Рядок:
-<span id="rowValue">2</span>
+Робочий рядок:
+<span id="rowValue">1</span>
 </label>
 
 <input
@@ -1100,13 +1170,11 @@ Times New Roman
     type="range"
     min="1"
     max="5"
-    value="2">
+    value="1">
 
 </div>
 
-
 </div>
-
 
 
 <div class="field">
@@ -1126,36 +1194,26 @@ Times New Roman
 </div>
 
 
-
-<!-- РОЗМІР -->
-
-<button
-    class="button button-main"
-    id="fitButton">
-
-Вписати текст автоматично
-
-</button>
-
-
-
 <div class="field">
 
 <label>
-Розмір:
-<span id="sizeValue">72</span> px
+Максимальна ширина:
+<span id="widthValue">88</span>%
 </label>
 
 <input
-    id="fontSize"
+    id="textWidth"
     type="range"
-    min="20"
-    max="260"
-    value="72">
+    min="45"
+    max="96"
+    value="88">
 
 </div>
 
 
+<!-- =====================================================
+     ІНТЕРВАЛ
+===================================================== -->
 
 <div class="field">
 
@@ -1182,11 +1240,11 @@ Times New Roman
 </div>
 
 
-
-<!-- ВИГЛЯД -->
+<!-- =====================================================
+     ВИГЛЯД
+===================================================== -->
 
 <div class="two">
-
 
 <div class="field">
 
@@ -1226,9 +1284,7 @@ Times New Roman
 
 </div>
 
-
 </div>
-
 
 
 <label class="check">
@@ -1253,7 +1309,6 @@ Times New Roman
 </label>
 
 
-
 <button
     class="button button-main"
     id="downloadButton">
@@ -1275,12 +1330,13 @@ Times New Roman
 </aside>
 
 
+<!-- =========================================================
+     ПОЛОТНО
+========================================================= -->
 
 <main class="workspace">
 
-
 <div class="canvas-wrap">
-
 
 <canvas
     id="canvas"
@@ -1288,20 +1344,15 @@ Times New Roman
     height="900">
 </canvas>
 
-
 <div class="help">
-У зошитових режимах запис автоматично сідає на робочий рядок.
+У зошитовому режимі напис автоматично сідає на робочий рядок.
 </div>
 
-
 </div>
-
 
 </main>
 
-
 </div>
-
 
 
 <script>
@@ -1323,30 +1374,42 @@ let customFontCount = 0;
 
 
 /* =========================================================
-   ПАРАМЕТРИ ЗОШИТА
+   НАЛАШТУВАННЯ ЗОШИТА
 ========================================================= */
 
 const notebook = {
 
     slant:{
         marginX:145,
+
+        /*
+          Перший верхній робочий рядок.
+        */
         firstBaseline:176,
+
         rowGap:146,
-        letterHeight:66
+
+        /*
+          Не використовуємо жорстко
+          actualBoundingBox для автозменшення,
+          бо деякі рукописні OTF мають
+          нетипові метрики.
+        */
+        autoFontSize:72
     },
 
     wide:{
         marginX:145,
         firstBaseline:168,
         rowGap:112,
-        letterHeight:76
+        autoFontSize:78
     },
 
     grid:{
         marginX:145,
         firstBaseline:156,
         rowGap:104,
-        letterHeight:70
+        autoFontSize:72
     }
 
 };
@@ -1368,7 +1431,7 @@ function isNotebookMode(){
 
 
 /* =========================================================
-   ДОПОМІЖНА ЛІНІЯ
+   ЛІНІЯ
 ========================================================= */
 
 function horizontalLine(y){
@@ -1390,8 +1453,7 @@ function horizontalLine(y){
 
 
 /* =========================================================
-   КОСА ЛІНІЯ
-   наближена до справжнього шкільного зошита
+   ЗОШИТ — КОСА ЛІНІЯ
 ========================================================= */
 
 function drawSlantNotebook(){
@@ -1410,10 +1472,12 @@ function drawSlantNotebook(){
     ctx.save();
 
 
-    /* похилі напрямні */
+    /*
+       Похилі напрямні.
+    */
 
     ctx.strokeStyle =
-    "rgba(40,190,225,.42)";
+    "rgba(39,188,224,.43)";
 
     ctx.lineWidth =
     1.7;
@@ -1446,24 +1510,20 @@ function drawSlantNotebook(){
 
 
     /*
-      У кожному рядку:
-      верхня межа,
-      дві тонші допоміжні,
-      базова лінія.
+       Група робочого рядка:
+       верхня межа,
+       дві тонші допоміжні,
+       базова.
     */
 
     for(
-        let base =
-            cfg.firstBaseline;
-        base <
-            canvas.height + cfg.rowGap;
+        let base = cfg.firstBaseline;
+        base < canvas.height + cfg.rowGap;
         base += cfg.rowGap
     ){
 
-        /* верхня */
-
         ctx.strokeStyle =
-        "rgba(34,182,220,.55)";
+        "rgba(35,181,219,.56)";
 
         ctx.lineWidth =
         1.8;
@@ -1473,10 +1533,8 @@ function drawSlantNotebook(){
         );
 
 
-        /* допоміжна 1 */
-
         ctx.strokeStyle =
-        "rgba(34,182,220,.31)";
+        "rgba(35,181,219,.31)";
 
         ctx.lineWidth =
         1.25;
@@ -1485,18 +1543,13 @@ function drawSlantNotebook(){
             base - 43
         );
 
-
-        /* допоміжна 2 */
-
         horizontalLine(
             base - 22
         );
 
 
-        /* базова */
-
         ctx.strokeStyle =
-        "rgba(34,182,220,.60)";
+        "rgba(35,181,219,.62)";
 
         ctx.lineWidth =
         1.8;
@@ -1507,10 +1560,12 @@ function drawSlantNotebook(){
     }
 
 
-    /* рожеве поле */
+    /*
+       Рожеве поле.
+    */
 
     ctx.strokeStyle =
-    "rgba(225,43,145,.82)";
+    "rgba(224,42,145,.82)";
 
     ctx.lineWidth =
     2.6;
@@ -1535,7 +1590,7 @@ function drawSlantNotebook(){
 
 
 /* =========================================================
-   ШИРОКА ЛІНІЯ
+   ЗОШИТ — ШИРОКА ЛІНІЯ
 ========================================================= */
 
 function drawWideNotebook(){
@@ -1566,8 +1621,7 @@ function drawWideNotebook(){
 
 
     for(
-        let y =
-            cfg.firstBaseline;
+        let y = cfg.firstBaseline;
         y < canvas.height;
         y += cfg.rowGap
     ){
@@ -1577,7 +1631,7 @@ function drawWideNotebook(){
 
 
     ctx.strokeStyle =
-    "rgba(225,43,145,.72)";
+    "rgba(224,42,145,.72)";
 
     ctx.lineWidth =
     2.6;
@@ -1602,7 +1656,7 @@ function drawWideNotebook(){
 
 
 /* =========================================================
-   КЛІТИНКА
+   ЗОШИТ — КЛІТИНКА
 ========================================================= */
 
 function drawGridNotebook(){
@@ -1665,7 +1719,7 @@ function drawGridNotebook(){
 
 
     ctx.strokeStyle =
-    "rgba(225,43,145,.72)";
+    "rgba(224,42,145,.72)";
 
     ctx.lineWidth =
     2.6;
@@ -1690,7 +1744,7 @@ function drawGridNotebook(){
 
 
 /* =========================================================
-   ІНШІ ФОНИ
+   ФОНИ
 ========================================================= */
 
 function drawBackground(){
@@ -1710,7 +1764,9 @@ function drawBackground(){
     if(
         mode === "slant"
     ){
+
         drawSlantNotebook();
+
         return;
     }
 
@@ -1718,7 +1774,9 @@ function drawBackground(){
     if(
         mode === "wide"
     ){
+
         drawWideNotebook();
+
         return;
     }
 
@@ -1726,7 +1784,9 @@ function drawBackground(){
     if(
         mode === "grid"
     ){
+
         drawGridNotebook();
+
         return;
     }
 
@@ -1872,59 +1932,46 @@ function getLines(){
 function setCanvasFont(size){
 
     ctx.font =
-    `${size}px "${$("fontSelect").value}"`;
+        `${size}px "${$("fontSelect").value}"`;
 
     ctx.textBaseline =
-    "alphabetic";
+        "alphabetic";
 }
 
 
-function metricsFor(
+function textWidth(
     text,
     size
 ){
 
     setCanvasFont(size);
 
-    const m =
-    ctx.measureText(
-        text || " "
+    return(
+        ctx.measureText(
+            text || " "
+        ).width
     );
-
-    return{
-
-        width:
-            m.width,
-
-        ascent:
-            m.actualBoundingBoxAscent
-            ||
-            size * .80,
-
-        descent:
-            m.actualBoundingBoxDescent
-            ||
-            size * .22
-    };
 }
 
 
 function widestLine(size){
 
-    let widest = 0;
+    let widest =
+    0;
 
 
     for(
-        const line of getLines()
+        const line
+        of getLines()
     ){
 
         widest =
         Math.max(
             widest,
-            metricsFor(
+            textWidth(
                 line,
                 size
-            ).width
+            )
         );
     }
 
@@ -1934,10 +1981,77 @@ function widestLine(size){
 
 
 /* =========================================================
-   АВТОМАТИЧНА ВИСОТА ПІД РЯДОК
+   ДОСТУПНА ШИРИНА ЗОШИТА
 ========================================================= */
 
-function notebookFontSize(){
+function notebookAvailableWidth(){
+
+    const mode =
+    $("backgroundMode").value;
+
+    const cfg =
+    notebook[mode];
+
+    const align =
+    $("alignment").value;
+
+    const indent =
+    Number(
+        $("leftIndent").value
+    );
+
+
+    if(
+        align === "left"
+    ){
+
+        return(
+            canvas.width
+            -
+            cfg.marginX
+            -
+            indent
+            -
+            65
+        );
+    }
+
+
+    if(
+        align === "right"
+    ){
+
+        return(
+            canvas.width
+            -
+            cfg.marginX
+            -
+            indent
+            -
+            65
+        );
+    }
+
+
+    return(
+        canvas.width
+        *
+        (
+            Number(
+                $("textWidth").value
+            )
+            /
+            100
+        )
+    );
+}
+
+
+/* =========================================================
+   НОВИЙ АВТОРОЗМІР
+========================================================= */
+
+function computeNotebookFontSize(){
 
     const mode =
     $("backgroundMode").value;
@@ -1954,92 +2068,74 @@ function notebookFontSize(){
     }
 
 
-    const indent =
-    Number(
-        $("leftIndent").value
-    );
+    /*
+       Починаємо не з 20 px,
+       а з нормального навчального розміру.
+    */
+
+    let size =
+    cfg.autoFontSize;
 
 
-    const maxWidth =
-        canvas.width
-        -
-        cfg.marginX
-        -
-        indent
-        -
-        80;
+    const available =
+    notebookAvailableWidth();
 
 
-    let best =
-    20;
+    const measured =
+    widestLine(size);
 
 
-    for(
-        let size = 20;
-        size <= 190;
-        size += 2
+    /*
+       Зменшуємо ТІЛЬКИ якщо
+       напис не влазить по ширині.
+    */
+
+    if(
+        measured > available
     ){
 
-        let tallest = 0;
+        const factor =
+        available
+        /
+        measured;
 
 
-        for(
-            const line
-            of getLines()
-        ){
-
-            const m =
-            metricsFor(
-                line,
-                size
-            );
-
-
-            tallest =
-            Math.max(
-                tallest,
-                m.ascent
-                +
-                m.descent
-            );
-        }
-
-
-        const fitsHeight =
-            tallest
-            <=
-            cfg.letterHeight;
-
-
-        const fitsWidth =
-            widestLine(size)
-            <=
-            maxWidth;
-
-
-        if(
-            fitsHeight
-            &&
-            fitsWidth
-        ){
-
-            best =
-            size;
-        }
-
-        else{
-
-            break;
-        }
+        size =
+        Math.floor(
+            size
+            *
+            factor
+            *
+            .96
+        );
     }
 
 
-    return best;
+    /*
+       Не дозволяємо автомату
+       робити мікроскопічний запис.
+    */
+
+    size =
+    Math.max(
+        40,
+        size
+    );
+
+
+    size =
+    Math.min(
+        110,
+        size
+    );
+
+
+    return size;
 }
 
 
 /* =========================================================
-   КОЛІР
+   КОЛІР ТЕКСТУ
 ========================================================= */
 
 function textFill(){
@@ -2055,9 +2151,9 @@ function textFill(){
         const g =
         ctx.createLinearGradient(
             0,
-            240,
+            230,
             0,
-            650
+            660
         );
 
         g.addColorStop(
@@ -2115,12 +2211,14 @@ function textFill(){
     }
 
 
-    return $("fontColor").value;
+    return(
+        $("fontColor").value
+    );
 }
 
 
 /* =========================================================
-   ПОЗИЦІЯ В ЗОШИТІ
+   X У ЗОШИТІ
 ========================================================= */
 
 function notebookX(){
@@ -2182,7 +2280,7 @@ function notebookX(){
 
 
 /* =========================================================
-   ЗОШИТОВИЙ ЗАПИС
+   ТЕКСТ У ЗОШИТІ
 ========================================================= */
 
 function drawNotebookText(){
@@ -2205,7 +2303,8 @@ function drawNotebookText(){
     ){
 
         size =
-        notebookFontSize();
+        computeNotebookFontSize();
+
 
         $("fontSize").value =
         size;
@@ -2238,7 +2337,11 @@ function drawNotebookText(){
     getLines();
 
 
-    const start =
+    /*
+       За замовчуванням — РЯДОК 1.
+    */
+
+    const startIndex =
         Number(
             $("startRow").value
         )
@@ -2256,7 +2359,7 @@ function drawNotebookText(){
             cfg.firstBaseline
             +
             (
-                start + i
+                startIndex + i
             )
             *
             cfg.rowGap;
@@ -2265,20 +2368,16 @@ function drawNotebookText(){
         if(
             baseline
             >
-            canvas.height - 20
+            canvas.height - 18
         ){
 
             break;
         }
 
 
-        const x =
-        notebookX();
-
-
         ctx.fillText(
             lines[i],
-            x,
+            notebookX(),
             baseline
         );
     }
@@ -2313,7 +2412,9 @@ function drawFreeText(){
 
 
     const step =
-        size * ratio;
+        size
+        *
+        ratio;
 
 
     const totalHeight =
@@ -2325,12 +2426,12 @@ function drawFreeText(){
         step;
 
 
-    let x =
-        canvas.width / 2;
-
-
     const align =
     $("alignment").value;
+
+
+    let x =
+    canvas.width / 2;
 
 
     if(
@@ -2348,6 +2449,7 @@ function drawFreeText(){
             );
     }
 
+
     else if(
         align === "right"
     ){
@@ -2364,6 +2466,7 @@ function drawFreeText(){
                 $("leftIndent").value
             );
     }
+
 
     else{
 
@@ -2398,7 +2501,8 @@ function drawFreeText(){
 
 
     for(
-        const line of lines
+        const line
+        of lines
     ){
 
         ctx.fillText(
@@ -2407,13 +2511,14 @@ function drawFreeText(){
             y
         );
 
-        y += step;
+        y +=
+        step;
     }
 }
 
 
 /* =========================================================
-   РЕНДЕР
+   ГОЛОВНИЙ РЕНДЕР
 ========================================================= */
 
 function drawText(){
@@ -2450,7 +2555,9 @@ function render(){
 
 
     $("sizeValue").textContent =
-        $("fontSize").value;
+        $("fontSize").value
+        +
+        " px";
 
 
     $("lineValue").textContent =
@@ -2470,6 +2577,10 @@ function render(){
 
     $("rowValue").textContent =
         $("startRow").value;
+
+
+    $("widthValue").textContent =
+        $("textWidth").value;
 }
 
 
@@ -2489,7 +2600,8 @@ async function fitText(){
     ){
 
         $("fontSize").value =
-            notebookFontSize();
+            computeNotebookFontSize();
+
 
         render();
 
@@ -2498,7 +2610,19 @@ async function fitText(){
 
 
     let size =
-    240;
+    220;
+
+
+    const maximum =
+        canvas.width
+        *
+        (
+            Number(
+                $("textWidth").value
+            )
+            /
+            100
+        );
 
 
     while(
@@ -2508,7 +2632,7 @@ async function fitText(){
         if(
             widestLine(size)
             <=
-            canvas.width * .82
+            maximum
         ){
 
             break;
@@ -2548,11 +2672,11 @@ async function loadFont(file){
 
 
         let name =
-            base;
+        base;
 
 
         let number =
-            2;
+        2;
 
 
         while(
@@ -2631,9 +2755,11 @@ async function loadFont(file){
         await fitText();
     }
 
+
     catch(error){
 
         console.error(error);
+
 
         alert(
             "Не вдалося відкрити шрифт: "
@@ -2661,9 +2787,7 @@ $("fontFiles")
                 )
             ){
 
-                await loadFont(
-                    file
-                );
+                await loadFont(file);
             }
         }
     }
@@ -2677,14 +2801,14 @@ $("fontFiles")
 function getSelection(){
 
     const textarea =
-        $("textInput");
+    $("textInput");
 
 
     const start =
-        textarea.selectionStart;
+    textarea.selectionStart;
 
     const end =
-        textarea.selectionEnd;
+    textarea.selectionEnd;
 
 
     if(
@@ -2700,7 +2824,6 @@ function getSelection(){
 
 
     return{
-
         textarea,
         start,
         end,
@@ -2715,7 +2838,9 @@ function getSelection(){
 }
 
 
-/* На початок поточного рядка */
+/* =========================================================
+   НА ПОЧАТОК ПОТОЧНОГО РЯДКА
+========================================================= */
 
 $("moveStartButton")
 .addEventListener(
@@ -2723,7 +2848,7 @@ $("moveStartButton")
     ()=>{
 
         const info =
-            getSelection();
+        getSelection();
 
 
         if(!info){
@@ -2732,24 +2857,24 @@ $("moveStartButton")
 
 
         const word =
-            info.selected.trim();
+        info.selected.trim();
 
 
         let original =
-            info.textarea.value;
+        info.textarea.value;
 
 
         let before =
-            original.slice(
-                0,
-                info.start
-            );
+        original.slice(
+            0,
+            info.start
+        );
 
 
         let after =
-            original.slice(
-                info.end
-            );
+        original.slice(
+            info.end
+        );
 
 
         if(
@@ -2757,7 +2882,7 @@ $("moveStartButton")
         ){
 
             after =
-                after.slice(1);
+            after.slice(1);
         }
 
         else if(
@@ -2765,56 +2890,68 @@ $("moveStartButton")
         ){
 
             before =
-                before.slice(
-                    0,
-                    -1
-                );
+            before.slice(
+                0,
+                -1
+            );
         }
 
 
         let text =
-            before
-            +
-            after;
+        before
+        +
+        after;
 
 
         let lineStart =
-            text.lastIndexOf(
-                "\n",
-                Math.min(
-                    info.start - 1,
-                    text.length - 1
-                )
+        text.lastIndexOf(
+            "\n",
+            Math.min(
+                info.start - 1,
+                text.length - 1
             )
-            +
-            1;
+        )
+        +
+        1;
 
 
         text =
-            text.slice(
-                0,
-                lineStart
-            )
-            +
-            word
-            +
-            " "
-            +
-            text.slice(
-                lineStart
-            );
+        text.slice(
+            0,
+            lineStart
+        )
+        +
+        word
+        +
+        " "
+        +
+        text.slice(
+            lineStart
+        );
 
 
         info.textarea.value =
-            text;
+        text;
 
 
-        render();
+        if(
+            $("autoNotebookSize").checked
+        ){
+
+            fitText();
+        }
+
+        else{
+
+            render();
+        }
     }
 );
 
 
-/* На новий рядок */
+/* =========================================================
+   НА НОВИЙ РЯДОК
+========================================================= */
 
 $("moveNewLineButton")
 .addEventListener(
@@ -2822,7 +2959,7 @@ $("moveNewLineButton")
     ()=>{
 
         const info =
-            getSelection();
+        getSelection();
 
 
         if(!info){
@@ -2831,20 +2968,20 @@ $("moveNewLineButton")
 
 
         const word =
-            info.selected.trim();
+        info.selected.trim();
 
 
         let before =
-            info.textarea.value.slice(
-                0,
-                info.start
-            );
+        info.textarea.value.slice(
+            0,
+            info.start
+        );
 
 
         let after =
-            info.textarea.value.slice(
-                info.end
-            );
+        info.textarea.value.slice(
+            info.end
+        );
 
 
         if(
@@ -2852,7 +2989,7 @@ $("moveNewLineButton")
         ){
 
             after =
-                after.slice(1);
+            after.slice(1);
         }
 
         else if(
@@ -2860,24 +2997,24 @@ $("moveNewLineButton")
         ){
 
             before =
-                before.slice(
-                    0,
-                    -1
-                );
+            before.slice(
+                0,
+                -1
+            );
         }
 
 
         let text =
-            before
-            +
-            after;
+        before
+        +
+        after;
 
 
         let lineEnd =
-            text.indexOf(
-                "\n",
-                info.start
-            );
+        text.indexOf(
+            "\n",
+            info.start
+        );
 
 
         if(
@@ -2885,36 +3022,46 @@ $("moveNewLineButton")
         ){
 
             lineEnd =
-                text.length;
+            text.length;
         }
 
 
         text =
-            text.slice(
-                0,
-                lineEnd
-            )
-            +
-            "\n"
-            +
-            word
-            +
-            text.slice(
-                lineEnd
-            );
+        text.slice(
+            0,
+            lineEnd
+        )
+        +
+        "\n"
+        +
+        word
+        +
+        text.slice(
+            lineEnd
+        );
 
 
         info.textarea.value =
-            text;
+        text;
 
 
-        render();
+        if(
+            $("autoNotebookSize").checked
+        ){
+
+            fitText();
+        }
+
+        else{
+
+            render();
+        }
     }
 );
 
 
 /* =========================================================
-   ЗМІНА РОБОЧОЇ ПЛОЩИНИ
+   РЕЖИМ ПОЛОТНА
 ========================================================= */
 
 async function applyMode(){
@@ -2931,14 +3078,6 @@ async function applyMode(){
             true;
 
 
-        $("autoNotebookSize").checked =
-            true;
-
-
-        $("shadow").checked =
-            false;
-
-
         $("lineHeight").disabled =
             true;
 
@@ -2947,8 +3086,27 @@ async function applyMode(){
             "Авто за лініями зошита ✓";
 
 
-        await fitText();
+        /*
+           Перший рядок.
+        */
+
+        $("startRow").value =
+            1;
+
+
+        if(
+            $("autoNotebookSize").checked
+        ){
+
+            await fitText();
+        }
+
+        else{
+
+            render();
+        }
     }
+
 
     else{
 
@@ -2973,12 +3131,57 @@ async function applyMode(){
    ПОДІЇ
 ========================================================= */
 
+/*
+   Зміна тексту:
+   якщо працює авто — перераховуємо розмір.
+*/
+
+$("textInput")
+.addEventListener(
+    "input",
+    ()=>{
+
+        if(
+            $("autoNotebookSize").checked
+            &&
+            isNotebookMode()
+        ){
+
+            fitText();
+        }
+
+        else{
+
+            render();
+        }
+    }
+);
+
+
+/*
+   Ручне пересування повзунка розміру
+   автоматично вимикає автопідбір.
+*/
+
+$("fontSize")
+.addEventListener(
+    "input",
+    ()=>{
+
+        $("autoNotebookSize").checked =
+            false;
+
+
+        render();
+    }
+);
+
+
 [
-    "textInput",
-    "fontSize",
     "lineHeight",
     "leftIndent",
     "startRow",
+    "textWidth",
     "fontColor"
 ]
 .forEach(
@@ -2987,7 +3190,28 @@ async function applyMode(){
         $(id)
         .addEventListener(
             "input",
-            render
+            ()=>{
+
+                if(
+                    (
+                        id === "leftIndent"
+                        ||
+                        id === "textWidth"
+                    )
+                    &&
+                    $("autoNotebookSize").checked
+                    &&
+                    isNotebookMode()
+                ){
+
+                    fitText();
+                }
+
+                else{
+
+                    render();
+                }
+            }
         );
     }
 );
@@ -3006,7 +3230,28 @@ async function applyMode(){
         $(id)
         .addEventListener(
             "change",
-            render
+            ()=>{
+
+                if(
+                    (
+                        id === "alignment"
+                        ||
+                        id === "snapLines"
+                    )
+                    &&
+                    $("autoNotebookSize").checked
+                    &&
+                    isNotebookMode()
+                ){
+
+                    fitText();
+                }
+
+                else{
+
+                    render();
+                }
+            }
         );
     }
 );
@@ -3022,7 +3267,20 @@ $("fontSelect")
 $("autoNotebookSize")
 .addEventListener(
     "change",
-    fitText
+    ()=>{
+
+        if(
+            $("autoNotebookSize").checked
+        ){
+
+            fitText();
+        }
+
+        else{
+
+            render();
+        }
+    }
 );
 
 
@@ -3066,7 +3324,11 @@ $("resetButton")
 
 
         $("startRow").value =
-            2;
+            1;
+
+
+        $("textWidth").value =
+            88;
 
 
         $("fontSize").value =
@@ -3119,9 +3381,9 @@ $("downloadButton")
 
 
         const link =
-            document.createElement(
-                "a"
-            );
+        document.createElement(
+            "a"
+        );
 
 
         link.download =
