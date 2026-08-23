@@ -3,455 +3,2330 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Студія декоративного тексту</title>
+
 <style>
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:Segoe UI,Arial,sans-serif;
-    background:linear-gradient(135deg,#eaf7ff,#d7efff 55%,#ffffff);
-    color:#10243a;
-  }
-  .app{
-    min-height:100vh;
-    display:grid;
-    grid-template-columns:380px 1fr;
-  }
-  .panel{
-    background:linear-gradient(180deg,#0c365d,#155b8e);
-    color:white;
-    padding:22px;
-    overflow:auto;
-  }
-  h1{margin:0 0 4px;font-size:22px}
-  .sub{font-size:12px;opacity:.8;margin-bottom:18px}
-  .field{margin-top:14px}
-  label{display:block;font-weight:700;font-size:13px;margin-bottom:6px}
-  textarea,select,input[type=file]{
-    width:100%;
-    border:1px solid rgba(255,255,255,.28);
-    background:rgba(255,255,255,.12);
-    color:white;
-    border-radius:10px;
-    padding:10px;
-    outline:none;
-  }
-  textarea{min-height:95px;resize:vertical}
-  select option{color:#10243a;background:#fff}
-  input[type=range]{width:100%}
-  input[type=color]{width:100%;height:42px;padding:0;border:0;background:transparent}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .check{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:13px;font-weight:600}
-  .btn{
-    width:100%;
-    border:0;
-    border-radius:11px;
-    padding:12px 14px;
-    margin-top:10px;
-    font-weight:800;
-    cursor:pointer;
-  }
-  .btn.main{background:white;color:#0b365c}
-  .btn.alt{background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25)}
-  .small{font-size:11px;opacity:.8;line-height:1.45;margin-top:10px}
-  .workspace{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-  }
-  .canvas-wrap{
-    width:min(1200px,100%);
-  }
-  canvas{
-    width:100%;
-    height:auto;
-    display:block;
-    border-radius:24px;
-    box-shadow:0 24px 60px rgba(28,80,119,.20);
-    background:transparent;
-  }
-  .help{
-    text-align:center;
-    margin-top:10px;
-    font-size:12px;
-    color:#4a6a82;
-  }
-  @media(max-width:900px){
-    .app{grid-template-columns:1fr}
-  }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        linear-gradient(
+            135deg,
+            #eaf7ff,
+            #d7efff 55%,
+            #ffffff
+        );
+
+    color: #10243a;
+}
+
+
+/* ===============================
+   ОСНОВНА СІТКА
+================================ */
+
+.app {
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns:
+        390px
+        1fr;
+}
+
+
+/* ===============================
+   ЛІВА ПАНЕЛЬ
+================================ */
+
+.panel {
+
+    background:
+        linear-gradient(
+            180deg,
+            #0c365d,
+            #155b8e
+        );
+
+    color: white;
+
+    padding: 22px;
+
+    overflow-y: auto;
+}
+
+
+h1 {
+    margin: 0 0 4px;
+
+    font-size: 22px;
+}
+
+
+.subtitle {
+
+    font-size: 12px;
+
+    opacity: .82;
+
+    margin-bottom: 18px;
+}
+
+
+.version {
+
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    margin-bottom: 15px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    font-size: 11px;
+}
+
+
+/* ===============================
+   ПОЛЯ
+================================ */
+
+.field {
+
+    margin-top: 14px;
+}
+
+
+label {
+
+    display: block;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    margin-bottom: 6px;
+}
+
+
+textarea,
+select,
+input[type="file"] {
+
+    width: 100%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.28);
+
+    background:
+        rgba(255,255,255,.12);
+
+    color: white;
+
+    border-radius: 11px;
+
+    padding: 10px;
+
+    outline: none;
+}
+
+
+textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+select option {
+
+    color: #10243a;
+
+    background: white;
+}
+
+
+input[type="range"] {
+
+    width: 100%;
+}
+
+
+input[type="color"] {
+
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+}
+
+
+.two {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.check {
+
+    display: flex;
+
+    gap: 8px;
+
+    align-items: center;
+
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.small {
+
+    font-size: 11px;
+
+    opacity: .80;
+
+    line-height: 1.45;
+
+    margin-top: 7px;
+}
+
+
+/* ===============================
+   КНОПКИ
+================================ */
+
+.button {
+
+    width: 100%;
+
+    border: 0;
+
+    border-radius: 11px;
+
+    padding: 12px 14px;
+
+    margin-top: 10px;
+
+    font-weight: 800;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+.button-main {
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #dceeff
+        );
+
+    color: #0b365c;
+}
+
+
+.button-alt {
+
+    background:
+        rgba(255,255,255,.12);
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+}
+
+
+/* ===============================
+   ПРАВА ЧАСТИНА
+================================ */
+
+.workspace {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 24px;
+}
+
+
+.canvas-wrap {
+
+    width:
+        min(
+            1200px,
+            100%
+        );
+}
+
+
+canvas {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 24px 60px
+        rgba(28,80,119,.20);
+}
+
+
+.help {
+
+    text-align: center;
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    color: #4a6a82;
+}
+
+
+/* ===============================
+   МОБІЛЬНА ВЕРСІЯ
+================================ */
+
+@media (max-width: 900px) {
+
+    .app {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
 </style>
 </head>
+
+
 <body>
+
+
 <div class="app">
 
-<aside class="panel">
-  <h1>Студія декоративного тексту</h1>
-  <div class="sub">Нова стабільна версія — рендер одразу через Canvas</div>
 
-  <div class="field">
-    <label>Ваш текст</label>
-    <textarea id="textInput">День
+<!-- =================================
+     ЛІВА ПАНЕЛЬ
+================================== -->
+
+<aside class="panel">
+
+
+<h1>
+Студія декоративного тексту
+</h1>
+
+
+<div class="subtitle">
+Українські шрифти • каліграфія • PNG
+</div>
+
+
+<div class="version">
+Версія 3 — Canvas
+</div>
+
+
+
+<div class="field">
+
+<label for="textInput">
+Ваш текст
+</label>
+
+<textarea id="textInput">День
 Державного прапора
 України</textarea>
-  </div>
 
-  <div class="field">
-    <label>Шрифт</label>
-    <select id="fontSelect">
-      <option value="Segoe UI">Segoe UI</option>
-      <option value="Georgia">Georgia</option>
-      <option value="Times New Roman">Times New Roman</option>
-    </select>
-    <div class="small" id="fontCount">Власних шрифтів: 0</div>
-  </div>
-
-  <div class="field">
-    <label>Додати власні TTF / OTF / WOFF / WOFF2</label>
-    <input id="fontFiles" type="file" accept=".ttf,.otf,.woff,.woff2" multiple>
-  </div>
-
-  <button class="btn main" id="fitBtn">Вписати текст автоматично</button>
-
-  <div class="field">
-    <label>Розмір: <span id="sizeValue">120</span> px</label>
-    <input id="fontSize" type="range" min="24" max="260" value="120">
-  </div>
-
-  <div class="field">
-    <label>Міжрядковий інтервал: <span id="lineValue">1.12</span></label>
-    <input id="lineHeight" type="range" min="80" max="180" value="112">
-  </div>
-
-  <div class="field">
-    <label>Ширина текстового блока: <span id="widthValue">78</span>%</label>
-    <input id="textWidth" type="range" min="40" max="95" value="78">
-  </div>
-
-  <div class="two">
-    <div class="field">
-      <label>Горизонталь: <span id="xValue">0</span></label>
-      <input id="xPos" type="range" min="-25" max="25" value="0">
-    </div>
-    <div class="field">
-      <label>Вертикаль: <span id="yValue">0</span></label>
-      <input id="yPos" type="range" min="-25" max="25" value="0">
-    </div>
-  </div>
-
-  <div class="two">
-    <div class="field">
-      <label>Колір</label>
-      <input id="fontColor" type="color" value="#ffffff">
-    </div>
-    <div class="field">
-      <label>Тло</label>
-      <select id="bgMode">
-        <option value="sky">Світле небо</option>
-        <option value="dark">Темно-синє</option>
-        <option value="light">Біле</option>
-        <option value="transparent">Прозоре</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="two">
-    <div class="field">
-      <label>Ефект тексту</label>
-      <select id="effect">
-        <option value="plain">Звичайний</option>
-        <option value="gold">Золото</option>
-        <option value="pearl">Перламутр</option>
-      </select>
-    </div>
-    <div class="field">
-      <label>Орнамент</label>
-      <select id="ornament">
-        <option value="none">Без орнаменту</option>
-        <option value="thin">Тонкий розчерк</option>
-        <option value="double">Подвійний розчерк</option>
-      </select>
-    </div>
-  </div>
-
-  <label class="check"><input type="checkbox" id="shadow" checked> М’яка тінь</label>
-  <label class="check"><input type="checkbox" id="glass" checked> Скляна плашка</label>
-
-  <button class="btn main" id="downloadBtn">Зберегти PNG</button>
-  <button class="btn alt" id="resetBtn">Скинути оформлення</button>
-
-  <div class="small">
-    Ця версія не використовує html2canvas. Усе малюється безпосередньо на Canvas, тому власні шрифти та PNG мають працювати стабільніше.
-  </div>
-</aside>
-
-<main class="workspace">
-  <div class="canvas-wrap">
-    <canvas id="canvas" width="1600" height="900"></canvas>
-    <div class="help">Для каліграфічного шрифту після вибору натисніть «Вписати текст автоматично».</div>
-  </div>
-</main>
+<div class="small">
+Переноси рядків залишаються саме там,
+де ви їх поставили.
+</div>
 
 </div>
 
-<script>
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
 
-const el = id => document.getElementById(id);
+
+<div class="field">
+
+<label for="fontSelect">
+Шрифт
+</label>
+
+<select id="fontSelect">
+
+<option value="Segoe UI">
+Segoe UI
+</option>
+
+<option value="Georgia">
+Georgia
+</option>
+
+<option value="Times New Roman">
+Times New Roman
+</option>
+
+</select>
+
+
+<div
+class="small"
+id="fontCount">
+
+Власних шрифтів: 0
+
+</div>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="fontFiles">
+
+Додати власний
+TTF / OTF / WOFF / WOFF2
+
+</label>
+
+<input
+id="fontFiles"
+type="file"
+accept=".ttf,.otf,.woff,.woff2"
+multiple>
+
+</div>
+
+
+
+<button
+class="button button-main"
+id="fitButton">
+
+Вписати текст автоматично
+
+</button>
+
+
+
+<div class="field">
+
+<label>
+
+Розмір:
+<span id="sizeValue">
+120
+</span>
+px
+
+</label>
+
+<input
+id="fontSize"
+type="range"
+min="24"
+max="260"
+value="120">
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+
+Міжрядковий інтервал:
+
+<span id="lineValue">
+1.12
+</span>
+
+</label>
+
+<input
+id="lineHeight"
+type="range"
+min="75"
+max="180"
+value="112">
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+
+Максимальна ширина тексту:
+
+<span id="widthValue">
+78
+</span>%
+
+</label>
+
+<input
+id="textWidth"
+type="range"
+min="40"
+max="95"
+value="78">
+
+</div>
+
+
+
+<div class="two">
+
+
+<div class="field">
+
+<label>
+
+Ліворуч / праворуч:
+
+<span id="xValue">
+0
+</span>
+
+</label>
+
+<input
+id="xPos"
+type="range"
+min="-25"
+max="25"
+value="0">
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+
+Вище / нижче:
+
+<span id="yValue">
+0
+</span>
+
+</label>
+
+<input
+id="yPos"
+type="range"
+min="-25"
+max="25"
+value="0">
+
+</div>
+
+
+</div>
+
+
+
+<div class="two">
+
+
+<div class="field">
+
+<label for="fontColor">
+Колір
+</label>
+
+<input
+id="fontColor"
+type="color"
+value="#ffffff">
+
+</div>
+
+
+
+<div class="field">
+
+<label for="backgroundMode">
+Тло
+</label>
+
+<select id="backgroundMode">
+
+<option value="sky">
+Світле небо
+</option>
+
+<option value="dark">
+Темно-синє
+</option>
+
+<option value="light">
+Біле
+</option>
+
+<option value="transparent">
+Прозоре
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+
+<div class="two">
+
+
+<div class="field">
+
+<label for="textEffect">
+Ефект тексту
+</label>
+
+<select id="textEffect">
+
+<option value="plain">
+Звичайний
+</option>
+
+<option value="gold">
+Золото
+</option>
+
+<option value="pearl">
+Перламутр
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="ornament">
+
+Декоративний розчерк
+
+</label>
+
+<select id="ornament">
+
+<option value="none">
+Без розчерку
+</option>
+
+<option value="thin">
+Тонкий
+</option>
+
+<option value="double">
+Подвійний
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+
+<label class="check">
+
+<input
+type="checkbox"
+id="shadow"
+checked>
+
+М’яка тінь
+
+</label>
+
+
+
+<label class="check">
+
+<input
+type="checkbox"
+id="glass"
+checked>
+
+Скляна плашка
+
+</label>
+
+
+
+<button
+class="button button-main"
+id="downloadButton">
+
+Зберегти PNG
+
+</button>
+
+
+
+<button
+class="button button-alt"
+id="resetButton">
+
+Скинути оформлення
+
+</button>
+
+
+
+<div class="small">
+
+Ця версія малює текст
+безпосередньо на Canvas.
+
+Тому під час збереження PNG
+використовується той самий
+завантажений вами шрифт.
+
+</div>
+
+
+</aside>
+
+
+
+<!-- =================================
+     ПОЛОТНО
+================================== -->
+
+<main class="workspace">
+
+
+<div class="canvas-wrap">
+
+
+<canvas
+id="canvas"
+width="1600"
+height="900">
+</canvas>
+
+
+<div class="help">
+
+Після вибору каліграфічного шрифту
+натисніть
+<b>«Вписати текст автоматично»</b>.
+
+</div>
+
+
+</div>
+
+
+</main>
+
+
+</div>
+
+
+
+<script>
+
+/* =====================================
+   ОСНОВНІ ЕЛЕМЕНТИ
+===================================== */
+
+const canvas =
+document.getElementById("canvas");
+
+
+const ctx =
+canvas.getContext("2d");
+
+
+const $ = id =>
+document.getElementById(id);
+
 
 let customFontCount = 0;
 
-function roundRect(ctx, x, y, w, h, r) {
-  const rr = Math.min(r, w/2, h/2);
-  ctx.beginPath();
-  ctx.moveTo(x+rr,y);
-  ctx.arcTo(x+w,y,x+w,y+h,rr);
-  ctx.arcTo(x+w,y+h,x,y+h,rr);
-  ctx.arcTo(x,y+h,x,y,rr);
-  ctx.arcTo(x,y,x+w,y,rr);
-  ctx.closePath();
+
+
+/* =====================================
+   ЗАОКРУГЛЕНИЙ ПРЯМОКУТНИК
+===================================== */
+
+function roundedRect(
+    ctx,
+    x,
+    y,
+    width,
+    height,
+    radius
+) {
+
+    const r =
+    Math.min(
+        radius,
+        width / 2,
+        height / 2
+    );
+
+
+    ctx.beginPath();
+
+
+    ctx.moveTo(
+        x + r,
+        y
+    );
+
+
+    ctx.arcTo(
+        x + width,
+        y,
+        x + width,
+        y + height,
+        r
+    );
+
+
+    ctx.arcTo(
+        x + width,
+        y + height,
+        x,
+        y + height,
+        r
+    );
+
+
+    ctx.arcTo(
+        x,
+        y + height,
+        x,
+        y,
+        r
+    );
+
+
+    ctx.arcTo(
+        x,
+        y,
+        x + width,
+        y,
+        r
+    );
+
+
+    ctx.closePath();
 }
+
+
+
+/* =====================================
+   ТЛО
+===================================== */
 
 function drawBackground() {
-  const mode = el('bgMode').value;
-  ctx.clearRect(0,0,canvas.width,canvas.height);
 
-  if (mode === 'transparent') return;
 
-  if (mode === 'dark') {
-    const g = ctx.createLinearGradient(0,0,1600,900);
-    g.addColorStop(0,'#082845');
-    g.addColorStop(.6,'#14577f');
-    g.addColorStop(1,'#1c77a8');
-    ctx.fillStyle = g;
-    ctx.fillRect(0,0,1600,900);
-    return;
-  }
+    const mode =
+    $("backgroundMode").value;
 
-  if (mode === 'light') {
-    const g = ctx.createLinearGradient(0,0,0,900);
-    g.addColorStop(0,'#ffffff');
-    g.addColorStop(1,'#dfefff');
-    ctx.fillStyle = g;
-    ctx.fillRect(0,0,1600,900);
-    return;
-  }
 
-  const g = ctx.createLinearGradient(0,0,0,900);
-  g.addColorStop(0,'#65b8e9');
-  g.addColorStop(.55,'#acd9ef');
-  g.addColorStop(1,'#f3dfac');
-  ctx.fillStyle = g;
-  ctx.fillRect(0,0,1600,900);
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
 
-  const glow = ctx.createRadialGradient(280,120,20,280,120,430);
-  glow.addColorStop(0,'rgba(255,255,255,.80)');
-  glow.addColorStop(1,'rgba(255,255,255,0)');
-  ctx.fillStyle = glow;
-  ctx.fillRect(0,0,1600,900);
+
+    if (mode === "transparent") {
+
+        return;
+    }
+
+
+
+    if (mode === "dark") {
+
+
+        const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            1600,
+            900
+        );
+
+
+        gradient.addColorStop(
+            0,
+            "#082845"
+        );
+
+
+        gradient.addColorStop(
+            .6,
+            "#14577f"
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "#1c77a8"
+        );
+
+
+        ctx.fillStyle =
+        gradient;
+
+
+        ctx.fillRect(
+            0,
+            0,
+            1600,
+            900
+        );
+
+
+        return;
+    }
+
+
+
+    if (mode === "light") {
+
+
+        const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            0,
+            900
+        );
+
+
+        gradient.addColorStop(
+            0,
+            "#ffffff"
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "#dfefff"
+        );
+
+
+        ctx.fillStyle =
+        gradient;
+
+
+        ctx.fillRect(
+            0,
+            0,
+            1600,
+            900
+        );
+
+
+        return;
+    }
+
+
+
+    const gradient =
+    ctx.createLinearGradient(
+        0,
+        0,
+        0,
+        900
+    );
+
+
+    gradient.addColorStop(
+        0,
+        "#65b8e9"
+    );
+
+
+    gradient.addColorStop(
+        .55,
+        "#acd9ef"
+    );
+
+
+    gradient.addColorStop(
+        1,
+        "#f3dfac"
+    );
+
+
+    ctx.fillStyle =
+    gradient;
+
+
+    ctx.fillRect(
+        0,
+        0,
+        1600,
+        900
+    );
+
+
+
+    const glow =
+    ctx.createRadialGradient(
+        280,
+        120,
+        20,
+        280,
+        120,
+        430
+    );
+
+
+    glow.addColorStop(
+        0,
+        "rgba(255,255,255,.80)"
+    );
+
+
+    glow.addColorStop(
+        1,
+        "rgba(255,255,255,0)"
+    );
+
+
+    ctx.fillStyle =
+    glow;
+
+
+    ctx.fillRect(
+        0,
+        0,
+        1600,
+        900
+    );
+
 }
+
+
+
+/* =====================================
+   СКЛЯНА ПЛАШКА
+===================================== */
 
 function drawGlass() {
-  if (!el('glass').checked) return;
-  ctx.save();
-  roundRect(ctx,110,75,1380,750,46);
-  const g = ctx.createLinearGradient(0,75,0,825);
-  g.addColorStop(0,'rgba(16,74,117,.13)');
-  g.addColorStop(1,'rgba(255,255,255,.06)');
-  ctx.fillStyle = g;
-  ctx.fill();
-  ctx.strokeStyle = 'rgba(255,255,255,.58)';
-  ctx.lineWidth = 2;
-  ctx.stroke();
-  ctx.restore();
+
+
+    if (!$("glass").checked) {
+
+        return;
+    }
+
+
+    ctx.save();
+
+
+    roundedRect(
+        ctx,
+        110,
+        75,
+        1380,
+        750,
+        46
+    );
+
+
+    const gradient =
+    ctx.createLinearGradient(
+        0,
+        75,
+        0,
+        825
+    );
+
+
+    gradient.addColorStop(
+        0,
+        "rgba(16,74,117,.13)"
+    );
+
+
+    gradient.addColorStop(
+        1,
+        "rgba(255,255,255,.06)"
+    );
+
+
+    ctx.fillStyle =
+    gradient;
+
+
+    ctx.fill();
+
+
+    ctx.strokeStyle =
+    "rgba(255,255,255,.58)";
+
+
+    ctx.lineWidth =
+    2;
+
+
+    ctx.stroke();
+
+
+    ctx.restore();
+
 }
+
+
+
+/* =====================================
+   ТЕКСТОВІ РЯДКИ
+===================================== */
 
 function getLines() {
-  return (el('textInput').value || 'Ваш текст').split('\n');
+
+
+    const text =
+    $("textInput").value ||
+    "Ваш текст";
+
+
+    return text.split("\n");
 }
 
-function setFont(size) {
-  const family = el('fontSelect').value;
-  ctx.font = `${size}px "${family}"`;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'alphabetic';
+
+
+/* =====================================
+   ВСТАНОВЛЕННЯ ШРИФТУ
+===================================== */
+
+function setCanvasFont(size) {
+
+
+    const family =
+    $("fontSelect").value;
+
+
+    ctx.font =
+    `${size}px "${family}"`;
+
+
+    ctx.textAlign =
+    "center";
+
+
+    ctx.textBaseline =
+    "alphabetic";
 }
 
-function measureBlock(size) {
-  setFont(size);
-  const lines = getLines();
-  const lineRatio = Number(el('lineHeight').value) / 100;
 
-  let maxW = 0;
-  let maxAsc = 0;
-  let maxDesc = 0;
 
-  for (const line of lines) {
-    const m = ctx.measureText(line || ' ');
-    maxW = Math.max(maxW, m.width);
-    maxAsc = Math.max(maxAsc, m.actualBoundingBoxAscent || size * .8);
-    maxDesc = Math.max(maxDesc, m.actualBoundingBoxDescent || size * .25);
-  }
+/* =====================================
+   ВИМІРЮВАННЯ ТЕКСТУ
+===================================== */
 
-  const lineStep = size * lineRatio;
-  const h = maxAsc + maxDesc + Math.max(0, lines.length - 1) * lineStep;
+function measureTextBlock(size) {
 
-  return {w:maxW, h, asc:maxAsc, desc:maxDesc, lineStep, lines};
+
+    setCanvasFont(size);
+
+
+    const lines =
+    getLines();
+
+
+    const lineRatio =
+    Number(
+        $("lineHeight").value
+    ) / 100;
+
+
+    let maximumWidth =
+    0;
+
+
+    let maximumAscent =
+    0;
+
+
+    let maximumDescent =
+    0;
+
+
+
+    for (
+        const line
+        of lines
+    ) {
+
+
+        const metrics =
+        ctx.measureText(
+            line || " "
+        );
+
+
+        maximumWidth =
+        Math.max(
+            maximumWidth,
+            metrics.width
+        );
+
+
+        maximumAscent =
+        Math.max(
+            maximumAscent,
+            metrics.actualBoundingBoxAscent
+            ||
+            size * .82
+        );
+
+
+        maximumDescent =
+        Math.max(
+            maximumDescent,
+            metrics.actualBoundingBoxDescent
+            ||
+            size * .28
+        );
+
+    }
+
+
+
+    const lineStep =
+    size * lineRatio;
+
+
+
+    const totalHeight =
+    maximumAscent
+    +
+    maximumDescent
+    +
+    Math.max(
+        0,
+        lines.length - 1
+    )
+    *
+    lineStep;
+
+
+
+    return {
+
+        width:
+        maximumWidth,
+
+        height:
+        totalHeight,
+
+        ascent:
+        maximumAscent,
+
+        descent:
+        maximumDescent,
+
+        lineStep:
+        lineStep,
+
+        lines:
+        lines
+
+    };
 }
 
-function drawOrnament(y, width, type) {
-  if (type === 'none') return;
 
-  ctx.save();
-  ctx.strokeStyle = 'rgba(255,255,255,.92)';
-  ctx.lineWidth = type === 'double' ? 3 : 2;
 
-  const cx = 800;
-  const half = Math.min(320, width * .32);
+/* =====================================
+   ДЕКОРАТИВНІ РОЗЧЕРКИ
+===================================== */
 
-  ctx.beginPath();
-  ctx.moveTo(cx-half, y);
-  ctx.bezierCurveTo(cx-half*.55, y-18, cx-half*.28, y+18, cx-55, y);
-  ctx.bezierCurveTo(cx-25, y-10, cx-18, y-10, cx, y);
-  ctx.bezierCurveTo(cx+18, y+10, cx+25, y+10, cx+55, y);
-  ctx.bezierCurveTo(cx+half*.28, y-18, cx+half*.55, y+18, cx+half, y);
-  ctx.stroke();
+function drawOrnament(
+    y,
+    width,
+    type
+) {
 
-  if (type === 'double') {
-    ctx.globalAlpha = .65;
+
+    if (type === "none") {
+
+        return;
+    }
+
+
+    ctx.save();
+
+
+    ctx.strokeStyle =
+    "rgba(255,255,255,.92)";
+
+
+    ctx.lineWidth =
+    type === "double"
+    ?
+    3
+    :
+    2;
+
+
+
+    const centerX =
+    canvas.width / 2;
+
+
+    const half =
+    Math.min(
+        350,
+        width * .32
+    );
+
+
+
     ctx.beginPath();
-    ctx.moveTo(cx-half*.86, y+10);
-    ctx.bezierCurveTo(cx-half*.45, y-6, cx-half*.20, y+22, cx-70, y+9);
-    ctx.bezierCurveTo(cx-20, y-2, cx+20, y-2, cx+70, y+9);
-    ctx.bezierCurveTo(cx+half*.20, y+22, cx+half*.45, y-6, cx+half*.86, y+10);
+
+
+    ctx.moveTo(
+        centerX - half,
+        y
+    );
+
+
+    ctx.bezierCurveTo(
+
+        centerX - half * .58,
+        y - 20,
+
+        centerX - half * .30,
+        y + 20,
+
+        centerX - 60,
+        y
+
+    );
+
+
+    ctx.bezierCurveTo(
+
+        centerX - 28,
+        y - 12,
+
+        centerX - 18,
+        y - 12,
+
+        centerX,
+        y
+
+    );
+
+
+    ctx.bezierCurveTo(
+
+        centerX + 18,
+        y + 12,
+
+        centerX + 28,
+        y + 12,
+
+        centerX + 60,
+        y
+
+    );
+
+
+    ctx.bezierCurveTo(
+
+        centerX + half * .30,
+        y - 20,
+
+        centerX + half * .58,
+        y + 20,
+
+        centerX + half,
+        y
+
+    );
+
+
     ctx.stroke();
-  }
-  ctx.restore();
+
+
+
+    if (type === "double") {
+
+
+        ctx.globalAlpha =
+        .62;
+
+
+        ctx.beginPath();
+
+
+        ctx.moveTo(
+            centerX - half * .85,
+            y + 12
+        );
+
+
+        ctx.bezierCurveTo(
+
+            centerX - half * .45,
+            y - 8,
+
+            centerX - half * .20,
+            y + 24,
+
+            centerX - 72,
+            y + 9
+
+        );
+
+
+        ctx.bezierCurveTo(
+
+            centerX - 20,
+            y - 2,
+
+            centerX + 20,
+            y - 2,
+
+            centerX + 72,
+            y + 9
+
+        );
+
+
+        ctx.bezierCurveTo(
+
+            centerX + half * .20,
+            y + 24,
+
+            centerX + half * .45,
+            y - 8,
+
+            centerX + half * .85,
+            y + 12
+
+        );
+
+
+        ctx.stroke();
+
+    }
+
+
+    ctx.restore();
+
 }
 
-function getTextFill(size) {
-  const effect = el('effect').value;
 
-  if (effect === 'gold') {
-    const g = ctx.createLinearGradient(0,300,0,600);
-    g.addColorStop(0,'#fff8d5');
-    g.addColorStop(.35,'#f3d37e');
-    g.addColorStop(.65,'#c9983f');
-    g.addColorStop(1,'#8e611e');
-    return g;
-  }
 
-  if (effect === 'pearl') {
-    const g = ctx.createLinearGradient(0,300,0,600);
-    g.addColorStop(0,'#ffffff');
-    g.addColorStop(.45,'#d8f2ff');
-    g.addColorStop(1,'#ffffff');
-    return g;
-  }
+/* =====================================
+   ЕФЕКТ КОЛЬОРУ
+===================================== */
 
-  return el('fontColor').value;
+function getTextFill() {
+
+
+    const effect =
+    $("textEffect").value;
+
+
+
+    if (effect === "gold") {
+
+
+        const gradient =
+        ctx.createLinearGradient(
+            0,
+            250,
+            0,
+            650
+        );
+
+
+        gradient.addColorStop(
+            0,
+            "#fff9dc"
+        );
+
+
+        gradient.addColorStop(
+            .32,
+            "#f5d683"
+        );
+
+
+        gradient.addColorStop(
+            .65,
+            "#c89236"
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "#8d5d1c"
+        );
+
+
+        return gradient;
+    }
+
+
+
+    if (effect === "pearl") {
+
+
+        const gradient =
+        ctx.createLinearGradient(
+            0,
+            250,
+            0,
+            650
+        );
+
+
+        gradient.addColorStop(
+            0,
+            "#ffffff"
+        );
+
+
+        gradient.addColorStop(
+            .45,
+            "#d7f2ff"
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "#ffffff"
+        );
+
+
+        return gradient;
+    }
+
+
+
+    return $("fontColor").value;
+
 }
+
+
+
+/* =====================================
+   МАЛЮЄМО ТЕКСТ
+===================================== */
 
 function drawText() {
-  const size = Number(el('fontSize').value);
-  const block = measureBlock(size);
 
-  const boxWidth = canvas.width * (Number(el('textWidth').value)/100);
-  const xShift = canvas.width * (Number(el('xPos').value)/100);
-  const yShift = canvas.height * (Number(el('yPos').value)/100);
 
-  const cx = canvas.width/2 + xShift;
-  const cy = canvas.height/2 + yShift;
+    const fontSize =
+    Number(
+        $("fontSize").value
+    );
 
-  ctx.save();
-  setFont(size);
 
-  if (el('shadow').checked) {
-    ctx.shadowColor = 'rgba(0,0,0,.28)';
-    ctx.shadowBlur = 18;
-    ctx.shadowOffsetY = 7;
-  }
+    const block =
+    measureTextBlock(
+        fontSize
+    );
 
-  ctx.fillStyle = getTextFill(size);
 
-  const totalHeight = block.h;
-  let y = cy - totalHeight/2 + block.asc;
 
-  for (const line of block.lines) {
-    ctx.fillText(line, cx, y);
-    y += block.lineStep;
-  }
+    const xShift =
+    canvas.width
+    *
+    (
+        Number(
+            $("xPos").value
+        )
+        /
+        100
+    );
 
-  ctx.restore();
 
-  const orn = el('ornament').value;
-  if (orn !== 'none') {
-    drawOrnament(cy-totalHeight/2-38, boxWidth, orn);
-    drawOrnament(cy+totalHeight/2+38, boxWidth, orn);
-  }
+
+    const yShift =
+    canvas.height
+    *
+    (
+        Number(
+            $("yPos").value
+        )
+        /
+        100
+    );
+
+
+
+    const centerX =
+    canvas.width / 2
+    +
+    xShift;
+
+
+
+    const centerY =
+    canvas.height / 2
+    +
+    yShift;
+
+
+
+    ctx.save();
+
+
+    setCanvasFont(
+        fontSize
+    );
+
+
+
+    if (
+        $("shadow").checked
+    ) {
+
+
+        ctx.shadowColor =
+        "rgba(0,0,0,.28)";
+
+
+        ctx.shadowBlur =
+        18;
+
+
+        ctx.shadowOffsetX =
+        0;
+
+
+        ctx.shadowOffsetY =
+        7;
+
+    }
+
+
+
+    ctx.fillStyle =
+    getTextFill();
+
+
+
+    let y =
+    centerY
+    -
+    block.height / 2
+    +
+    block.ascent;
+
+
+
+    for (
+        const line
+        of block.lines
+    ) {
+
+
+        ctx.fillText(
+            line,
+            centerX,
+            y
+        );
+
+
+        y +=
+        block.lineStep;
+
+    }
+
+
+
+    ctx.restore();
+
+
+
+    const ornament =
+    $("ornament").value;
+
+
+
+    if (
+        ornament !== "none"
+    ) {
+
+
+        drawOrnament(
+
+            centerY
+            -
+            block.height / 2
+            -
+            48,
+
+            block.width,
+
+            ornament
+
+        );
+
+
+        drawOrnament(
+
+            centerY
+            +
+            block.height / 2
+            +
+            48,
+
+            block.width,
+
+            ornament
+
+        );
+
+    }
+
 }
+
+
+
+/* =====================================
+   ГОЛОВНИЙ РЕНДЕР
+===================================== */
 
 function render() {
-  drawBackground();
-  drawGlass();
-  drawText();
 
-  el('sizeValue').textContent = el('fontSize').value;
-  el('lineValue').textContent = (Number(el('lineHeight').value)/100).toFixed(2);
-  el('widthValue').textContent = el('textWidth').value;
-  el('xValue').textContent = el('xPos').value;
-  el('yValue').textContent = el('yPos').value;
+
+    drawBackground();
+
+
+    drawGlass();
+
+
+    drawText();
+
+
+
+    $("sizeValue").textContent =
+    $("fontSize").value;
+
+
+    $("lineValue").textContent =
+    (
+        Number(
+            $("lineHeight").value
+        )
+        /
+        100
+    )
+    .toFixed(2);
+
+
+    $("widthValue").textContent =
+    $("textWidth").value;
+
+
+    $("xValue").textContent =
+    $("xPos").value;
+
+
+    $("yValue").textContent =
+    $("yPos").value;
+
 }
+
+
+
+/* =====================================
+   АВТОМАТИЧНЕ ВПИСУВАННЯ
+===================================== */
 
 async function fitText() {
-  await document.fonts.ready;
 
-  const maxWidth = canvas.width * (Number(el('textWidth').value)/100) * .94;
-  const maxHeight = canvas.height * .68;
 
-  let lo = 24;
-  let hi = 260;
-  let best = lo;
+    await document.fonts.ready;
 
-  while (lo <= hi) {
-    const mid = Math.floor((lo + hi)/2);
-    const m = measureBlock(mid);
 
-    if (m.w <= maxWidth && m.h <= maxHeight) {
-      best = mid;
-      lo = mid + 1;
-    } else {
-      hi = mid - 1;
+
+    const maximumWidth =
+    canvas.width
+    *
+    (
+        Number(
+            $("textWidth").value
+        )
+        /
+        100
+    );
+
+
+
+    /*
+       Залишаємо великий запас
+       для верхніх і нижніх
+       каліграфічних розчерків.
+    */
+
+    const maximumHeight =
+    canvas.height
+    *
+    .62;
+
+
+
+    let minimum =
+    24;
+
+
+    let maximum =
+    260;
+
+
+    let best =
+    minimum;
+
+
+
+    while (
+        minimum <= maximum
+    ) {
+
+
+        const middle =
+        Math.floor(
+            (
+                minimum
+                +
+                maximum
+            )
+            /
+            2
+        );
+
+
+        const measurement =
+        measureTextBlock(
+            middle
+        );
+
+
+
+        if (
+
+            measurement.width
+            <=
+            maximumWidth
+
+            &&
+
+            measurement.height
+            <=
+            maximumHeight
+
+        ) {
+
+
+            best =
+            middle;
+
+
+            minimum =
+            middle + 1;
+
+        }
+
+
+        else {
+
+
+            maximum =
+            middle - 1;
+
+        }
+
     }
-  }
 
-  // safety for long calligraphic swashes
-  best = Math.max(24, Math.floor(best * .90));
-  el('fontSize').value = best;
-  render();
+
+
+    /*
+       Ще 8% запасу спеціально
+       для каліграфічних хвостів.
+    */
+
+    best =
+    Math.max(
+        24,
+        Math.floor(
+            best * .92
+        )
+    );
+
+
+
+    $("fontSize").value =
+    best;
+
+
+    render();
+
 }
 
-async function loadFont(file) {
-  try {
-    const base = file.name.replace(/\.[^/.]+$/,'').replace(/["']/g,'');
-    let family = base;
-    let n = 2;
 
-    while ([...el('fontSelect').options].some(o => o.textContent === family)) {
-      family = `${base} ${n++}`;
+
+/* =====================================
+   ЗАВАНТАЖЕННЯ ВЛАСНОГО ШРИФТУ
+===================================== */
+
+async function loadFont(file) {
+
+
+    try {
+
+
+        const baseName =
+        file.name
+        .replace(
+            /\.[^/.]+$/,
+            ""
+        )
+        .replace(
+            /["']/g,
+            ""
+        );
+
+
+
+        let familyName =
+        baseName;
+
+
+
+        let number =
+        2;
+
+
+
+        while (
+
+            [
+                ...$("fontSelect").options
+            ]
+            .some(
+
+                option =>
+                option.textContent
+                ===
+                familyName
+
+            )
+
+        ) {
+
+
+            familyName =
+            `${baseName} ${number}`;
+
+
+            number++;
+
+        }
+
+
+
+        const localURL =
+        URL.createObjectURL(
+            file
+        );
+
+
+
+        const fontFace =
+        new FontFace(
+
+            familyName,
+
+            `url("${localURL}")`
+
+        );
+
+
+
+        await fontFace.load();
+
+
+
+        document.fonts.add(
+            fontFace
+        );
+
+
+
+        const option =
+        document.createElement(
+            "option"
+        );
+
+
+
+        option.value =
+        familyName;
+
+
+
+        option.textContent =
+        familyName;
+
+
+
+        $("fontSelect")
+        .appendChild(
+            option
+        );
+
+
+
+        $("fontSelect").value =
+        familyName;
+
+
+
+        customFontCount++;
+
+
+
+        $("fontCount")
+        .textContent =
+        `Власних шрифтів: ${customFontCount}`;
+
+
+
+        await document.fonts.ready;
+
+
+
+        await fitText();
+
     }
 
-    const url = URL.createObjectURL(file);
-    const face = new FontFace(family, `url("${url}")`);
-    await face.load();
-    document.fonts.add(face);
 
-    const opt = document.createElement('option');
-    opt.value = family;
-    opt.textContent = family;
-    el('fontSelect').appendChild(opt);
-    el('fontSelect').value = family;
+    catch (error) {
 
-    customFontCount++;
-    el('fontCount').textContent = `Власних шрифтів: ${customFontCount
+
+        console.error(
+            error
+        );
+
+
+        alert(
+            "Не вдалося відкрити шрифт: "
+            +
+            file.name
+        );
+
+    }
+
+}
+
+
+
+/* =====================================
+   ВИБІР ФАЙЛІВ
+===================================== */
+
+$("fontFiles")
+.addEventListener(
+    "change",
+    async event => {
+
+
+        for (
+            const file
+            of event.target.files
+        ) {
+
+
+            if (
+
+                /\.(ttf|otf|woff|woff2)$/i
+                .test(
+                    file.name
+                )
+
+            ) {
+
+
+                await loadFont(
+                    file
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+
+/* =====================================
+   ПОДІЇ
+===================================== */
+
+const liveControls = [
+
+    "textInput",
+
+    "fontSize",
+
+    "lineHeight",
+
+    "textWidth",
+
+    "xPos",
+
+    "yPos",
+
+    "fontColor"
+
+];
+
+
+for (
+    const id
+    of liveControls
+) {
+
+
+    $(id)
+    .addEventListener(
+        "input",
+        render
+    );
+
+}
+
+
+
+const changeControls = [
+
+    "fontSelect",
+
+    "backgroundMode",
+
+    "textEffect",
+
+    "ornament",
+
+    "shadow",
+
+    "glass"
+
+];
+
+
+for (
+    const id
+    of changeControls
+) {
+
+
+    $(id)
+    .addEventListener(
+        "change",
+        render
+    );
+
+}
+
+
+
+/* =====================================
+   КНОПКА АВТОВПИСУВАННЯ
+===================================== */
+
+$("fitButton")
+.addEventListener(
+    "click",
+    fitText
+);
+
+
+
+/* =====================================
+   СКИНУТИ
+===================================== */
+
+$("resetButton")
+.addEventListener(
+    "click",
+    () => {
+
+
+        $("fontSize").value =
+        120;
+
+
+        $("lineHeight").value =
+        112;
+
+
+        $("textWidth").value =
+        78;
+
+
+        $("xPos").value =
+        0;
+
+
+        $("yPos").value =
+        0;
+
+
+        $("fontColor").value =
+        "#ffffff";
+
+
+        $("backgroundMode").value =
+        "sky";
+
+
+        $("textEffect").value =
+        "plain";
+
+
+        $("ornament").value =
+        "none";
+
+
+        $("shadow").checked =
+        true;
+
+
+        $("glass").checked =
+        true;
+
+
+        render();
+
+    }
+);
+
+
+
+/* =====================================
+   ЗБЕРЕЖЕННЯ PNG
+===================================== */
+
+$("downloadButton")
+.addEventListener(
+    "click",
+    () => {
+
+
+        render();
+
+
+
+        const link =
+        document.createElement(
+            "a"
+        );
+
+
+
+        link.download =
+        "dekoratyvnyi-tekst.png";
+
+
+
+        link.href =
+        canvas.toDataURL(
+            "image/png"
+        );
+
+
+
+        link.click();
+
+    }
+);
+
+
+
+/* =====================================
+   ПЕРШИЙ ЗАПУСК
+===================================== */
+
+render();
+
+</script>
+
+
+</body>
+</html>
