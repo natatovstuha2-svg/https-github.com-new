@@ -7,7 +7,6 @@
 <title>Студія декоративного тексту — Н. С. Товстуха</title>
 
 <style>
-
 *{
     box-sizing:border-box;
 }
@@ -15,66 +14,67 @@
 html,
 body{
     margin:0;
-    min-height:100%;
+    width:100%;
+    height:100%;
 }
 
 body{
     font-family:"Segoe UI",Arial,sans-serif;
-    background:#edf6fc;
+    background:#eaf4fb;
     color:#10243a;
-}
-
-
-/* ==================================================
-   АВТОРСЬКА ШАПКА
-================================================== */
-
-.site-header{
-
-    min-height:150px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:30px;
-
-    padding:26px 42px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #071f38 0%,
-            #0a3154 50%,
-            #0d436f 100%
-        );
-
-    border-bottom:
-        2px solid #c79a43;
-
-    box-shadow:
-        0 12px 28px
-        rgba(4,34,59,.16);
-
-    position:relative;
-
     overflow:hidden;
 }
 
 
-.site-header::after{
+/* =========================================================
+   ШАПКА-ПЛАШКА
+========================================================= */
 
+.site-header{
+    height:118px;
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 32px 14px 38px;
+
+    background:
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(26,91,139,.22),
+            transparent 34%
+        ),
+        linear-gradient(
+            100deg,
+            #061d34 0%,
+            #082d4d 48%,
+            #0b446d 100%
+        );
+
+    border-bottom:2px solid #c99437;
+
+    box-shadow:
+        0 8px 24px
+        rgba(4,34,59,.18);
+
+    overflow:hidden;
+
+    z-index:10;
+}
+
+
+/* тонкий золотий акцент */
+
+.site-header::after{
     content:"";
 
     position:absolute;
 
-    left:40px;
-
-    right:40px;
-
-    bottom:10px;
+    left:35px;
+    right:35px;
+    bottom:8px;
 
     height:1px;
 
@@ -82,38 +82,40 @@ body{
         linear-gradient(
             90deg,
             transparent,
-            rgba(232,199,122,.75),
+            rgba(235,196,102,.30),
+            rgba(244,213,133,.78),
+            rgba(235,196,102,.30),
             transparent
         );
 }
 
 
-.header-text{
+/* =========================================================
+   ТЕКСТ ШАПКИ
+========================================================= */
 
+.header-copy{
     position:relative;
-
-    z-index:2;
+    z-index:3;
 
     min-width:0;
 }
 
+.kicker{
+    margin-bottom:3px;
 
-.site-kicker{
+    color:
+        rgba(232,243,251,.82);
 
-    color:#d9e7f2;
+    font-size:10px;
 
-    font-size:12px;
-
-    letter-spacing:.12em;
+    letter-spacing:.17em;
 
     text-transform:uppercase;
-
-    margin-bottom:7px;
 }
 
 
 .site-title{
-
     margin:0;
 
     font-family:
@@ -122,272 +124,410 @@ body{
         serif;
 
     font-size:
-        clamp(
-            28px,
-            3.2vw,
-            48px
-        );
+        clamp(27px,2.65vw,43px);
 
     font-weight:700;
 
-    letter-spacing:.02em;
+    line-height:1;
 
-    line-height:1.05;
+    letter-spacing:.005em;
 
     background:
         linear-gradient(
             180deg,
-            #fff1bd 0%,
-            #edcf7c 33%,
-            #c9983f 67%,
-            #f0d48b 100%
+            #fff2bf 0%,
+            #f0cf78 28%,
+            #d09b3a 55%,
+            #a96e1d 72%,
+            #f4d988 100%
         );
 
     -webkit-background-clip:text;
-
     background-clip:text;
 
     color:transparent;
 
     filter:
         drop-shadow(
-            0 3px 6px
-            rgba(0,0,0,.22)
+            0 2px 2px
+            rgba(0,0,0,.28)
         );
 }
 
 
-.author-line{
+/* =========================================================
+   АВТОРСЬКИЙ ПІДПИС
+========================================================= */
 
+.author-row{
     display:flex;
+    align-items:center;
 
-    align-items:baseline;
+    gap:8px;
 
-    gap:13px;
-
-    margin-top:10px;
+    margin-top:6px;
 }
-
 
 .author-label{
-
-    font-size:12px;
-
     color:
-        rgba(
-            255,
-            255,
-            255,
-            .70
-        );
+        rgba(255,255,255,.62);
+
+    font-size:10px;
 }
 
 
-.author-name{
+.author-signature{
+    display:inline-block;
 
     font-family:
-        "Segoe Script",
-        "Brush Script MT",
-        "Lucida Handwriting",
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
         cursive;
 
-    font-size:
-        clamp(
-            24px,
-            2.6vw,
-            38px
-        );
+    font-size:24px;
 
     font-weight:600;
 
     line-height:1;
 
-    color:#f4d98f;
+    letter-spacing:-1.4px;
 
-    text-shadow:
-        0 2px 5px
-        rgba(0,0,0,.24);
+    transform:
+        skew(-7deg)
+        scaleX(.88);
+
+    transform-origin:left center;
+
+    background:
+        linear-gradient(
+            105deg,
+            #a86d1c 0%,
+            #dba744 20%,
+            #ffe8a3 38%,
+            #fff4c7 46%,
+            #d89c32 58%,
+            #f1cc6d 78%,
+            #a76a19 100%
+        );
+
+    background-size:
+        260% 100%;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    filter:
+        drop-shadow(
+            0 1px 0
+            rgba(255,240,178,.32)
+        )
+        drop-shadow(
+            0 3px 2px
+            rgba(0,0,0,.26)
+        );
+
+    animation:
+        signatureShine 7.5s
+        ease-in-out
+        infinite;
 }
 
 
-.header-subtitle{
+/* повільний делікатний перелив */
 
-    margin-top:9px;
+@keyframes signatureShine{
 
-    color:
-        rgba(
-            232,
-            242,
-            250,
-            .78
-        );
+    0%{
+        background-position:110% 50%;
+    }
 
-    font-size:12px;
+    38%{
+        background-position:110% 50%;
+    }
+
+    56%{
+        background-position:-20% 50%;
+    }
+
+    100%{
+        background-position:-20% 50%;
+    }
 }
 
 
-/* ==================================================
-   ПЕРО
-================================================== */
+/* =========================================================
+   ПРАВА ЧАСТИНА ШАПКИ
+========================================================= */
 
-.feather-wrap{
-
-    width:
-        clamp(
-            150px,
-            18vw,
-            260px
-        );
+.header-visual{
+    position:relative;
 
     flex:0 0 auto;
 
-    position:relative;
+    width:380px;
+    height:100px;
 
     z-index:2;
-
-    opacity:.96;
 }
 
 
-.feather-wrap svg{
+/* Справжні книги.
+   Коли teacher-books.png з'явиться в GitHub,
+   картинка підтягнеться автоматично.
+*/
 
-    display:block;
+.books-image{
+    position:absolute;
 
-    width:100%;
+    right:4px;
+    bottom:-23px;
 
+    width:250px;
     height:auto;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 9px 12px
+            rgba(0,0,0,.23)
+        );
+
+    pointer-events:none;
 }
 
 
+/* =========================================================
+   ПРЕМІАЛЬНА РУЧКА
+========================================================= */
 
-/* ==================================================
-   РОБОЧА ОБЛАСТЬ
-================================================== */
+.pen{
+    position:absolute;
+
+    right:164px;
+    top:29px;
+
+    width:205px;
+    height:14px;
+
+    border-radius:10px;
+
+    transform:
+        rotate(-8deg);
+
+    background:
+        linear-gradient(
+            180deg,
+            #02070b 0%,
+            #193c58 22%,
+            #071927 58%,
+            #020609 100%
+        );
+
+    border:
+        1px solid #c99736;
+
+    box-shadow:
+        0 7px 12px
+        rgba(0,0,0,.28),
+        inset 0 1px 2px
+        rgba(255,255,255,.28);
+
+    animation:
+        penFloat 6s
+        ease-in-out
+        infinite;
+}
+
+
+/* золотий наконечник */
+
+.pen::before{
+    content:"";
+
+    position:absolute;
+
+    right:-41px;
+    top:-1px;
+
+    width:48px;
+    height:14px;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 50%,
+            0 100%
+        );
+
+    background:
+        linear-gradient(
+            90deg,
+            #a76c19,
+            #e1b34f 35%,
+            #fff0ae 55%,
+            #b77a21
+        );
+}
+
+
+/* ковзний відблиск */
+
+.pen::after{
+    content:"";
+
+    position:absolute;
+
+    left:8px;
+    top:2px;
+
+    width:55px;
+    height:3px;
+
+    border-radius:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,237,175,.92),
+            transparent
+        );
+
+    animation:
+        penGlow 5.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes penFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(-8deg);
+    }
+
+    50%{
+        transform:
+            translateY(-3px)
+            rotate(-7.5deg);
+    }
+}
+
+
+@keyframes penGlow{
+
+    0%,40%{
+        left:8px;
+        opacity:0;
+    }
+
+    48%{
+        opacity:.95;
+    }
+
+    65%{
+        left:138px;
+        opacity:.75;
+    }
+
+    78%,100%{
+        left:138px;
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   ОСНОВНА РОБОЧА ЧАСТИНА
+========================================================= */
 
 .app{
-
-    min-height:
+    height:
         calc(
-            100vh - 150px
+            100vh - 118px
         );
 
     display:grid;
 
     grid-template-columns:
-        390px 1fr;
+        385px 1fr;
+
+    overflow:hidden;
 }
 
 
-
-/* ==================================================
+/* =========================================================
    ЛІВА ПАНЕЛЬ
-================================================== */
+========================================================= */
 
 .panel{
+    height:100%;
+
+    overflow-y:auto;
 
     padding:
-        22px 22px 30px;
+        17px 20px 30px;
 
     color:white;
 
     background:
         linear-gradient(
             180deg,
-            #0b3459,
-            #0e4b78
+            #0a3459 0%,
+            #0e4e7b 100%
         );
 
     border-right:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .20
-        );
-
-    overflow-y:auto;
+        rgba(255,255,255,.18);
 }
 
 
 .panel-title{
+    margin:0;
+
+    color:#efcf78;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    color:#efd283;
-
     font-size:19px;
-
-    margin:
-        0 0 4px;
 }
 
 
 .panel-subtitle{
+    margin-top:3px;
+    margin-bottom:13px;
 
     font-size:11px;
 
-    opacity:.75;
-
-    margin-bottom:18px;
+    opacity:.72;
 }
 
 
-.version{
-
-    display:inline-block;
-
-    padding:
-        5px 10px;
-
-    margin-bottom:12px;
-
-    border-radius:20px;
-
-    border:
-        1px solid
-        rgba(
-            239,
-            210,
-            131,
-            .45
-        );
-
-    background:
-        rgba(
-            239,
-            210,
-            131,
-            .08
-        );
-
-    color:#f5dfa2;
-
-    font-size:11px;
-}
-
-
-
-/* ==================================================
-   ПОЛЯ
-================================================== */
+/* =========================================================
+   ФОРМИ
+========================================================= */
 
 .field{
-
-    margin-top:14px;
+    margin-top:12px;
 }
 
 
 label{
-
     display:block;
 
     margin-bottom:6px;
 
-    font-size:13px;
+    font-size:12.5px;
 
     font-weight:700;
 }
@@ -396,29 +536,18 @@ label{
 textarea,
 select,
 input[type="file"]{
-
     width:100%;
 
-    padding:10px;
+    padding:9px 10px;
 
-    border-radius:11px;
+    border-radius:10px;
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .28
-        );
+        rgba(255,255,255,.28);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .11
-        );
+        rgba(255,255,255,.11);
 
     color:white;
 
@@ -427,8 +556,7 @@ input[type="file"]{
 
 
 textarea{
-
-    min-height:100px;
+    min-height:75px;
 
     resize:vertical;
 
@@ -439,24 +567,20 @@ textarea{
 
 
 select option{
-
     color:#10243a;
-
-    background:white;
+    background:#fff;
 }
 
 
 input[type="range"]{
-
     width:100%;
 }
 
 
 input[type="color"]{
-
     width:100%;
 
-    height:42px;
+    height:38px;
 
     padding:0;
 
@@ -467,60 +591,55 @@ input[type="color"]{
 
 
 .two{
-
     display:grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    gap:10px;
+    gap:9px;
 }
 
 
 .small{
+    margin-top:5px;
 
-    margin-top:6px;
+    font-size:10.5px;
 
-    font-size:11px;
+    line-height:1.4;
 
-    line-height:1.45;
-
-    opacity:.78;
+    opacity:.76;
 }
 
 
 .check{
-
     display:flex;
 
     align-items:center;
 
-    gap:8px;
+    gap:7px;
 
-    margin-top:10px;
+    margin-top:8px;
 
-    font-size:13px;
+    font-size:11.5px;
 
     font-weight:600;
 }
 
 
-
-/* ==================================================
+/* =========================================================
    КНОПКИ
-================================================== */
+========================================================= */
 
 .button{
-
     width:100%;
 
-    margin-top:11px;
+    margin-top:9px;
 
-    padding:12px 14px;
+    padding:10px 12px;
 
-    border-radius:11px;
+    border-radius:10px;
 
-    font-size:14px;
+    font-size:12.5px;
 
     font-weight:800;
 
@@ -529,141 +648,98 @@ input[type="color"]{
 
 
 .button-main{
+    color:#0a3559;
 
     border:
-        1px solid
-        #e1c06d;
-
-    color:#0a3559;
+        1px solid #dfbb5a;
 
     background:
         linear-gradient(
             180deg,
-            #fff8dc,
-            #ead18a
+            #fff8d8,
+            #e9cf81
         );
-
-    box-shadow:
-        0 7px 16px
-        rgba(0,0,0,.11);
 }
 
 
 .button-alt{
+    color:white;
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .24
-        );
+        rgba(255,255,255,.24);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .09
-        );
-
-    color:white;
+        rgba(255,255,255,.08);
 }
 
 
+.text-tools{
+    display:grid;
 
-/* ==================================================
-   АВТОР У ПАНЕЛІ
-================================================== */
+    grid-template-columns:
+        1fr 1fr;
 
-.author-card{
-
-    margin-top:22px;
-
-    padding:
-        16px 4px 3px;
-
-    border-top:
-        1px solid
-        rgba(
-            233,
-            202,
-            123,
-            .35
-        );
-
-    text-align:center;
-}
-
-
-.author-card-label{
-
-    font-size:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.15em;
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            .62
-        );
-}
-
-
-.author-card-name{
+    gap:6px;
 
     margin-top:7px;
-
-    font-family:
-        "Segoe Script",
-        "Brush Script MT",
-        "Lucida Handwriting",
-        cursive;
-
-    color:#f1d17c;
-
-    font-size:27px;
-
-    line-height:1.15;
 }
 
 
+.mini-button{
+    padding:7px 4px;
 
-/* ==================================================
-   ПРАВА РОБОЧА ЧАСТИНА
-================================================== */
+    border-radius:8px;
+
+    border:
+        1px solid
+        rgba(235,202,116,.39);
+
+    background:
+        rgba(235,202,116,.08);
+
+    color:#fff1c7;
+
+    font-size:10.5px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   РОБОЧА ЗОНА
+========================================================= */
 
 .workspace{
+    height:100%;
+
+    overflow:auto;
 
     display:flex;
 
-    align-items:center;
+    align-items:flex-start;
 
     justify-content:center;
 
-    padding:28px;
+    padding:
+        14px 18px 20px;
 
-    background:#edf6fc;
+    background:#e9f3fa;
 }
 
 
 .canvas-wrap{
-
     width:
         min(
-            1200px,
+            1160px,
             100%
         );
 }
 
 
 canvas{
-
     width:100%;
 
     height:auto;
@@ -672,52 +748,63 @@ canvas{
 
     background:white;
 
-    border-radius:22px;
+    border-radius:15px;
+
+    border:
+        1px solid
+        rgba(40,91,130,.18);
 
     box-shadow:
-        0 22px 52px
-        rgba(
-            27,
-            74,
-            108,
-            .17
-        );
+        0 15px 36px
+        rgba(26,70,102,.14);
 }
 
 
 .help{
+    margin-top:7px;
 
-    margin-top:10px;
+    color:#56748b;
 
     text-align:center;
 
-    color:#58758c;
-
-    font-size:12px;
+    font-size:10.5px;
 }
 
 
+/* =========================================================
+   МОБІЛЬНА ВЕРСІЯ
+========================================================= */
 
-@media(max-width:900px){
+@media(max-width:920px){
 
-    .site-header{
-
-        padding:
-            24px 22px;
+    body{
+        overflow:auto;
     }
 
-    .feather-wrap{
+    .site-header{
+        height:auto;
+        min-height:105px;
+    }
 
-        width:130px;
+    .header-visual{
+        display:none;
     }
 
     .app{
-
-        grid-template-columns:
-            1fr;
+        height:auto;
+        grid-template-columns:1fr;
+        overflow:visible;
     }
 
+    .panel{
+        height:auto;
+    }
+
+    .workspace{
+        height:auto;
+    }
 }
+
 </style>
 </head>
 
@@ -725,17 +812,16 @@ canvas{
 <body>
 
 
-<!-- =================================================
+<!-- =========================================================
      ШАПКА
-================================================== -->
+========================================================= -->
 
 <header class="site-header">
 
 
-<div class="header-text">
+<div class="header-copy">
 
-
-<div class="site-kicker">
+<div class="kicker">
 Авторська онлайн-студія
 </div>
 
@@ -745,194 +831,40 @@ canvas{
 </h1>
 
 
-<div class="author-line">
+<div class="author-row">
 
 <span class="author-label">
 Автор
 </span>
 
-<span class="author-name">
+<span class="author-signature">
 Н. С. Товстуха
 </span>
 
 </div>
 
-
-<div class="header-subtitle">
-Українські шрифти • каліграфія • декоративні написи • навчальні матеріали
 </div>
 
 
-</div>
+<div class="header-visual">
 
 
+<!--
+Коли завантажите teacher-books.png
+поруч із index.html,
+книги з'являться самі.
+-->
 
-<!-- декоративне перо -->
-
-<div class="feather-wrap">
-
-<svg
-viewBox="0 0 360 190"
-xmlns="http://www.w3.org/2000/svg"
-aria-hidden="true"
+<img
+    src="teacher-books.png"
+    class="books-image"
+    alt=""
+    onerror="this.style.display='none'"
 >
 
 
-<defs>
+<div class="pen"></div>
 
-<linearGradient
-id="goldFeather"
-x1="0"
-y1="0"
-x2="1"
-y2="1"
->
-
-<stop
-offset="0%"
-stop-color="#fff1b8"
-/>
-
-<stop
-offset="38%"
-stop-color="#e8c46f"
-/>
-
-<stop
-offset="70%"
-stop-color="#b67b27"
-/>
-
-<stop
-offset="100%"
-stop-color="#f3da94"
-/>
-
-</linearGradient>
-
-</defs>
-
-
-<!-- стрижень -->
-
-<path
-d="
-M50 163
-C110 132,
-181 87,
-304 28
-"
-fill="none"
-stroke="url(#goldFeather)"
-stroke-width="5"
-stroke-linecap="round"
-/>
-
-
-<!-- верх пера -->
-
-<path
-d="
-M102 132
-C95 95,
-112 54,
-155 32
-C196 11,
-245 10,
-306 25
-C270 48,
-235 65,
-201 79
-C164 95,
-132 111,
-102 132
-Z
-"
-fill="none"
-stroke="url(#goldFeather)"
-stroke-width="3.2"
-/>
-
-
-<!-- нижня частина -->
-
-<path
-d="
-M104 133
-C130 130,
-160 118,
-192 101
-C221 86,
-251 67,
-286 44
-C271 73,
-248 99,
-219 120
-C188 143,
-151 151,
-104 133
-Z
-"
-fill="none"
-stroke="url(#goldFeather)"
-stroke-width="3.2"
-/>
-
-
-<!-- прожилки -->
-
-<path
-d="
-M121 117 L156 58
-M140 108 L186 42
-M163 96 L216 32
-M187 85 L246 27
-M210 73 L273 27
-"
-stroke="#dfb75b"
-stroke-width="2"
-stroke-linecap="round"
-opacity=".72"
-/>
-
-
-<path
-d="
-M124 128 L163 133
-M151 117 L190 124
-M179 103 L215 112
-M207 88 L239 98
-M232 72 L260 82
-"
-stroke="#dfb75b"
-stroke-width="2"
-stroke-linecap="round"
-opacity=".68"
-/>
-
-
-<!-- декоративний розчерк -->
-
-<path
-d="
-M50 163
-C31 175,
-27 184,
-49 184
-C90 184,
-115 160,
-145 164
-C166 166,
-176 179,
-198 178
-"
-fill="none"
-stroke="url(#goldFeather)"
-stroke-width="3"
-stroke-linecap="round"
-/>
-
-</svg>
 
 </div>
 
@@ -940,10 +872,9 @@ stroke-linecap="round"
 </header>
 
 
-
-<!-- =================================================
+<!-- =========================================================
      РОБОЧА ЧАСТИНА
-================================================== -->
+========================================================= -->
 
 <div class="app">
 
@@ -957,15 +888,12 @@ stroke-linecap="round"
 
 
 <div class="panel-subtitle">
-Створіть власний декоративний текст
+Каліграфія • зошитові режими • декоративний текст
 </div>
 
 
-<div class="version">
-Версія 5 — Авторська студія
-</div>
 
-
+<!-- ТЕКСТ -->
 
 <div class="field">
 
@@ -973,17 +901,42 @@ stroke-linecap="round"
 Ваш текст
 </label>
 
-<textarea id="textInput">День
-Державного прапора
-України</textarea>
+<textarea id="textInput">Люблю Україну!</textarea>
+
+
+<div class="text-tools">
+
+<button
+    class="mini-button"
+    id="moveStartButton"
+    type="button">
+
+На початок рядка
+
+</button>
+
+
+<button
+    class="mini-button"
+    id="moveNewLineButton"
+    type="button">
+
+На новий рядок
+
+</button>
+
+</div>
+
 
 <div class="small">
-Переноси рядків зберігаються саме там, де ви їх поставили.
+Виділіть слово у полі тексту й оберіть дію.
 </div>
 
 </div>
 
 
+
+<!-- ШРИФТИ -->
 
 <div class="field">
 
@@ -1009,8 +962,8 @@ Times New Roman
 
 
 <div
-class="small"
-id="fontCount">
+    id="fontCount"
+    class="small">
 
 Власних шрифтів: 0
 
@@ -1023,164 +976,43 @@ id="fontCount">
 <div class="field">
 
 <label for="fontFiles">
-Додати власний TTF / OTF / WOFF / WOFF2
+Додати TTF / OTF / WOFF / WOFF2
 </label>
 
 <input
-id="fontFiles"
-type="file"
-accept=".ttf,.otf,.woff,.woff2"
-multiple>
+    id="fontFiles"
+    type="file"
+    accept=".ttf,.otf,.woff,.woff2"
+    multiple>
 
 </div>
 
 
 
-<button
-class="button button-main"
-id="fitButton">
-
-Вписати текст автоматично
-
-</button>
-
-
-
-<div class="field">
-
-<label>
-Розмір:
-<span id="sizeValue">120</span> px
-</label>
-
-<input
-id="fontSize"
-type="range"
-min="24"
-max="260"
-value="120">
-
-</div>
-
-
-
-<div class="field">
-
-<label>
-Міжрядковий інтервал:
-<span id="lineValue">1.12</span>
-</label>
-
-<input
-id="lineHeight"
-type="range"
-min="75"
-max="180"
-value="112">
-
-</div>
-
-
-
-<div class="field">
-
-<label>
-Максимальна ширина тексту:
-<span id="widthValue">78</span>%
-</label>
-
-<input
-id="textWidth"
-type="range"
-min="40"
-max="95"
-value="78">
-
-</div>
-
-
-
-<div class="two">
-
-
-<div class="field">
-
-<label>
-Ліворуч / праворуч:
-<span id="xValue">0</span>
-</label>
-
-<input
-id="xPos"
-type="range"
-min="-25"
-max="25"
-value="0">
-
-</div>
-
-
-<div class="field">
-
-<label>
-Вище / нижче:
-<span id="yValue">0</span>
-</label>
-
-<input
-id="yPos"
-type="range"
-min="-25"
-max="25"
-value="0">
-
-</div>
-
-
-</div>
-
-
-
-<div class="two">
-
-
-<div class="field">
-
-<label for="fontColor">
-Колір тексту
-</label>
-
-<input
-id="fontColor"
-type="color"
-value="#123b60">
-
-</div>
-
-
+<!-- ПЛОЩИНА -->
 
 <div class="field">
 
 <label for="backgroundMode">
-Робоче тло
+Робоча площина
 </label>
 
 <select id="backgroundMode">
 
-<option value="white">
-Чисте біле
-</option>
-
-<option value="slant">
-Коса лінія
+<option value="slant" selected>
+Зошит — коса лінія
 </option>
 
 <option value="wide">
-Широка лінія
+Зошит — широка лінія
 </option>
 
 <option value="grid">
-Клітинка
+Зошит — клітинка
+</option>
+
+<option value="white">
+Чисте біле
 </option>
 
 <option value="navy">
@@ -1200,17 +1032,180 @@ value="#123b60">
 </div>
 
 
-</div>
+
+<label class="check">
+
+<input
+    type="checkbox"
+    id="snapLines"
+    checked>
+
+Прив’язувати до ліній зошита
+
+</label>
 
 
+<label class="check">
+
+<input
+    type="checkbox"
+    id="autoNotebookSize"
+    checked>
+
+Автоматичний розмір під рядок
+
+</label>
+
+
+
+<!-- ПОЗИЦІЯ -->
 
 <div class="two">
 
 
 <div class="field">
 
+<label for="alignment">
+Вирівнювання
+</label>
+
+<select id="alignment">
+
+<option value="left" selected>
+Ліворуч
+</option>
+
+<option value="center">
+По центру
+</option>
+
+<option value="right">
+Праворуч
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Рядок:
+<span id="rowValue">2</span>
+</label>
+
+<input
+    id="startRow"
+    type="range"
+    min="1"
+    max="5"
+    value="2">
+
+</div>
+
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Відступ після поля:
+<span id="indentValue">32</span> px
+</label>
+
+<input
+    id="leftIndent"
+    type="range"
+    min="0"
+    max="300"
+    value="32">
+
+</div>
+
+
+
+<!-- РОЗМІР -->
+
+<button
+    class="button button-main"
+    id="fitButton">
+
+Вписати текст автоматично
+
+</button>
+
+
+
+<div class="field">
+
+<label>
+Розмір:
+<span id="sizeValue">72</span> px
+</label>
+
+<input
+    id="fontSize"
+    type="range"
+    min="20"
+    max="260"
+    value="72">
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Міжрядковий інтервал:
+<span id="lineValue">1.10</span>
+</label>
+
+<input
+    id="lineHeight"
+    type="range"
+    min="75"
+    max="180"
+    value="110">
+
+<div
+    id="lineHelp"
+    class="small">
+
+Авто за лініями зошита ✓
+
+</div>
+
+</div>
+
+
+
+<!-- ВИГЛЯД -->
+
+<div class="two">
+
+
+<div class="field">
+
+<label>
+Колір тексту
+</label>
+
+<input
+    id="fontColor"
+    type="color"
+    value="#103f68">
+
+</div>
+
+
+<div class="field">
+
 <label for="textEffect">
-Ефект тексту
+Ефект
 </label>
 
 <select id="textEffect">
@@ -1232,32 +1227,6 @@ value="#123b60">
 </div>
 
 
-
-<div class="field">
-
-<label for="ornament">
-Розчерк
-</label>
-
-<select id="ornament">
-
-<option value="none">
-Без розчерку
-</option>
-
-<option value="thin">
-Тонкий
-</option>
-
-<option value="double">
-Подвійний
-</option>
-
-</select>
-
-</div>
-
-
 </div>
 
 
@@ -1265,59 +1234,42 @@ value="#123b60">
 <label class="check">
 
 <input
-type="checkbox"
-id="shadow"
-checked>
+    type="checkbox"
+    id="shadow">
 
 М’яка тінь
 
 </label>
 
 
-
 <label class="check">
 
 <input
-type="checkbox"
-id="frame">
+    type="checkbox"
+    id="frame">
 
-Тонка рамка
+Тонка золота рамка
 
 </label>
 
 
 
 <button
-class="button button-main"
-id="downloadButton">
+    class="button button-main"
+    id="downloadButton">
 
 Зберегти PNG
 
 </button>
 
 
-
 <button
-class="button button-alt"
-id="resetButton">
+    class="button button-alt"
+    id="resetButton">
 
 Скинути оформлення
 
 </button>
-
-
-
-<div class="author-card">
-
-<div class="author-card-label">
-Авторська студія
-</div>
-
-<div class="author-card-name">
-Н. С. Товстуха
-</div>
-
-</div>
 
 
 </aside>
@@ -1329,16 +1281,18 @@ id="resetButton">
 
 <div class="canvas-wrap">
 
+
 <canvas
-id="canvas"
-width="1600"
-height="900">
+    id="canvas"
+    width="1600"
+    height="900">
 </canvas>
 
 
 <div class="help">
-Готовий PNG не містить елементів інтерфейсу або авторського підпису сайту.
+У зошитових режимах запис автоматично сідає на робочий рядок.
 </div>
+
 
 </div>
 
@@ -1352,29 +1306,394 @@ height="900">
 
 <script>
 
+/* =========================================================
+   ОСНОВА
+========================================================= */
 
 const canvas =
 document.getElementById("canvas");
 
-
 const ctx =
 canvas.getContext("2d");
 
-
-const $ = id =>
-document.getElementById(id);
-
+const $ =
+id => document.getElementById(id);
 
 let customFontCount = 0;
 
 
+/* =========================================================
+   ПАРАМЕТРИ ЗОШИТА
+========================================================= */
 
-/* ==================================================
-   ТЛО
-================================================== */
+const notebook = {
+
+    slant:{
+        marginX:145,
+        firstBaseline:176,
+        rowGap:146,
+        letterHeight:66
+    },
+
+    wide:{
+        marginX:145,
+        firstBaseline:168,
+        rowGap:112,
+        letterHeight:76
+    },
+
+    grid:{
+        marginX:145,
+        firstBaseline:156,
+        rowGap:104,
+        letterHeight:70
+    }
+
+};
+
+
+function isNotebookMode(){
+
+    const mode =
+    $("backgroundMode").value;
+
+    return(
+        mode === "slant"
+        ||
+        mode === "wide"
+        ||
+        mode === "grid"
+    );
+}
+
+
+/* =========================================================
+   ДОПОМІЖНА ЛІНІЯ
+========================================================= */
+
+function horizontalLine(y){
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        0,
+        y
+    );
+
+    ctx.lineTo(
+        canvas.width,
+        y
+    );
+
+    ctx.stroke();
+}
+
+
+/* =========================================================
+   КОСА ЛІНІЯ
+   наближена до справжнього шкільного зошита
+========================================================= */
+
+function drawSlantNotebook(){
+
+    ctx.fillStyle =
+    "#ffffff";
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    ctx.save();
+
+
+    /* похилі напрямні */
+
+    ctx.strokeStyle =
+    "rgba(40,190,225,.42)";
+
+    ctx.lineWidth =
+    1.7;
+
+
+    for(
+        let x = -500;
+        x < canvas.width + 500;
+        x += 145
+    ){
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            x,
+            canvas.height
+        );
+
+        ctx.lineTo(
+            x + 330,
+            0
+        );
+
+        ctx.stroke();
+    }
+
+
+    const cfg =
+    notebook.slant;
+
+
+    /*
+      У кожному рядку:
+      верхня межа,
+      дві тонші допоміжні,
+      базова лінія.
+    */
+
+    for(
+        let base =
+            cfg.firstBaseline;
+        base <
+            canvas.height + cfg.rowGap;
+        base += cfg.rowGap
+    ){
+
+        /* верхня */
+
+        ctx.strokeStyle =
+        "rgba(34,182,220,.55)";
+
+        ctx.lineWidth =
+        1.8;
+
+        horizontalLine(
+            base - 64
+        );
+
+
+        /* допоміжна 1 */
+
+        ctx.strokeStyle =
+        "rgba(34,182,220,.31)";
+
+        ctx.lineWidth =
+        1.25;
+
+        horizontalLine(
+            base - 43
+        );
+
+
+        /* допоміжна 2 */
+
+        horizontalLine(
+            base - 22
+        );
+
+
+        /* базова */
+
+        ctx.strokeStyle =
+        "rgba(34,182,220,.60)";
+
+        ctx.lineWidth =
+        1.8;
+
+        horizontalLine(
+            base
+        );
+    }
+
+
+    /* рожеве поле */
+
+    ctx.strokeStyle =
+    "rgba(225,43,145,.82)";
+
+    ctx.lineWidth =
+    2.6;
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        cfg.marginX,
+        0
+    );
+
+    ctx.lineTo(
+        cfg.marginX,
+        canvas.height
+    );
+
+    ctx.stroke();
+
+
+    ctx.restore();
+}
+
+
+/* =========================================================
+   ШИРОКА ЛІНІЯ
+========================================================= */
+
+function drawWideNotebook(){
+
+    ctx.fillStyle =
+    "#ffffff";
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    const cfg =
+    notebook.wide;
+
+
+    ctx.save();
+
+
+    ctx.strokeStyle =
+    "rgba(61,143,198,.30)";
+
+    ctx.lineWidth =
+    1.8;
+
+
+    for(
+        let y =
+            cfg.firstBaseline;
+        y < canvas.height;
+        y += cfg.rowGap
+    ){
+
+        horizontalLine(y);
+    }
+
+
+    ctx.strokeStyle =
+    "rgba(225,43,145,.72)";
+
+    ctx.lineWidth =
+    2.6;
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        cfg.marginX,
+        0
+    );
+
+    ctx.lineTo(
+        cfg.marginX,
+        canvas.height
+    );
+
+    ctx.stroke();
+
+
+    ctx.restore();
+}
+
+
+/* =========================================================
+   КЛІТИНКА
+========================================================= */
+
+function drawGridNotebook(){
+
+    ctx.fillStyle =
+    "#ffffff";
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    ctx.save();
+
+
+    const cell =
+    52;
+
+
+    ctx.strokeStyle =
+    "rgba(61,143,198,.23)";
+
+    ctx.lineWidth =
+    1.25;
+
+
+    for(
+        let x = 0;
+        x <= canvas.width;
+        x += cell
+    ){
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            x,
+            0
+        );
+
+        ctx.lineTo(
+            x,
+            canvas.height
+        );
+
+        ctx.stroke();
+    }
+
+
+    for(
+        let y = 0;
+        y <= canvas.height;
+        y += cell
+    ){
+
+        horizontalLine(y);
+    }
+
+
+    ctx.strokeStyle =
+    "rgba(225,43,145,.72)";
+
+    ctx.lineWidth =
+    2.6;
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        notebook.grid.marginX,
+        0
+    );
+
+    ctx.lineTo(
+        notebook.grid.marginX,
+        canvas.height
+    );
+
+    ctx.stroke();
+
+
+    ctx.restore();
+}
+
+
+/* =========================================================
+   ІНШІ ФОНИ
+========================================================= */
 
 function drawBackground(){
-
 
     const mode =
     $("backgroundMode").value;
@@ -1388,18 +1707,36 @@ function drawBackground(){
     );
 
 
+    if(
+        mode === "slant"
+    ){
+        drawSlantNotebook();
+        return;
+    }
 
-    /* ЧИСТЕ БІЛЕ */
+
+    if(
+        mode === "wide"
+    ){
+        drawWideNotebook();
+        return;
+    }
+
+
+    if(
+        mode === "grid"
+    ){
+        drawGridNotebook();
+        return;
+    }
 
 
     if(
         mode === "white"
     ){
 
-
         ctx.fillStyle =
         "#ffffff";
-
 
         ctx.fillRect(
             0,
@@ -1408,22 +1745,15 @@ function drawBackground(){
             canvas.height
         );
 
-
         return;
-
     }
-
-
-
-    /* ТЕМНО-СИНЄ */
 
 
     if(
         mode === "navy"
     ){
 
-
-        const gradient =
+        const g =
         ctx.createLinearGradient(
             0,
             0,
@@ -1431,28 +1761,18 @@ function drawBackground(){
             canvas.height
         );
 
-
-        gradient.addColorStop(
+        g.addColorStop(
             0,
-            "#071f38"
+            "#061e35"
         );
 
-
-        gradient.addColorStop(
-            .55,
-            "#0b3b63"
-        );
-
-
-        gradient.addColorStop(
+        g.addColorStop(
             1,
-            "#0d507f"
+            "#0d4a74"
         );
-
 
         ctx.fillStyle =
-        gradient;
-
+        g;
 
         ctx.fillRect(
             0,
@@ -1461,24 +1781,16 @@ function drawBackground(){
             canvas.height
         );
 
-
         return;
-
     }
-
-
-
-    /* СВІТЛЕ КОНТРАСТНЕ */
 
 
     if(
         mode === "contrastLight"
     ){
 
-
         ctx.fillStyle =
-        "#f6fbff";
-
+        "#f5faff";
 
         ctx.fillRect(
             0,
@@ -1486,60 +1798,17 @@ function drawBackground(){
             canvas.width,
             canvas.height
         );
-
-
-        const glow =
-        ctx.createRadialGradient(
-            800,
-            420,
-            30,
-            800,
-            420,
-            730
-        );
-
-
-        glow.addColorStop(
-            0,
-            "rgba(189,226,250,.38)"
-        );
-
-
-        glow.addColorStop(
-            1,
-            "rgba(189,226,250,0)"
-        );
-
-
-        ctx.fillStyle =
-        glow;
-
-
-        ctx.fillRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
 
         return;
-
     }
-
-
-
-    /* ТЕМНЕ КОНТРАСТНЕ */
 
 
     if(
         mode === "contrastDark"
     ){
 
-
         ctx.fillStyle =
-        "#082a49";
-
+        "#082945";
 
         ctx.fillRect(
             0,
@@ -1547,761 +1816,480 @@ function drawBackground(){
             canvas.width,
             canvas.height
         );
-
-
-        const glow =
-        ctx.createRadialGradient(
-            800,
-            430,
-            50,
-            800,
-            430,
-            720
-        );
-
-
-        glow.addColorStop(
-            0,
-            "rgba(30,112,167,.38)"
-        );
-
-
-        glow.addColorStop(
-            1,
-            "rgba(30,112,167,0)"
-        );
-
-
-        ctx.fillStyle =
-        glow;
-
-
-        ctx.fillRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
 
         return;
-
     }
-
-
-
-    /* КОСА ЛІНІЯ */
-
-
-    if(
-        mode === "slant"
-    ){
-
-
-        ctx.fillStyle =
-        "#ffffff";
-
-
-        ctx.fillRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-
-
-        /* горизонтальні лінії */
-
-
-        ctx.strokeStyle =
-        "rgba(80,150,205,.26)";
-
-
-        ctx.lineWidth =
-        2;
-
-
-        for(
-            let y = 105;
-            y < canvas.height;
-            y += 70
-        ){
-
-
-            ctx.beginPath();
-
-
-            ctx.moveTo(
-                0,
-                y
-            );
-
-
-            ctx.lineTo(
-                canvas.width,
-                y
-            );
-
-
-            ctx.stroke();
-
-        }
-
-
-
-        /* похилі допоміжні */
-
-
-        ctx.strokeStyle =
-        "rgba(95,160,210,.18)";
-
-
-        for(
-            let x = -250;
-            x < canvas.width + 250;
-            x += 105
-        ){
-
-
-            ctx.beginPath();
-
-
-            ctx.moveTo(
-                x,
-                0
-            );
-
-
-            ctx.lineTo(
-                x + 310,
-                canvas.height
-            );
-
-
-            ctx.stroke();
-
-        }
-
-
-        return;
-
-    }
-
-
-
-    /* ШИРОКА ЛІНІЯ */
-
-
-    if(
-        mode === "wide"
-    ){
-
-
-        ctx.fillStyle =
-        "#ffffff";
-
-
-        ctx.fillRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-
-        ctx.strokeStyle =
-        "rgba(69,143,202,.28)";
-
-
-        ctx.lineWidth =
-        2;
-
-
-        for(
-            let y = 105;
-            y < canvas.height;
-            y += 72
-        ){
-
-
-            ctx.beginPath();
-
-
-            ctx.moveTo(
-                0,
-                y
-            );
-
-
-            ctx.lineTo(
-                canvas.width,
-                y
-            );
-
-
-            ctx.stroke();
-
-        }
-
-
-        return;
-
-    }
-
-
-
-    /* КЛІТИНКА */
-
-
-    if(
-        mode === "grid"
-    ){
-
-
-        ctx.fillStyle =
-        "#ffffff";
-
-
-        ctx.fillRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-
-        ctx.strokeStyle =
-        "rgba(67,143,202,.21)";
-
-
-        ctx.lineWidth =
-        1.5;
-
-
-
-        const step =
-        52;
-
-
-
-        for(
-            let x = 0;
-            x <= canvas.width;
-            x += step
-        ){
-
-
-            ctx.beginPath();
-
-
-            ctx.moveTo(
-                x,
-                0
-            );
-
-
-            ctx.lineTo(
-                x,
-                canvas.height
-            );
-
-
-            ctx.stroke();
-
-        }
-
-
-
-        for(
-            let y = 0;
-            y <= canvas.height;
-            y += step
-        ){
-
-
-            ctx.beginPath();
-
-
-            ctx.moveTo(
-                0,
-                y
-            );
-
-
-            ctx.lineTo(
-                canvas.width,
-                y
-            );
-
-
-            ctx.stroke();
-
-        }
-
-
-        return;
-
-    }
-
-
 }
 
 
-
-/* ==================================================
+/* =========================================================
    РАМКА
-================================================== */
+========================================================= */
 
 function drawFrame(){
-
 
     if(
         !$("frame").checked
     ){
-
         return;
     }
 
 
     ctx.save();
 
-
     ctx.strokeStyle =
-    "rgba(195,149,61,.78)";
-
+    "rgba(194,147,56,.76)";
 
     ctx.lineWidth =
     3;
 
-
     ctx.strokeRect(
-        58,
-        58,
-        canvas.width - 116,
-        canvas.height - 116
+        52,
+        52,
+        canvas.width - 104,
+        canvas.height - 104
     );
 
-
     ctx.restore();
-
 }
 
 
-
-/* ==================================================
+/* =========================================================
    ТЕКСТ
-================================================== */
+========================================================= */
 
 function getLines(){
-
 
     return(
         $("textInput").value
         ||
-        "Ваш текст"
+        "Люблю Україну!"
     )
     .split("\n");
-
 }
-
 
 
 function setCanvasFont(size){
 
-
-    const family =
-    $("fontSelect").value;
-
-
     ctx.font =
-    `${size}px "${family}"`;
-
-
-    ctx.textAlign =
-    "center";
-
+    `${size}px "${$("fontSelect").value}"`;
 
     ctx.textBaseline =
     "alphabetic";
-
 }
 
 
+function metricsFor(
+    text,
+    size
+){
 
-/* ==================================================
-   ВИМІРЮВАННЯ
-================================================== */
+    setCanvasFont(size);
 
-function measureBlock(size){
-
-
-    setCanvasFont(
-        size
+    const m =
+    ctx.measureText(
+        text || " "
     );
-
-
-    const lines =
-    getLines();
-
-
-    const ratio =
-    Number(
-        $("lineHeight").value
-    )
-    /
-    100;
-
-
-
-    let width =
-    0;
-
-
-    let ascent =
-    0;
-
-
-    let descent =
-    0;
-
-
-
-    for(
-        const line
-        of lines
-    ){
-
-
-        const m =
-        ctx.measureText(
-            line || " "
-        );
-
-
-        width =
-        Math.max(
-            width,
-            m.width
-        );
-
-
-        ascent =
-        Math.max(
-            ascent,
-            m.actualBoundingBoxAscent
-            ||
-            size * .82
-        );
-
-
-        descent =
-        Math.max(
-            descent,
-            m.actualBoundingBoxDescent
-            ||
-            size * .28
-        );
-
-    }
-
-
-
-    const step =
-    size * ratio;
-
-
-
-    const height =
-    ascent
-    +
-    descent
-    +
-    Math.max(
-        0,
-        lines.length - 1
-    )
-    *
-    step;
-
-
 
     return{
 
-        lines,
-        width,
-        height,
-        ascent,
-        descent,
-        step
+        width:
+            m.width,
 
+        ascent:
+            m.actualBoundingBoxAscent
+            ||
+            size * .80,
+
+        descent:
+            m.actualBoundingBoxDescent
+            ||
+            size * .22
     };
-
 }
 
 
+function widestLine(size){
 
-/* ==================================================
-   ЕФЕКТ ТЕКСТУ
-================================================== */
+    let widest = 0;
+
+
+    for(
+        const line of getLines()
+    ){
+
+        widest =
+        Math.max(
+            widest,
+            metricsFor(
+                line,
+                size
+            ).width
+        );
+    }
+
+
+    return widest;
+}
+
+
+/* =========================================================
+   АВТОМАТИЧНА ВИСОТА ПІД РЯДОК
+========================================================= */
+
+function notebookFontSize(){
+
+    const mode =
+    $("backgroundMode").value;
+
+    const cfg =
+    notebook[mode];
+
+
+    if(!cfg){
+
+        return Number(
+            $("fontSize").value
+        );
+    }
+
+
+    const indent =
+    Number(
+        $("leftIndent").value
+    );
+
+
+    const maxWidth =
+        canvas.width
+        -
+        cfg.marginX
+        -
+        indent
+        -
+        80;
+
+
+    let best =
+    20;
+
+
+    for(
+        let size = 20;
+        size <= 190;
+        size += 2
+    ){
+
+        let tallest = 0;
+
+
+        for(
+            const line
+            of getLines()
+        ){
+
+            const m =
+            metricsFor(
+                line,
+                size
+            );
+
+
+            tallest =
+            Math.max(
+                tallest,
+                m.ascent
+                +
+                m.descent
+            );
+        }
+
+
+        const fitsHeight =
+            tallest
+            <=
+            cfg.letterHeight;
+
+
+        const fitsWidth =
+            widestLine(size)
+            <=
+            maxWidth;
+
+
+        if(
+            fitsHeight
+            &&
+            fitsWidth
+        ){
+
+            best =
+            size;
+        }
+
+        else{
+
+            break;
+        }
+    }
+
+
+    return best;
+}
+
+
+/* =========================================================
+   КОЛІР
+========================================================= */
 
 function textFill(){
 
-
     const effect =
     $("textEffect").value;
-
 
 
     if(
         effect === "gold"
     ){
 
-
-        const gradient =
+        const g =
         ctx.createLinearGradient(
             0,
-            260,
+            240,
             0,
             650
         );
 
-
-        gradient.addColorStop(
+        g.addColorStop(
             0,
-            "#fff3bd"
+            "#fff1b9"
         );
 
-
-        gradient.addColorStop(
+        g.addColorStop(
             .35,
-            "#edcb72"
+            "#e9c366"
         );
 
-
-        gradient.addColorStop(
+        g.addColorStop(
             .68,
-            "#b9822c"
+            "#aa711d"
         );
 
-
-        gradient.addColorStop(
+        g.addColorStop(
             1,
-            "#f1d68a"
+            "#f2d37c"
         );
 
-
-        return gradient;
-
+        return g;
     }
-
 
 
     if(
         effect === "pearl"
     ){
 
-
-        const gradient =
+        const g =
         ctx.createLinearGradient(
             0,
-            280,
+            250,
             0,
-            630
+            650
         );
 
-
-        gradient.addColorStop(
+        g.addColorStop(
             0,
             "#ffffff"
         );
 
-
-        gradient.addColorStop(
+        g.addColorStop(
             .48,
-            "#dcefff"
+            "#d7eeff"
         );
 
-
-        gradient.addColorStop(
+        g.addColorStop(
             1,
             "#ffffff"
         );
 
-
-        return gradient;
-
+        return g;
     }
 
 
+    return $("fontColor").value;
+}
+
+
+/* =========================================================
+   ПОЗИЦІЯ В ЗОШИТІ
+========================================================= */
+
+function notebookX(){
+
+    const mode =
+    $("backgroundMode").value;
+
+    const cfg =
+    notebook[mode];
+
+    const indent =
+    Number(
+        $("leftIndent").value
+    );
+
+    const align =
+    $("alignment").value;
+
+
+    if(
+        align === "left"
+    ){
+
+        ctx.textAlign =
+        "left";
+
+        return(
+            cfg.marginX
+            +
+            indent
+        );
+    }
+
+
+    if(
+        align === "right"
+    ){
+
+        ctx.textAlign =
+        "right";
+
+        return(
+            canvas.width
+            -
+            60
+            -
+            indent
+        );
+    }
+
+
+    ctx.textAlign =
+    "center";
 
     return(
-        $("fontColor").value
+        canvas.width / 2
     );
-
 }
 
 
+/* =========================================================
+   ЗОШИТОВИЙ ЗАПИС
+========================================================= */
 
-/* ==================================================
-   РОЗЧЕРК
-================================================== */
+function drawNotebookText(){
 
-function drawFlourish(
-    y,
-    width,
-    type
-){
+    const mode =
+    $("backgroundMode").value;
+
+    const cfg =
+    notebook[mode];
+
+
+    let size =
+    Number(
+        $("fontSize").value
+    );
 
 
     if(
-        type === "none"
+        $("autoNotebookSize").checked
     ){
 
-        return;
+        size =
+        notebookFontSize();
+
+        $("fontSize").value =
+        size;
     }
 
 
-    ctx.save();
+    setCanvasFont(size);
 
 
-    ctx.strokeStyle =
-    "rgba(201,154,63,.90)";
+    ctx.fillStyle =
+    textFill();
 
 
-    ctx.lineWidth =
-    type === "double"
-    ?
-    4
-    :
-    3;
+    if(
+        $("shadow").checked
+    ){
+
+        ctx.shadowColor =
+        "rgba(0,0,0,.15)";
+
+        ctx.shadowBlur =
+        7;
+
+        ctx.shadowOffsetY =
+        2;
+    }
 
 
+    const lines =
+    getLines();
 
-    const cx =
-    canvas.width / 2;
 
-
-    const half =
-    Math.min(
-        350,
-        Math.max(
-            130,
-            width * .36
+    const start =
+        Number(
+            $("startRow").value
         )
-    );
+        -
+        1;
 
 
-
-    ctx.beginPath();
-
-
-    ctx.moveTo(
-        cx - half,
-        y
-    );
-
-
-    ctx.bezierCurveTo(
-        cx - half * .58,
-        y - 23,
-        cx - half * .30,
-        y + 24,
-        cx - 60,
-        y
-    );
-
-
-    ctx.bezierCurveTo(
-        cx - 26,
-        y - 13,
-        cx - 18,
-        y - 13,
-        cx,
-        y
-    );
-
-
-    ctx.bezierCurveTo(
-        cx + 18,
-        y + 13,
-        cx + 26,
-        y + 13,
-        cx + 60,
-        y
-    );
-
-
-    ctx.bezierCurveTo(
-        cx + half * .30,
-        y - 24,
-        cx + half * .58,
-        y + 23,
-        cx + half,
-        y
-    );
-
-
-    ctx.stroke();
-
-
-
-    if(
-        type === "double"
+    for(
+        let i = 0;
+        i < lines.length;
+        i++
     ){
 
+        const baseline =
+            cfg.firstBaseline
+            +
+            (
+                start + i
+            )
+            *
+            cfg.rowGap;
 
-        ctx.globalAlpha =
-        .55;
+
+        if(
+            baseline
+            >
+            canvas.height - 20
+        ){
+
+            break;
+        }
 
 
-        ctx.beginPath();
+        const x =
+        notebookX();
 
 
-        ctx.moveTo(
-            cx - half * .78,
-            y + 14
+        ctx.fillText(
+            lines[i],
+            x,
+            baseline
         );
-
-
-        ctx.bezierCurveTo(
-            cx - half * .38,
-            y - 6,
-            cx - 100,
-            y + 28,
-            cx,
-            y + 10
-        );
-
-
-        ctx.bezierCurveTo(
-            cx + 100,
-            y + 28,
-            cx + half * .38,
-            y - 6,
-            cx + half * .78,
-            y + 14
-        );
-
-
-        ctx.stroke();
-
     }
-
-
-
-    ctx.restore();
-
 }
 
 
+/* =========================================================
+   ВІЛЬНИЙ РЕЖИМ
+========================================================= */
 
-/* ==================================================
-   МАЛЮЄМО НАПИС
-================================================== */
-
-function drawText(){
-
+function drawFreeText(){
 
     const size =
     Number(
@@ -2309,356 +2297,262 @@ function drawText(){
     );
 
 
-    const block =
-    measureBlock(
-        size
-    );
+    setCanvasFont(size);
 
 
+    const lines =
+    getLines();
 
-    const xShift =
-    canvas.width
-    *
-    (
+
+    const ratio =
         Number(
-            $("xPos").value
+            $("lineHeight").value
         )
         /
-        100
-    );
+        100;
 
 
+    const step =
+        size * ratio;
 
-    const yShift =
-    canvas.height
-    *
-    (
-        Number(
-            $("yPos").value
+
+    const totalHeight =
+        Math.max(
+            0,
+            lines.length - 1
         )
-        /
-        100
-    );
+        *
+        step;
 
 
-
-    const centerX =
-    canvas.width / 2
-    +
-    xShift;
+    let x =
+        canvas.width / 2;
 
 
-
-    const centerY =
-    canvas.height / 2
-    +
-    yShift;
-
-
-
-    ctx.save();
-
-
-    setCanvasFont(
-        size
-    );
-
+    const align =
+    $("alignment").value;
 
 
     if(
-        $("shadow").checked
+        align === "left"
     ){
 
+        ctx.textAlign =
+        "left";
 
-        ctx.shadowColor =
-        "rgba(0,0,0,.23)";
-
-
-        ctx.shadowBlur =
-        16;
-
-
-        ctx.shadowOffsetY =
-        6;
-
+        x =
+            90
+            +
+            Number(
+                $("leftIndent").value
+            );
     }
 
+    else if(
+        align === "right"
+    ){
+
+        ctx.textAlign =
+        "right";
+
+        x =
+            canvas.width
+            -
+            90
+            -
+            Number(
+                $("leftIndent").value
+            );
+    }
+
+    else{
+
+        ctx.textAlign =
+        "center";
+    }
 
 
     ctx.fillStyle =
     textFill();
 
 
+    if(
+        $("shadow").checked
+    ){
+
+        ctx.shadowColor =
+        "rgba(0,0,0,.20)";
+
+        ctx.shadowBlur =
+        11;
+
+        ctx.shadowOffsetY =
+        4;
+    }
+
 
     let y =
-    centerY
-    -
-    block.height / 2
-    +
-    block.ascent;
-
+        canvas.height / 2
+        -
+        totalHeight / 2;
 
 
     for(
-        const line
-        of block.lines
+        const line of lines
     ){
-
 
         ctx.fillText(
             line,
-            centerX,
+            x,
             y
         );
 
-
-        y +=
-        block.step;
-
+        y += step;
     }
-
-
-
-    ctx.restore();
-
-
-
-    if(
-        $("ornament").value
-        !==
-        "none"
-    ){
-
-
-        drawFlourish(
-            centerY
-            -
-            block.height / 2
-            -
-            48,
-            block.width,
-            $("ornament").value
-        );
-
-
-        drawFlourish(
-            centerY
-            +
-            block.height / 2
-            +
-            48,
-            block.width,
-            $("ornament").value
-        );
-
-    }
-
 }
 
 
-
-/* ==================================================
+/* =========================================================
    РЕНДЕР
-================================================== */
+========================================================= */
+
+function drawText(){
+
+    ctx.save();
+
+
+    if(
+        isNotebookMode()
+        &&
+        $("snapLines").checked
+    ){
+
+        drawNotebookText();
+    }
+
+    else{
+
+        drawFreeText();
+    }
+
+
+    ctx.restore();
+}
+
 
 function render(){
 
-
     drawBackground();
 
-
     drawFrame();
-
 
     drawText();
 
 
-
     $("sizeValue").textContent =
-    $("fontSize").value;
+        $("fontSize").value;
 
 
     $("lineValue").textContent =
-    (
-        Number(
-            $("lineHeight").value
+        (
+            Number(
+                $("lineHeight").value
+            )
+            /
+            100
         )
-        /
-        100
-    )
-    .toFixed(2);
+        .toFixed(2);
 
 
-    $("widthValue").textContent =
-    $("textWidth").value;
+    $("indentValue").textContent =
+        $("leftIndent").value;
 
 
-    $("xValue").textContent =
-    $("xPos").value;
-
-
-    $("yValue").textContent =
-    $("yPos").value;
-
+    $("rowValue").textContent =
+        $("startRow").value;
 }
 
 
-
-/* ==================================================
-   АВТОМАТИЧНО ВПИСАТИ
-================================================== */
+/* =========================================================
+   АВТОВПИСУВАННЯ
+========================================================= */
 
 async function fitText(){
-
 
     await document.fonts.ready;
 
 
-
-    const maxWidth =
-    canvas.width
-    *
-    (
-        Number(
-            $("textWidth").value
-        )
-        /
-        100
-    )
-    *
-    .94;
-
-
-
-    const maxHeight =
-    canvas.height
-    *
-    .64;
-
-
-
-    let low =
-    24;
-
-
-    let high =
-    260;
-
-
-    let best =
-    24;
-
-
-
-    while(
-        low <= high
+    if(
+        isNotebookMode()
+        &&
+        $("snapLines").checked
     ){
 
+        $("fontSize").value =
+            notebookFontSize();
 
-        const middle =
-        Math.floor(
-            (
-                low + high
-            )
-            /
-            2
-        );
+        render();
 
-
-        const block =
-        measureBlock(
-            middle
-        );
-
-
-
-        if(
-            block.width <= maxWidth
-            &&
-            block.height <= maxHeight
-        ){
-
-
-            best =
-            middle;
-
-
-            low =
-            middle + 1;
-
-        }
-
-
-        else{
-
-
-            high =
-            middle - 1;
-
-        }
-
+        return;
     }
 
 
-
-    /*
-       запас для довгих
-       каліграфічних хвостів
-    */
+    let size =
+    240;
 
 
-    best =
-    Math.max(
-        24,
-        Math.floor(
-            best * .91
-        )
-    );
+    while(
+        size > 20
+    ){
 
+        if(
+            widestLine(size)
+            <=
+            canvas.width * .82
+        ){
+
+            break;
+        }
+
+
+        size -= 2;
+    }
 
 
     $("fontSize").value =
-    best;
+        size;
 
 
     render();
-
 }
 
 
-
-/* ==================================================
+/* =========================================================
    ВЛАСНІ ШРИФТИ
-================================================== */
+========================================================= */
 
-async function loadFont(
-    file
-){
-
+async function loadFont(file){
 
     try{
 
-
-        const baseName =
-        file.name
-        .replace(
-            /\.[^/.]+$/,
-            ""
-        )
-        .replace(
-            /["']/g,
-            ""
-        );
-
+        const base =
+            file.name
+            .replace(
+                /\.[^/.]+$/,
+                ""
+            )
+            .replace(
+                /["']/g,
+                ""
+            );
 
 
-        let familyName =
-        baseName;
+        let name =
+            base;
 
 
         let number =
-        2;
-
+            2;
 
 
         while(
@@ -2667,40 +2561,33 @@ async function loadFont(
             ]
             .some(
                 option =>
-                option.textContent
-                ===
-                familyName
+                    option.textContent
+                    ===
+                    name
             )
         ){
 
-
-            familyName =
-            `${baseName} ${number}`;
-
+            name =
+                `${base} ${number}`;
 
             number++;
-
         }
 
 
-
         const url =
-        URL.createObjectURL(
-            file
-        );
-
+            URL.createObjectURL(
+                file
+            );
 
 
         const face =
-        new FontFace(
-            familyName,
-            `url("${url}")`
-        );
-
+            new FontFace(
+                name,
+                `url("${url}")`
+            );
 
 
         await face.load();
-
 
 
         document.fonts.add(
@@ -2708,19 +2595,17 @@ async function loadFont(
         );
 
 
-
         const option =
-        document.createElement(
-            "option"
-        );
+            document.createElement(
+                "option"
+            );
 
 
         option.value =
-        familyName;
-
+            name;
 
         option.textContent =
-        familyName;
+            name;
 
 
         $("fontSelect")
@@ -2730,62 +2615,44 @@ async function loadFont(
 
 
         $("fontSelect").value =
-        familyName;
-
+            name;
 
 
         customFontCount++;
 
 
-
         $("fontCount").textContent =
-        `Власних шрифтів: ${customFontCount}`;
-
+            `Власних шрифтів: ${customFontCount}`;
 
 
         await document.fonts.ready;
 
 
         await fitText();
-
     }
-
 
     catch(error){
 
-
-        console.error(
-            error
-        );
-
+        console.error(error);
 
         alert(
             "Не вдалося відкрити шрифт: "
             +
             file.name
         );
-
     }
-
 }
 
-
-
-/* ==================================================
-   ВИБІР ФАЙЛІВ
-================================================== */
 
 $("fontFiles")
 .addEventListener(
     "change",
-    async event => {
-
+    async event =>{
 
         for(
             const file
             of event.target.files
         ){
-
 
             if(
                 /\.(ttf|otf|woff|woff2)$/i
@@ -2794,84 +2661,377 @@ $("fontFiles")
                 )
             ){
 
-
                 await loadFont(
                     file
                 );
-
             }
-
         }
-
     }
 );
 
 
+/* =========================================================
+   РЕДАГУВАННЯ ВИДІЛЕНОГО СЛОВА
+========================================================= */
 
-/* ==================================================
+function getSelection(){
+
+    const textarea =
+        $("textInput");
+
+
+    const start =
+        textarea.selectionStart;
+
+    const end =
+        textarea.selectionEnd;
+
+
+    if(
+        start === end
+    ){
+
+        alert(
+            "Спочатку виділіть слово."
+        );
+
+        return null;
+    }
+
+
+    return{
+
+        textarea,
+        start,
+        end,
+
+        selected:
+            textarea.value
+            .slice(
+                start,
+                end
+            )
+    };
+}
+
+
+/* На початок поточного рядка */
+
+$("moveStartButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        const info =
+            getSelection();
+
+
+        if(!info){
+            return;
+        }
+
+
+        const word =
+            info.selected.trim();
+
+
+        let original =
+            info.textarea.value;
+
+
+        let before =
+            original.slice(
+                0,
+                info.start
+            );
+
+
+        let after =
+            original.slice(
+                info.end
+            );
+
+
+        if(
+            after.startsWith(" ")
+        ){
+
+            after =
+                after.slice(1);
+        }
+
+        else if(
+            before.endsWith(" ")
+        ){
+
+            before =
+                before.slice(
+                    0,
+                    -1
+                );
+        }
+
+
+        let text =
+            before
+            +
+            after;
+
+
+        let lineStart =
+            text.lastIndexOf(
+                "\n",
+                Math.min(
+                    info.start - 1,
+                    text.length - 1
+                )
+            )
+            +
+            1;
+
+
+        text =
+            text.slice(
+                0,
+                lineStart
+            )
+            +
+            word
+            +
+            " "
+            +
+            text.slice(
+                lineStart
+            );
+
+
+        info.textarea.value =
+            text;
+
+
+        render();
+    }
+);
+
+
+/* На новий рядок */
+
+$("moveNewLineButton")
+.addEventListener(
+    "click",
+    ()=>{
+
+        const info =
+            getSelection();
+
+
+        if(!info){
+            return;
+        }
+
+
+        const word =
+            info.selected.trim();
+
+
+        let before =
+            info.textarea.value.slice(
+                0,
+                info.start
+            );
+
+
+        let after =
+            info.textarea.value.slice(
+                info.end
+            );
+
+
+        if(
+            after.startsWith(" ")
+        ){
+
+            after =
+                after.slice(1);
+        }
+
+        else if(
+            before.endsWith(" ")
+        ){
+
+            before =
+                before.slice(
+                    0,
+                    -1
+                );
+        }
+
+
+        let text =
+            before
+            +
+            after;
+
+
+        let lineEnd =
+            text.indexOf(
+                "\n",
+                info.start
+            );
+
+
+        if(
+            lineEnd === -1
+        ){
+
+            lineEnd =
+                text.length;
+        }
+
+
+        text =
+            text.slice(
+                0,
+                lineEnd
+            )
+            +
+            "\n"
+            +
+            word
+            +
+            text.slice(
+                lineEnd
+            );
+
+
+        info.textarea.value =
+            text;
+
+
+        render();
+    }
+);
+
+
+/* =========================================================
+   ЗМІНА РОБОЧОЇ ПЛОЩИНИ
+========================================================= */
+
+async function applyMode(){
+
+    if(
+        isNotebookMode()
+    ){
+
+        $("alignment").value =
+            "left";
+
+
+        $("snapLines").checked =
+            true;
+
+
+        $("autoNotebookSize").checked =
+            true;
+
+
+        $("shadow").checked =
+            false;
+
+
+        $("lineHeight").disabled =
+            true;
+
+
+        $("lineHelp").textContent =
+            "Авто за лініями зошита ✓";
+
+
+        await fitText();
+    }
+
+    else{
+
+        $("alignment").value =
+            "center";
+
+
+        $("lineHeight").disabled =
+            false;
+
+
+        $("lineHelp").textContent =
+            "У вільному режимі інтервал змінюється вручну.";
+
+
+        render();
+    }
+}
+
+
+/* =========================================================
    ПОДІЇ
-================================================== */
+========================================================= */
 
-const liveControls = [
-
+[
     "textInput",
     "fontSize",
     "lineHeight",
-    "textWidth",
-    "xPos",
-    "yPos",
+    "leftIndent",
+    "startRow",
     "fontColor"
+]
+.forEach(
+    id =>{
 
-];
-
-
-for(
-    const id
-    of liveControls
-){
-
-
-    $(id)
-    .addEventListener(
-        "input",
-        render
-    );
-
-}
+        $(id)
+        .addEventListener(
+            "input",
+            render
+        );
+    }
+);
 
 
-
-const changeControls = [
-
-    "fontSelect",
-    "backgroundMode",
+[
+    "alignment",
     "textEffect",
-    "ornament",
+    "snapLines",
     "shadow",
     "frame"
+]
+.forEach(
+    id =>{
 
-];
-
-
-for(
-    const id
-    of changeControls
-){
-
-
-    $(id)
-    .addEventListener(
-        "change",
-        render
-    );
-
-}
+        $(id)
+        .addEventListener(
+            "change",
+            render
+        );
+    }
+);
 
 
+$("fontSelect")
+.addEventListener(
+    "change",
+    fitText
+);
 
-/* ==================================================
-   КНОПКИ
-================================================== */
+
+$("autoNotebookSize")
+.addEventListener(
+    "change",
+    fitText
+);
+
+
+$("backgroundMode")
+.addEventListener(
+    "change",
+    applyMode
+);
+
 
 $("fitButton")
 .addEventListener(
@@ -2880,110 +3040,112 @@ $("fitButton")
 );
 
 
+/* =========================================================
+   СКИНУТИ
+========================================================= */
 
 $("resetButton")
 .addEventListener(
     "click",
-    () => {
+    ()=>{
 
-
-        $("fontSize").value =
-        120;
-
-
-        $("lineHeight").value =
-        112;
-
-
-        $("textWidth").value =
-        78;
-
-
-        $("xPos").value =
-        0;
-
-
-        $("yPos").value =
-        0;
-
-
-        $("fontColor").value =
-        "#123b60";
+        $("textInput").value =
+            "Люблю Україну!";
 
 
         $("backgroundMode").value =
-        "white";
+            "slant";
+
+
+        $("alignment").value =
+            "left";
+
+
+        $("leftIndent").value =
+            32;
+
+
+        $("startRow").value =
+            2;
+
+
+        $("fontSize").value =
+            72;
+
+
+        $("lineHeight").value =
+            110;
+
+
+        $("fontColor").value =
+            "#103f68";
 
 
         $("textEffect").value =
-        "plain";
+            "plain";
 
 
-        $("ornament").value =
-        "none";
+        $("snapLines").checked =
+            true;
+
+
+        $("autoNotebookSize").checked =
+            true;
 
 
         $("shadow").checked =
-        true;
+            false;
 
 
         $("frame").checked =
-        false;
+            false;
 
 
-        render();
-
+        applyMode();
     }
 );
 
 
-
-/* ==================================================
+/* =========================================================
    PNG
-================================================== */
+========================================================= */
 
 $("downloadButton")
 .addEventListener(
     "click",
-    () => {
-
+    ()=>{
 
         render();
 
 
-
         const link =
-        document.createElement(
-            "a"
-        );
+            document.createElement(
+                "a"
+            );
 
 
         link.download =
-        "dekoratyvnyi-tekst.png";
+            "dekoratyvnyi-tekst.png";
 
 
         link.href =
-        canvas.toDataURL(
-            "image/png"
-        );
+            canvas.toDataURL(
+                "image/png"
+            );
 
 
         link.click();
-
     }
 );
 
 
+/* =========================================================
+   СТАРТ
+========================================================= */
 
-/* ==================================================
-   ПЕРШИЙ ЗАПУСК
-================================================== */
-
-render();
-
+applyMode();
 
 </script>
-
 
 </body>
 </html>
